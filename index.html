@@ -53,6 +53,24 @@ nav {
   font-weight: 700; color: var(--green-1); cursor: pointer; transition: all 0.22s;
 }
 .nav-btn:hover, .nav-btn.active { background: var(--green-2); color: #fff; border-color: var(--green-2); }
+.nav-record-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: linear-gradient(135deg, #1565c0, #1976d2);
+  color: #fff; border: none; border-radius: 30px;
+  padding: 7px 16px; font-size: 0.88rem; font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 700; cursor: pointer; text-decoration: none;
+  box-shadow: 0 3px 10px rgba(21,101,192,0.30);
+  transition: all 0.22s; white-space: nowrap; flex-shrink: 0;
+}
+.nav-record-btn:hover { background: linear-gradient(135deg, #0d47a1, #1565c0); transform: translateY(-1px); box-shadow: 0 5px 16px rgba(21,101,192,0.40); }
+.nav-record-btn .sheet-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: #69f0ae;
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.5; transform: scale(0.7); }
+}
 
 /* ===== HERO ===== */
 #home {
@@ -340,6 +358,11 @@ section { padding: 80px 24px 60px; max-width: 960px; margin: 0 auto; }
     <button class="nav-btn" onclick="scrollTo('learn')">📚 自學重點</button>
     <button class="nav-btn" onclick="scrollTo('warn')">⚠️ 易錯提醒</button>
     <button class="nav-btn" onclick="scrollTo('quiz-section')">🎮 開始測驗</button>
+    <a class="nav-record-btn"
+       href="https://docs.google.com/spreadsheets/d/1xPuAY4-ZEVf17OvxRAY7Yew84tvduNWydnEm08RFKx0/edit?usp=sharing"
+       target="_blank" rel="noopener">
+      <span class="sheet-dot"></span>📊 學習記錄
+    </a>
   </div>
 </nav>
 
