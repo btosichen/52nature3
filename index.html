@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌿 植物世界面面觀｜五年級自學挑戰站</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&family=Nunito:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-1: #2d7a3a;
+  --green-2: #4caf50;
+  --green-3: #a8d5b5;
+  --green-4: #e8f5e9;
+  --yellow: #ffd54f;
+  --orange: #ff8f00;
+  --red: #e53935;
+  --blue: #29b6f6;
+  --sky: #e3f2fd;
+  --purple: #ab47bc;
+  --pink: #f06292;
+  --bg: #f9fdf5;
+  --card: #ffffff;
+  --text: #1b3a20;
+  --text-light: #4e6e54;
+  --shadow: 0 4px 20px rgba(45,122,58,0.13);
+  --radius: 18px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ===== NAV ===== */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 3px solid var(--green-3);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 28px; height: 64px;
+  box-shadow: 0 2px 16px rgba(45,122,58,0.10);
+}
+.nav-logo { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.25rem; color: var(--green-1); display: flex; align-items: center; gap: 8px; }
+.nav-links { display: flex; gap: 6px; flex-wrap: wrap; }
+.nav-btn {
+  background: none; border: 2px solid var(--green-3); border-radius: 30px;
+  padding: 6px 16px; font-size: 0.88rem; font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 700; color: var(--green-1); cursor: pointer; transition: all 0.22s;
+}
+.nav-btn:hover, .nav-btn.active { background: var(--green-2); color: #fff; border-color: var(--green-2); }
+
+/* ===== HERO ===== */
+#home {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e8f5e9 0%, #fffde7 50%, #e3f2fd 100%);
+  display: flex; align-items: center; justify-content: center;
+  padding: 90px 24px 60px;
+  position: relative; overflow: hidden;
+}
+.hero-deco {
+  position: absolute; font-size: 7rem; opacity: 0.10; pointer-events: none;
+  animation: float 6s ease-in-out infinite;
+}
+.hero-deco:nth-child(1) { top: 5%; left: 3%; animation-delay: 0s; }
+.hero-deco:nth-child(2) { top: 10%; right: 5%; animation-delay: 1.5s; font-size: 5rem; }
+.hero-deco:nth-child(3) { bottom: 10%; left: 8%; animation-delay: 0.8s; }
+.hero-deco:nth-child(4) { bottom: 5%; right: 4%; animation-delay: 2.2s; font-size: 6rem; }
+@keyframes float {
+  0%,100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-18px) rotate(5deg); }
+}
+.hero-box { text-align: center; max-width: 640px; position: relative; }
+.hero-badge {
+  display: inline-block; background: var(--green-2); color: #fff;
+  border-radius: 30px; padding: 6px 20px; font-size: 0.9rem; font-weight: 700; margin-bottom: 18px;
+  box-shadow: 0 3px 12px rgba(76,175,80,0.35);
+  animation: slideDown 0.7s ease;
+}
+@keyframes slideDown { from { opacity:0; transform: translateY(-20px); } to { opacity:1; transform: translateY(0); } }
+.hero-title {
+  font-family: 'Nunito', sans-serif; font-weight: 900;
+  font-size: clamp(2.2rem, 6vw, 3.5rem);
+  line-height: 1.15; color: var(--green-1);
+  text-shadow: 0 3px 0 rgba(45,122,58,0.12);
+  animation: slideDown 0.8s 0.1s ease both;
+}
+.hero-sub {
+  font-size: 1.1rem; color: var(--text-light); margin: 14px 0 30px;
+  animation: slideDown 0.8s 0.2s ease both;
+}
+.hero-cta {
+  background: linear-gradient(135deg, #43a047, #66bb6a);
+  color: #fff; border: none; border-radius: 40px;
+  padding: 14px 44px; font-size: 1.15rem; font-weight: 900;
+  cursor: pointer; box-shadow: 0 6px 24px rgba(76,175,80,0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+  animation: slideDown 0.8s 0.3s ease both;
+}
+.hero-cta:hover { transform: translateY(-3px) scale(1.04); box-shadow: 0 10px 30px rgba(76,175,80,0.5); }
+.hero-facts { display: flex; gap: 16px; justify-content: center; margin-top: 36px; flex-wrap: wrap; animation: slideDown 0.8s 0.4s ease both; }
+.fact-chip {
+  background: #fff; border: 2px solid var(--green-3); border-radius: 20px;
+  padding: 8px 18px; font-size: 0.9rem; font-weight: 700; color: var(--green-1);
+  box-shadow: var(--shadow);
+}
+
+/* ===== SECTIONS ===== */
+section { padding: 80px 24px 60px; max-width: 960px; margin: 0 auto; }
+.section-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--green-4); border-radius: 20px; padding: 6px 18px;
+  font-size: 0.85rem; font-weight: 700; color: var(--green-1); margin-bottom: 14px;
+}
+.section-title { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: clamp(1.6rem,4vw,2.2rem); color: var(--green-1); margin-bottom: 8px; }
+.section-desc { color: var(--text-light); margin-bottom: 34px; font-size: 1rem; }
+
+/* ===== CARDS ===== */
+.cards { display: grid; gap: 22px; }
+.cards-2 { grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); }
+.cards-3 { grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); }
+.card {
+  background: var(--card); border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: 28px 24px;
+  border: 2px solid transparent; transition: transform 0.22s, border-color 0.22s, box-shadow 0.22s;
+}
+.card:hover { transform: translateY(-5px); box-shadow: 0 10px 35px rgba(45,122,58,0.18); }
+.card-icon { font-size: 2.4rem; margin-bottom: 12px; display: block; }
+.card-title { font-weight: 900; font-size: 1.15rem; margin-bottom: 8px; color: var(--green-1); }
+.card-body { font-size: 0.92rem; color: var(--text-light); line-height: 1.7; }
+.card-green { border-color: var(--green-3); background: linear-gradient(135deg,#fff,#f1faf3); }
+.card-yellow { border-color: #ffe082; background: linear-gradient(135deg,#fff,#fffef0); }
+.card-blue { border-color: #90caf9; background: linear-gradient(135deg,#fff,#f0f8ff); }
+
+/* ===== MODULE TABS ===== */
+.module-tabs { display: flex; gap: 10px; margin-bottom: 22px; flex-wrap: wrap; }
+.mod-tab {
+  background: #fff; border: 2px solid var(--green-3); border-radius: 30px;
+  padding: 8px 22px; font-size: 0.95rem; font-weight: 700; color: var(--green-1);
+  cursor: pointer; transition: all 0.2s;
+}
+.mod-tab.active, .mod-tab:hover { background: var(--green-2); color: #fff; border-color: var(--green-2); }
+.mod-panel { display: none; animation: fadeIn 0.35s ease; }
+.mod-panel.active { display: block; }
+@keyframes fadeIn { from { opacity:0; transform: translateY(8px); } to { opacity:1; transform: translateY(0); } }
+
+/* ===== FORMULA BOX ===== */
+.formula {
+  background: linear-gradient(135deg, #e8f5e9, #fffde7);
+  border: 2px dashed var(--green-2); border-radius: var(--radius);
+  padding: 22px 26px; margin: 18px 0; text-align: center;
+  font-size: 1.1rem; font-weight: 700; color: var(--green-1);
+  line-height: 2.2;
+}
+.formula .arrow { color: var(--green-2); font-size: 1.5rem; }
+
+/* ===== TABLE ===== */
+.sci-table { width: 100%; border-collapse: collapse; margin: 16px 0; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); }
+.sci-table th { background: var(--green-2); color: #fff; padding: 12px 16px; font-size: 0.92rem; text-align: left; }
+.sci-table td { padding: 11px 16px; font-size: 0.88rem; border-bottom: 1px solid #e8f5e9; background: #fff; }
+.sci-table tr:nth-child(even) td { background: #f9fdf5; }
+.sci-table tr:last-child td { border-bottom: none; }
+
+/* ===== MNEMONICS ===== */
+.mnemonic {
+  background: linear-gradient(135deg, #fff9c4, #fffde7);
+  border-left: 5px solid var(--yellow); border-radius: 0 12px 12px 0;
+  padding: 16px 20px; margin: 14px 0;
+}
+.mnemonic .label { font-size: 0.78rem; font-weight: 700; color: var(--orange); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+.mnemonic .text { font-size: 1.12rem; font-weight: 900; color: var(--green-1); }
+
+/* ===== WARNINGS ===== */
+.warn-grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); }
+.warn-card {
+  background: linear-gradient(135deg,#fff3e0,#fff8f5);
+  border: 2px solid #ffcc80; border-radius: 14px; padding: 16px 18px;
+  display: flex; align-items: flex-start; gap: 12px;
+}
+.warn-icon { font-size: 1.6rem; flex-shrink: 0; }
+.warn-text { font-size: 0.9rem; font-weight: 700; color: #bf360c; line-height: 1.6; }
+
+/* ===== QUIZ ===== */
+#quiz { background: linear-gradient(135deg,#e8f5e9,#e3f2fd); border-radius: 24px; padding: 40px 32px; margin: 20px 0; }
+.quiz-header { text-align: center; margin-bottom: 28px; }
+.quiz-title { font-family: 'Nunito',sans-serif; font-weight: 900; font-size: 1.8rem; color: var(--green-1); }
+.quiz-sub { color: var(--text-light); margin-top: 6px; }
+.score-bar { background: #fff; border-radius: 30px; height: 12px; margin: 10px 0 22px; overflow: hidden; box-shadow: inset 0 2px 6px rgba(0,0,0,0.08); }
+.score-fill { height: 100%; background: linear-gradient(90deg, #43a047, #aed581); border-radius: 30px; transition: width 0.5s ease; }
+.q-box { background: #fff; border-radius: 18px; padding: 28px 26px; box-shadow: var(--shadow); }
+.q-num { font-size: 0.8rem; font-weight: 700; color: var(--green-2); letter-spacing: 1px; margin-bottom: 8px; }
+.q-text { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 20px; line-height: 1.6; }
+.options { display: grid; gap: 10px; }
+.opt-btn {
+  background: #f9fdf5; border: 2px solid #c8e6c9; border-radius: 12px;
+  padding: 13px 18px; text-align: left; font-size: 0.95rem; font-weight: 700;
+  color: var(--text); cursor: pointer; transition: all 0.18s; display: flex; align-items: center; gap: 10px;
+}
+.opt-btn:hover:not(:disabled) { background: #e8f5e9; border-color: var(--green-2); transform: translateX(4px); }
+.opt-btn.correct { background: #e8f5e9; border-color: #43a047; color: #1b5e20; }
+.opt-btn.wrong { background: #ffebee; border-color: #e53935; color: #b71c1c; }
+.opt-btn:disabled { cursor: default; }
+.opt-letter { width: 28px; height: 28px; border-radius: 50%; background: var(--green-3); color: var(--green-1); font-size: 0.85rem; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.opt-btn.correct .opt-letter { background: #43a047; color: #fff; }
+.opt-btn.wrong .opt-letter { background: #e53935; color: #fff; }
+.explain-box { background: #f1f8e9; border-left: 4px solid var(--green-2); border-radius: 0 10px 10px 0; padding: 12px 16px; margin-top: 16px; font-size: 0.9rem; color: var(--green-1); display: none; }
+.explain-box.show { display: block; }
+.energy-msg { text-align: center; font-size: 1rem; font-weight: 900; margin: 14px 0; min-height: 28px; }
+.energy-msg.correct { color: #2e7d32; }
+.energy-msg.wrong { color: #e53935; }
+.quiz-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; }
+.quiz-btn {
+  background: var(--green-2); color: #fff; border: none; border-radius: 30px;
+  padding: 12px 30px; font-size: 1rem; font-weight: 900; cursor: pointer; transition: all 0.2s;
+}
+.quiz-btn:hover { background: var(--green-1); transform: scale(1.04); }
+.quiz-btn.secondary { background: #fff; color: var(--green-1); border: 2px solid var(--green-2); }
+.quiz-btn.secondary:hover { background: var(--green-4); }
+
+/* ===== RESULT ===== */
+.result-box { text-align: center; animation: slideDown 0.6s ease; }
+.result-emoji { font-size: 5rem; margin-bottom: 16px; }
+.result-rank { font-family: 'Nunito',sans-serif; font-weight: 900; font-size: 2.2rem; color: var(--green-1); margin-bottom: 8px; }
+.result-score { font-size: 1.2rem; color: var(--text-light); margin-bottom: 22px; }
+.result-stats { display: flex; gap: 16px; justify-content: center; margin-bottom: 26px; flex-wrap: wrap; }
+.stat-chip { background: #fff; border-radius: 14px; padding: 12px 22px; font-weight: 700; box-shadow: var(--shadow); }
+.stat-chip span { display: block; font-size: 1.6rem; font-weight: 900; }
+
+/* ===== PHOTOSYNTHESIS VISUAL ===== */
+.photo-visual {
+  background: linear-gradient(135deg,#e8f5e9,#fffde7);
+  border-radius: 18px; padding: 28px; display: flex; align-items: center;
+  justify-content: center; gap: 10px; flex-wrap: wrap; margin: 18px 0;
+  font-size: 1.05rem; font-weight: 700; color: var(--green-1);
+  box-shadow: var(--shadow);
+}
+.pv-item { text-align: center; }
+.pv-icon { font-size: 2.4rem; display: block; margin-bottom: 4px; }
+.pv-label { font-size: 0.8rem; color: var(--text-light); }
+.pv-arrow { font-size: 1.8rem; color: var(--green-2); }
+
+/* ===== PROGRESS ===== */
+.progress-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.progress-label { font-size: 0.88rem; color: var(--text-light); white-space: nowrap; }
+.progress-bar { flex: 1; background: #dcedc8; border-radius: 10px; height: 10px; overflow: hidden; }
+.progress-inner { height: 100%; background: linear-gradient(90deg,#43a047,#aed581); border-radius: 10px; transition: width 0.4s ease; }
+
+/* ===== STRUCTURE DIAGRAM ===== */
+.tree-diagram {
+  background: #fff; border-radius: 16px; padding: 24px;
+  box-shadow: var(--shadow); font-size: 0.9rem; line-height: 2;
+  color: var(--text); border: 2px solid var(--green-3);
+}
+.tree-diagram .node { font-weight: 700; color: var(--green-1); }
+
+/* ===== NAME MODAL ===== */
+.name-modal {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.48);
+  z-index: 999; display: flex; align-items: center; justify-content: center;
+  animation: fadeIn 0.25s ease;
+}
+.name-box {
+  background: #fff; border-radius: 24px; padding: 40px 32px;
+  text-align: center; width: 92%; max-width: 400px;
+  box-shadow: 0 16px 50px rgba(0,0,0,0.22);
+  animation: slideDown 0.3s ease;
+}
+.name-box .big-icon { font-size: 3.5rem; margin-bottom: 12px; }
+.name-box h3 { font-family: 'Nunito',sans-serif; font-size: 1.5rem; font-weight: 900; color: var(--green-1); margin-bottom: 6px; }
+.name-box p { font-size: 0.9rem; color: var(--text-light); margin-bottom: 22px; line-height: 1.6; }
+.name-input {
+  width: 100%; padding: 14px 18px; border: 2.5px solid #c8e6c9;
+  border-radius: 14px; font-size: 1.1rem; font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 700; outline: none; text-align: center; margin-bottom: 16px;
+  transition: border-color 0.2s;
+}
+.name-input:focus { border-color: var(--green-2); }
+.name-input.error { border-color: var(--red); }
+.name-error { color: var(--red); font-size: 0.85rem; font-weight: 700; margin: -10px 0 12px; min-height: 20px; }
+.name-confirm-btn {
+  width: 100%; background: linear-gradient(135deg, #43a047, #66bb6a);
+  color: #fff; border: none; border-radius: 14px;
+  padding: 14px; font-size: 1.05rem; font-weight: 900;
+  cursor: pointer; transition: all 0.2s;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.name-confirm-btn:hover { transform: scale(1.03); box-shadow: 0 6px 20px rgba(76,175,80,0.4); }
+
+/* ===== SEND STATUS ===== */
+.send-status {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #f1f8e9; border: 2px solid var(--green-3);
+  border-radius: 30px; padding: 8px 18px;
+  font-size: 0.88rem; font-weight: 700; color: var(--green-1);
+  margin-top: 10px;
+}
+.send-status.sending { color: #f57f17; border-color: #ffe082; background: #fffde7; }
+.send-status.done    { color: #2e7d32; border-color: #a5d6a7; background: #e8f5e9; }
+.send-status.fail    { color: #b71c1c; border-color: #ef9a9a; background: #ffebee; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  nav { padding: 0 14px; }
+  .nav-links { gap: 4px; }
+  .nav-btn { padding: 5px 11px; font-size: 0.78rem; }
+  section { padding: 70px 14px 48px; }
+  #quiz { padding: 28px 16px; }
+  .q-box { padding: 20px 16px; }
+  .photo-visual { gap: 6px; font-size: 0.9rem; }
+  .pv-icon { font-size: 1.8rem; }
+  .name-box { padding: 30px 20px; }
+}
+
+/* floating leaf particles */
+.particle { position: fixed; pointer-events: none; z-index: 0; animation: drift linear infinite; opacity: 0.18; font-size: 1.4rem; }
+@keyframes drift {
+  0% { transform: translateY(110vh) rotate(0deg); }
+  100% { transform: translateY(-10vh) rotate(360deg); }
+}
+</style>
+</head>
+<body>
+
+<!-- Floating particles -->
+<div class="particle" style="left:5%;animation-duration:18s;animation-delay:0s;">🍃</div>
+<div class="particle" style="left:20%;animation-duration:22s;animation-delay:4s;">🌿</div>
+<div class="particle" style="left:40%;animation-duration:16s;animation-delay:2s;">🌱</div>
+<div class="particle" style="left:60%;animation-duration:24s;animation-delay:6s;">🍀</div>
+<div class="particle" style="left:80%;animation-duration:19s;animation-delay:1s;">🌾</div>
+<div class="particle" style="left:92%;animation-duration:21s;animation-delay:8s;">🍃</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">🌿 植物世界</div>
+  <div class="nav-links">
+    <button class="nav-btn" onclick="scrollTo('learn')">📚 自學重點</button>
+    <button class="nav-btn" onclick="scrollTo('warn')">⚠️ 易錯提醒</button>
+    <button class="nav-btn" onclick="scrollTo('quiz-section')">🎮 開始測驗</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div id="home">
+  <div class="hero-deco">🌻</div>
+  <div class="hero-deco">🌿</div>
+  <div class="hero-deco">🌱</div>
+  <div class="hero-deco">🍃</div>
+  <div class="hero-box">
+    <div class="hero-badge">🎓 五年級自然科學 第3單元</div>
+    <h1 class="hero-title">植物世界<br>面面觀</h1>
+    <p class="hero-sub">跟著植物博士一起探索葉子廚房、種子旅行和植物的神奇妙招！</p>
+    <button class="hero-cta" onclick="scrollTo('learn')">🚀 開始探索</button>
+    <div class="hero-facts">
+      <div class="fact-chip">🍃 光合作用</div>
+      <div class="fact-chip">🌸 繁殖方式</div>
+      <div class="fact-chip">🔬 仿生發明</div>
+      <div class="fact-chip">✏️ 互動測驗</div>
+    </div>
+  </div>
+</div>
+
+<!-- LEARN SECTION -->
+<div id="learn" style="background: #fff;">
+<section>
+  <div class="section-label">📚 學習地圖</div>
+  <h2 class="section-title">三大關卡自學重點</h2>
+  <p class="section-desc">點選關卡，學習各主題重點內容，一起挑戰植物博士稱號！</p>
+
+  <div class="module-tabs">
+    <button class="mod-tab active" onclick="switchTab(0)">🌞 關卡1：製造養分</button>
+    <button class="mod-tab" onclick="switchTab(1)">🌸 關卡2：繁殖方式</button>
+    <button class="mod-tab" onclick="switchTab(2)">✨ 關卡3：植物妙招</button>
+  </div>
+
+  <!-- TAB 1 -->
+  <div class="mod-panel active" id="tab0">
+    <div class="cards cards-3" style="margin-bottom:24px;">
+      <div class="card card-green">
+        <span class="card-icon">☀️</span>
+        <div class="card-title">光合作用</div>
+        <div class="card-body">植物用<strong>葉子</strong>接收陽光，吸收水和二氧化碳，製造養分和氧氣。這個過程叫做光合作用。</div>
+      </div>
+      <div class="card card-yellow">
+        <span class="card-icon">🌱</span>
+        <div class="card-title">根的功能</div>
+        <div class="card-body">根可以<strong>吸收水分</strong>，也可以把植物<strong>固定在土壤</strong>裡，就像地錨一樣！</div>
+      </div>
+      <div class="card card-blue">
+        <span class="card-icon">🪴</span>
+        <div class="card-title">莖的功能</div>
+        <div class="card-body">莖像一條<strong>高速公路</strong>，負責<strong>支撐植物</strong>，並把水分和養分運輸到各處。</div>
+      </div>
+    </div>
+
+    <div class="photo-visual">
+      <div class="pv-item"><span class="pv-icon">☀️</span><div class="pv-label">陽光</div></div>
+      <div class="pv-arrow">+</div>
+      <div class="pv-item"><span class="pv-icon">💧</span><div class="pv-label">水</div></div>
+      <div class="pv-arrow">+</div>
+      <div class="pv-item"><span class="pv-icon">💨</span><div class="pv-label">CO₂ 二氧化碳</div></div>
+      <div class="pv-arrow">➡️</div>
+      <div class="pv-item"><span class="pv-icon">🍃</span><div class="pv-label">葉子進行光合作用</div></div>
+      <div class="pv-arrow">➡️</div>
+      <div class="pv-item"><span class="pv-icon">🍚</span><div class="pv-label">養分</div></div>
+      <div class="pv-arrow">+</div>
+      <div class="pv-item"><span class="pv-icon">🫧</span><div class="pv-label">O₂ 氧氣</div></div>
+    </div>
+
+    <div class="mnemonic">
+      <div class="label">🧠 超強記憶口訣</div>
+      <div class="text">「光水二，養氧出」<br><span style="font-size:0.88rem;font-weight:400;color:#5a6e5a;">光＝陽光、水＝水、二＝二氧化碳、養＝養分、氧＝氧氣</span></div>
+    </div>
+
+    <h3 style="color:var(--green-1);margin:22px 0 12px;font-size:1.1rem;">🌿 根、莖、葉比較表</h3>
+    <table class="sci-table">
+      <tr><th>部位</th><th>主要功能</th><th>記憶口訣</th></tr>
+      <tr><td>🌱 根</td><td>吸收水分、固定植物</td><td>吸管 + 地錨</td></tr>
+      <tr><td>🪴 莖</td><td>支撐植物、運輸水分養分</td><td>高速公路</td></tr>
+      <tr><td>🍃 葉</td><td>進行光合作用、製造養分</td><td>太陽能廚房</td></tr>
+    </table>
+
+    <h3 style="color:var(--green-1);margin:22px 0 12px;font-size:1.1rem;">🔍 特化構造大比拼</h3>
+    <table class="sci-table">
+      <tr><th>植物</th><th>特化構造</th><th>功能</th></tr>
+      <tr><td>🌵 仙人掌</td><td>針狀葉</td><td>減少水分散失</td></tr>
+      <tr><td>💎 石蓮</td><td>肥厚葉</td><td>儲存水分</td></tr>
+      <tr><td>🪤 捕蠅草</td><td>捕蟲葉</td><td>捕捉昆蟲補充養分</td></tr>
+      <tr><td>🌴 銀葉樹</td><td>板根</td><td>支撐植物（潮溼環境）</td></tr>
+      <tr><td>🌳 榕樹</td><td>氣生根</td><td>吸收空氣中的水分</td></tr>
+      <tr><td>🥔 馬鈴薯</td><td>塊莖</td><td>儲存養分</td></tr>
+      <tr><td>🥕 蘿蔔 / 甘藷</td><td>塊根</td><td>儲存水分和養分</td></tr>
+    </table>
+  </div>
+
+  <!-- TAB 2 -->
+  <div class="mod-panel" id="tab1">
+    <div class="formula">
+      <div>🌸 雄蕊花粉 <span class="arrow">→</span> 雌蕊柱頭 <span class="arrow">＝</span> 授粉</div>
+      <div>🏠 子房 <span class="arrow">→</span> 果實 ｜ 💎 胚珠 <span class="arrow">→</span> 種子</div>
+    </div>
+    <div class="mnemonic">
+      <div class="label">🧠 超強記憶口訣</div>
+      <div class="text">「粉到柱，房成果，珠成種」</div>
+    </div>
+
+    <h3 style="color:var(--green-1);margin:22px 0 12px;font-size:1.1rem;">🧳 種子四大傳播方式</h3>
+    <div class="cards cards-2" style="margin-bottom:22px;">
+      <div class="card" style="border-color:#ffcc80;background:linear-gradient(135deg,#fff,#fff9f0);">
+        <span class="card-icon">💪</span>
+        <div class="card-title" style="color:#e65100;">自力傳播</div>
+        <div class="card-body">成熟後<strong>裂開彈出</strong>種子。<br>例：非洲鳳仙花 🌺</div>
+      </div>
+      <div class="card" style="border-color:#90caf9;background:linear-gradient(135deg,#fff,#f0f8ff);">
+        <span class="card-icon">🌬️</span>
+        <div class="card-title" style="color:#0277bd;">風力傳播</div>
+        <div class="card-body">有<strong>細毛或薄翅</strong>，像降落傘。<br>例：蒲公英🌼、昭和草、青楓</div>
+      </div>
+      <div class="card" style="border-color:#ce93d8;background:linear-gradient(135deg,#fff,#fdf0ff);">
+        <span class="card-icon">🐾</span>
+        <div class="card-title" style="color:#7b1fa2;">動物傳播</div>
+        <div class="card-body">有<strong>倒鉤刺</strong>或鮮豔香甜。<br>例：大花咸豐草、木瓜🍈</div>
+      </div>
+      <div class="card" style="border-color:#80deea;background:linear-gradient(135deg,#fff,#f0feff);">
+        <span class="card-icon">🌊</span>
+        <div class="card-title" style="color:#00695c;">水力傳播</div>
+        <div class="card-body">纖維多、<strong>能浮在水上</strong>漂流。<br>例：椰子🥥</div>
+      </div>
+    </div>
+
+    <h3 style="color:var(--green-1);margin:22px 0 12px;font-size:1.1rem;">🌿 三大繁殖方式</h3>
+    <table class="sci-table">
+      <tr><th>繁殖方式</th><th>說明</th><th>例子</th></tr>
+      <tr><td>🌱 種子繁殖</td><td>最常見，開花→授粉→結果→種子</td><td>大多數開花植物</td></tr>
+      <tr><td>🍃 營養繁殖</td><td>用根、莖、葉長出新植物</td><td>石蓮（葉）、草莓走莖（莖）、甘藷（根）</td></tr>
+      <tr><td>🌀 孢子繁殖</td><td>蕨類植物葉背有孢子囊，產生孢子</td><td>蕨類植物</td></tr>
+    </table>
+    <div class="mnemonic">
+      <div class="label">🧠 超強記憶口訣</div>
+      <div class="text">「根莖葉，也能當爸媽」<br><span style="font-size:0.88rem;font-weight:400;color:#5a6e5a;">不只種子，根莖葉也能長出新植物！蕨類則是孢子繁殖。</span></div>
+    </div>
+  </div>
+
+  <!-- TAB 3 -->
+  <div class="mod-panel" id="tab2">
+    <div class="cards cards-2" style="margin-bottom:24px;">
+      <div class="card card-green">
+        <span class="card-icon">🌻</span>
+        <div class="card-title">向日葵朝向太陽</div>
+        <div class="card-body">成長中的向日葵花會跟著太陽轉動，目的是<strong>吸引更多昆蟲</strong>授粉。</div>
+      </div>
+      <div class="card card-yellow">
+        <span class="card-icon">🍀</span>
+        <div class="card-title">酢漿草夜晚閉合</div>
+        <div class="card-body">白花酢漿草夜晚葉子會閉合，目的是<strong>減少水分蒸散</strong>，保存水分。</div>
+      </div>
+      <div class="card card-blue">
+        <span class="card-icon">🪤</span>
+        <div class="card-title">捕蠅草受刺激閉合</div>
+        <div class="card-body">葉子受到刺激後迅速閉合，捕捉昆蟲以<strong>補充養分</strong>（氮等礦物質）。</div>
+      </div>
+      <div class="card" style="border-color:#f48fb1;background:linear-gradient(135deg,#fff,#fff0f5);">
+        <span class="card-icon">🌿</span>
+        <div class="card-title">含羞草受碰觸閉合</div>
+        <div class="card-body">受到碰觸葉子會閉合，目的是<strong>保護自己</strong>免受動物侵害。</div>
+      </div>
+    </div>
+
+    <h3 style="color:var(--green-1);margin:22px 0 12px;font-size:1.1rem;">🔭 仿生發明：向自然學習</h3>
+    <table class="sci-table">
+      <tr><th>植物</th><th>特徵</th><th>人類應用</th></tr>
+      <tr><td>🌿 大花咸豐草</td><td>果實有倒鉤刺</td><td>魔鬼氈（Velcro）的靈感！</td></tr>
+      <tr><td>🪷 荷葉</td><td>表面有奈米突起，不沾水灰塵</td><td>防水、自潔材料（蓮葉效應）</td></tr>
+      <tr><td>🌵 仙人掌</td><td>減少水分散失</td><td>節水設計靈感</td></tr>
+      <tr><td>🌼 蒲公英</td><td>輕盈飄散</td><td>降落傘、飛行設計靈感</td></tr>
+    </table>
+    <div class="mnemonic">
+      <div class="label">🧠 超強記憶口訣</div>
+      <div class="text">「看植物，學發明」<br><span style="font-size:0.88rem;font-weight:400;color:#5a6e5a;">植物不只會站著，它們根本是自然界的工程師！</span></div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- WARNING SECTION -->
+<div id="warn" style="background: linear-gradient(135deg,#fff8f0,#fff9f5);">
+<section>
+  <div class="section-label">⚠️ 易錯提醒</div>
+  <h2 class="section-title">考試最容易錯的地方</h2>
+  <p class="section-desc">這些是同學最常答錯的考點，一定要記清楚！</p>
+  <div class="warn-grid">
+    <div class="warn-card"><div class="warn-icon">🥔</div><div class="warn-text">馬鈴薯是<u>塊莖</u>，不是根也不是果實！</div></div>
+    <div class="warn-card"><div class="warn-icon">🥕</div><div class="warn-text">蘿蔔、甘藷是<u>塊根</u>，不是塊莖！</div></div>
+    <div class="warn-card"><div class="warn-icon">🌵</div><div class="warn-text">仙人掌的刺是<u>特化的葉</u>，不是莖！</div></div>
+    <div class="warn-card"><div class="warn-icon">🪤</div><div class="warn-text">捕蠅草捕蟲是為了<u>補充養分</u>，不是好玩！</div></div>
+    <div class="warn-card"><div class="warn-icon">🥥</div><div class="warn-text">椰子是<u>水力傳播</u>，不是動物傳播！</div></div>
+    <div class="warn-card"><div class="warn-icon">🌿</div><div class="warn-text">大花咸豐草是<u>動物傳播</u>，也是魔鬼氈的靈感！</div></div>
+    <div class="warn-card"><div class="warn-icon">🌀</div><div class="warn-text">蕨類植物用<u>孢子</u>繁殖，不是種子！</div></div>
+    <div class="warn-card"><div class="warn-icon">🏠</div><div class="warn-text"><u>子房→果實</u>，<u>胚珠→種子</u>，不要搞反！</div></div>
+  </div>
+</section>
+</div>
+
+<!-- QUIZ SECTION -->
+<div id="quiz-section" style="background: linear-gradient(135deg,#f1f8e9,#e8f5e9);">
+<section>
+  <div class="section-label">🎮 互動測驗</div>
+  <h2 class="section-title">植物博士挑戰賽</h2>
+  <p class="section-desc">從50題題庫中隨機抽出10題，挑戰你的植物知識！每題答完立即知道對錯。</p>
+
+  <div id="quiz">
+    <div class="quiz-header">
+      <div class="quiz-title" id="quiz-title">🌿 準備好了嗎？</div>
+      <div class="quiz-sub" id="quiz-sub">從50題題庫隨機出10題，看看你能得幾分！</div>
+    </div>
+
+    <!-- 開始畫面 -->
+    <div id="quiz-start-view" style="text-align:center;">
+      <div style="font-size:4rem;margin:16px 0;">🌱</div>
+      <button class="quiz-btn" onclick="startQuiz()">🚀 開始挑戰！</button>
+    </div>
+
+    <!-- 作答畫面 -->
+    <div id="quiz-game-view" style="display:none;">
+      <div class="progress-wrap">
+        <div class="progress-label" id="q-progress">第 1 / 10 題</div>
+        <div class="progress-bar"><div class="progress-inner" id="progress-inner" style="width:0%"></div></div>
+      </div>
+      <div class="score-bar"><div class="score-fill" id="score-fill" style="width:0%"></div></div>
+      <div class="q-box">
+        <div class="q-num" id="q-num">第 1 題</div>
+        <div class="q-text" id="q-text"></div>
+        <div class="options" id="q-options"></div>
+        <div class="explain-box" id="explain-box"></div>
+        <div class="energy-msg" id="energy-msg"></div>
+      </div>
+      <div class="quiz-nav">
+        <span id="score-display" style="font-weight:700;color:var(--green-1);">💚 0 分</span>
+        <button class="quiz-btn" id="next-btn" onclick="nextQuestion()" style="display:none;">下一題 →</button>
+      </div>
+    </div>
+
+    <!-- 結果畫面 -->
+    <div id="quiz-result-view" style="display:none;">
+      <div class="result-box">
+        <div class="result-emoji" id="result-emoji">🏆</div>
+        <div class="result-rank" id="result-rank">植物博士</div>
+        <div class="result-score" id="result-score">你答對了 10 題，得到 100 分！</div>
+        <div class="result-stats">
+          <div class="stat-chip" style="color:#2e7d32;"><span id="r-correct">0</span>✅ 答對</div>
+          <div class="stat-chip" style="color:#e53935;"><span id="r-wrong">0</span>❌ 答錯</div>
+          <div class="stat-chip" style="color:#f57f17;"><span id="r-score">0</span>⭐ 分</div>
+        </div>
+        <!-- 成績上傳狀態 -->
+        <div id="send-status" class="send-status sending">⏳ 成績上傳中…</div>
+        <div style="margin-top:20px;">
+          <button class="quiz-btn" onclick="restartQuiz()" style="margin-right:10px;">🔄 再挑戰一次</button>
+          <button class="quiz-btn secondary" onclick="scrollTo('learn')">📚 複習重點</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- FOOTER -->
+<footer style="background: var(--green-1); color:#c8e6c9; text-align:center; padding:28px 20px; font-size:0.88rem;">
+  <div style="font-size:1.6rem;margin-bottom:8px;">🌿🌱🍃</div>
+  <div style="font-weight:700;color:#fff;margin-bottom:4px;">植物世界面面觀｜五年級自然自學挑戰站</div>
+  <div>光合作用 • 根莖葉 • 花果種 • 繁殖傳播 • 仿生發明</div>
+</footer>
+
+<script>
+// ===== GAS 網址 =====
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbybVhiexYYA6Zu8s2cCEAGf6magJuuVLuWCTWy_LNha1WR7qLE4EEOq3CS44VAArQcxoQ/exec';
+
+// ===== TAB SWITCHING =====
+function switchTab(idx) {
+  document.querySelectorAll('.mod-tab').forEach((t,i) => t.classList.toggle('active', i===idx));
+  document.querySelectorAll('.mod-panel').forEach((p,i) => p.classList.toggle('active', i===idx));
+}
+
+// ===== SCROLL =====
+function scrollTo(id) {
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ===== QUIZ STATE =====
+let selected = [], cur = 0, score = 0, correct = 0, answered = false;
+let studentName = '';
+let quizStartTime = null;
+
+// ===== QUIZ DATA =====
+const QUESTIONS = [
+  {q:"大部分植物進行光合作用的主要構造是？", opts:["根","莖","葉","花"], ans:2, exp:"大部分植物主要利用葉子進行光合作用。"},
+  {q:"光合作用需要哪三樣東西？", opts:["陽光、水、二氧化碳","月光、水、氧氣","土壤、花粉、果實","空氣、石頭、花瓣"], ans:0, exp:"光合作用需要陽光、水和二氧化碳。"},
+  {q:"光合作用會產生什麼？", opts:["養分和氧氣","花粉和果實","種子和孢子","水和灰塵"], ans:0, exp:"光合作用會製造養分，並釋放氧氣。"},
+  {q:"植物的根主要功能是？", opts:["吸收水分、抓住土壤","製造花粉","產生果實","吸引昆蟲"], ans:0, exp:"根可以吸收水分，也能固定植物。"},
+  {q:"植物的莖主要功能是？", opts:["支撐與運輸","製造孢子","形成種子","捕捉陽光"], ans:0, exp:"莖能支撐植物，並運輸水分和養分。"},
+  {q:"植物的葉主要功能是？", opts:["進行光合作用","抓住土壤","產生花粉","變成果實"], ans:0, exp:"葉是植物製造養分的重要構造。"},
+  {q:"陽光不足時，葉子可能會？", opts:["偏黃、生長較差","一定變藍","立刻結果","變成石頭"], ans:0, exp:"陽光不足會影響葉綠素形成，葉子可能變黃。"},
+  {q:"實驗「陽光對植物葉子生長的影響」中，操縱變因是？", opts:["有沒有充足陽光","植物名稱","容器大小","澆水時間"], ans:0, exp:"操縱變因是研究者刻意改變的因素，也就是有沒有充足陽光。"},
+  {q:"同一實驗中，應變變因可以是？", opts:["葉子顏色","植物種類","水杯顏色","花盆品牌"], ans:0, exp:"應變變因是觀察到的結果，例如葉子顏色。"},
+  {q:"為什麼兩盆植物要每天澆一樣多的水？", opts:["避免影響實驗結果（控制變因）","讓植物長得更高","節省水資源","因為植物很渴"], ans:0, exp:"澆水量相同，是控制變因，確保只有陽光這個變因不同。"},
+  {q:"仙人掌的刺是什麼特化而成？", opts:["葉","根","花粉","果實"], ans:0, exp:"仙人掌的刺是特化的葉，可減少水分散失。"},
+  {q:"石蓮肥厚的葉主要可以？", opts:["儲存水分","吸引魚","產生花粉","變成孢子"], ans:0, exp:"石蓮肥厚葉有助於儲水，適應乾燥環境。"},
+  {q:"馬鈴薯屬於植物的哪個部位？", opts:["塊莖","塊根","果實","花瓣"], ans:0, exp:"馬鈴薯是塊莖，不是根，也不是果實，這是容易考錯的地方！"},
+  {q:"蘿蔔粗大的部分屬於？", opts:["塊根","塊莖","花粉","果實"], ans:0, exp:"蘿蔔是塊根，儲存水分和養分。"},
+  {q:"榕樹的氣生根可以做什麼？", opts:["吸收空氣中的水分","變成果實","發育成種子","產生花瓣"], ans:0, exp:"榕樹的氣生根可吸收空氣中的水分。"},
+  {q:"捕蠅草捕捉昆蟲主要是為了？", opts:["補充養分","好玩","傳播種子","吸引水分"], ans:0, exp:"捕蠅草因生長在養分貧乏的環境，捕蟲是為了補充養分。"},
+  {q:"花粉由雄蕊傳到雌蕊柱頭，這個過程稱為？", opts:["授粉","發芽","光合作用","蒸散"], ans:0, exp:"這個過程稱為授粉。"},
+  {q:"授粉後，子房會發育成？", opts:["果實","種子","花粉","葉子"], ans:0, exp:"子房會發育成果實。"},
+  {q:"授粉後，胚珠會發育成？", opts:["種子","果實","葉子","花瓣"], ans:0, exp:"胚珠會發育成種子。記住：房成果，珠成種！"},
+  {q:"花瓣顏色鮮豔通常有什麼功能？", opts:["吸引動物幫忙授粉","減少陽光","變成根","防止發芽"], ans:0, exp:"鮮豔花瓣可吸引昆蟲或動物前來授粉。"},
+  {q:"利用風力授粉的花，花粉通常有什麼特徵？", opts:["多、輕且乾燥","花瓣很大","果實很甜","一定有倒鉤刺"], ans:0, exp:"風力授粉的花粉通常很多、重量輕、乾燥，容易被風吹散。"},
+  {q:"成熟後裂開彈出種子，屬於哪種傳播方式？", opts:["自力傳播","水力傳播","動物傳播","孢子繁殖"], ans:0, exp:"靠自己力量彈出種子是自力傳播。"},
+  {q:"有細毛或薄翅的種子，常利用什麼傳播？", opts:["風力傳播","水力傳播","動物傳播","塊根繁殖"], ans:0, exp:"細毛或薄翅可幫助種子被風吹散，是風力傳播。"},
+  {q:"有倒鉤刺的果實，常利用什麼傳播？", opts:["動物傳播","水力傳播","自力傳播","光合作用"], ans:0, exp:"倒鉤刺可黏在動物毛皮上，是動物傳播。"},
+  {q:"富含纖維質、能浮在水上的果實，常利用什麼傳播？", opts:["水力傳播","風力傳播","自力傳播","動物傳播"], ans:0, exp:"能浮水的果實適合水力傳播。"},
+  {q:"椰子通常用什麼方式傳播種子？", opts:["水力傳播","風力傳播","自力傳播","地下莖"], ans:0, exp:"椰子能浮在水上，是水力傳播！"},
+  {q:"蒲公英通常用什麼方式傳播種子？", opts:["風力傳播","水力傳播","自力傳播","根繁殖"], ans:0, exp:"蒲公英種子有細毛，像小降落傘一樣，適合風力傳播。"},
+  {q:"大花咸豐草果實通常用什麼方式傳播？", opts:["動物傳播","水力傳播","風力傳播","自力傳播"], ans:0, exp:"大花咸豐草有倒鉤刺，容易附著在動物或人的衣物上。"},
+  {q:"果實的主要功能是？", opts:["保護種子、幫助傳播","製造陽光","變成花粉","吸收空氣"], ans:0, exp:"果實可保護種子，也幫助種子傳播。"},
+  {q:"花、果實、種子屬於植物的什麼器官？", opts:["繁殖器官","營養器官","孢子囊","氣生根"], ans:0, exp:"花、果實、種子與繁殖有關，稱為繁殖器官。"},
+  {q:"根、莖、葉屬於植物的什麼器官？", opts:["營養器官","繁殖器官","花器官","孢子器官"], ans:0, exp:"根、莖、葉主要幫助植物生長獲取養分，是營養器官。"},
+  {q:"不用種子，利用根莖葉繁殖的方式稱為？", opts:["營養繁殖","授粉","水力傳播","風力傳播"], ans:0, exp:"利用根、莖、葉繁殖稱為營養繁殖。"},
+  {q:"石蓮可以利用哪個部位繁殖？", opts:["葉","花粉","果實","孢子"], ans:0, exp:"石蓮可以用葉子繁殖，一片葉子就能長出新植物！"},
+  {q:"草莓可以利用什麼繁殖？", opts:["走莖","針狀葉","花瓣","水力"], ans:0, exp:"草莓可利用走莖進行營養繁殖。"},
+  {q:"蕨類植物通常用什麼繁殖？", opts:["孢子","果實","花瓣","子房"], ans:0, exp:"蕨類植物不開花結果，常用孢子繁殖。"},
+  {q:"孢子和種子一樣嗎？", opts:["不一樣","完全一樣","都是花瓣","都是果實"], ans:0, exp:"孢子不是種子，是蕨類植物特有的繁殖構造。"},
+  {q:"酢漿草夜晚葉子閉合，主要目的是？", opts:["減少水分蒸散","變成果實","吸引水力","製造魔鬼氈"], ans:0, exp:"夜晚閉合可減少水分蒸散，保存水分。"},
+  {q:"捕蠅草受到刺激，葉子會？", opts:["迅速閉合","變成椰子","發出花粉","掉進水裡"], ans:0, exp:"捕蠅草受刺激會迅速閉合，捕捉昆蟲。"},
+  {q:"成長中的向日葵花朝向太陽轉動，目的是？", opts:["吸引較多昆蟲授粉","進行水力傳播","變成孢子","減少光線"], ans:0, exp:"朝向太陽可吸引較多昆蟲授粉。"},
+  {q:"含羞草受碰觸葉子閉合，這屬於？", opts:["對環境刺激的反應","光合作用產物","果實傳播","子房發育"], ans:0, exp:"這是植物受到刺激後的反應，稱為感觸運動。"},
+  {q:"魔鬼氈的靈感來自哪種植物？", opts:["大花咸豐草","椰子","蘿蔔","蒲公英"], ans:0, exp:"魔鬼氈靈感來自大花咸豐草果實上的倒鉤刺。"},
+  {q:"荷葉表面不易沾水和灰塵，稱為？", opts:["蓮葉效應","授粉作用","自力傳播","塊莖作用"], ans:0, exp:"荷葉的自潔特性稱為蓮葉效應，與奈米結構有關。"},
+  {q:"蓮葉效應與哪種科技概念有關？", opts:["奈米科技","熱脹冷縮","磁力","聲音傳播"], ans:0, exp:"荷葉表面微小構造與奈米科技相關。"},
+  {q:"下列哪一項最可能是仿生發明？", opts:["模仿植物特徵設計物品","把植物全部砍掉","只背植物名字","不觀察自然"], ans:0, exp:"仿生是從自然特徵得到發明靈感，再應用到人類發明上。"},
+  {q:"植物長在乾燥環境，可能發展出哪種構造？", opts:["肥厚葉或針狀葉","更薄的根","完全沒有構造","一定變成蕨類"], ans:0, exp:"乾燥環境中，植物常有儲水或減少水分散失的特化構造。"},
+  {q:"銀葉樹板根較適合哪種環境？", opts:["潮溼環境","沙漠乾燥環境","太空中","冰箱裡"], ans:0, exp:"板根有助於在潮溼、土壤較軟的環境中支撐植物。"},
+  {q:"小明說：所有植物都會開花結果。這句話？", opts:["錯，蕨類植物不開花結果","對，全部都會","對，孢子就是花","對，植物都一樣"], ans:0, exp:"蕨類植物不開花、不結果，通常用孢子繁殖。"},
+  {q:"子房變種子、胚珠變果實。這句話？", opts:["錯，子房變果實，胚珠變種子","完全正確","只有前半正確","只有後半正確"], ans:0, exp:"請記住：子房→果實，胚珠→種子。這是常考的易錯點！"},
+  {q:"哪一組植物與構造的配對是正確的？", opts:["馬鈴薯—塊莖","蘿蔔—塊莖","仙人掌刺—果實","蕨類—種子"], ans:0, exp:"馬鈴薯是塊莖；蘿蔔是塊根；仙人掌刺是特化葉；蕨類用孢子繁殖。"},
+  {q:"自然科學最重要的學習方式是？", opts:["觀察植物構造與功能的關係","只背植物名字","植物都長一樣","不需要實驗"], ans:0, exp:"自然科重點是觀察、比較、找出構造與功能的關係。"},
+];
+
+// ===== 工具函式 =====
+function shuffle(arr) {
+  return [...arr].sort(() => Math.random() - 0.5);
+}
+
+// ===== 顯示姓名輸入 Modal =====
+function startQuiz() {
+  // 若已存在 modal 先移除
+  const old = document.getElementById('name-modal');
+  if (old) old.remove();
+
+  const modal = document.createElement('div');
+  modal.className = 'name-modal';
+  modal.id = 'name-modal';
+  modal.innerHTML = `
+    <div class="name-box">
+      <div class="big-icon">🌿</div>
+      <h3>請輸入你的姓名</h3>
+      <p>成績將自動記錄到老師的試算表<br>讓老師知道你有認真挑戰！</p>
+      <input class="name-input" id="name-input" type="text"
+             placeholder="請輸入姓名" maxlength="20" autocomplete="off" />
+      <div class="name-error" id="name-error"></div>
+      <button class="name-confirm-btn" onclick="confirmName()">✅ 確認，開始挑戰！</button>
+    </div>`;
+  document.body.appendChild(modal);
+
+  // 自動 focus 並支援 Enter 送出
+  setTimeout(() => {
+    const inp = document.getElementById('name-input');
+    if (inp) {
+      inp.focus();
+      inp.addEventListener('keydown', e => { if (e.key === 'Enter') confirmName(); });
+    }
+  }, 100);
+}
+
+// ===== 確認姓名，開始答題 =====
+function confirmName() {
+  const inp = document.getElementById('name-input');
+  const err = document.getElementById('name-error');
+  const name = inp.value.trim();
+
+  if (!name) {
+    inp.classList.add('error');
+    err.textContent = '⚠️ 請填寫姓名才能開始喔！';
+    inp.focus();
+    return;
+  }
+
+  studentName = name;
+  quizStartTime = Date.now();
+  document.getElementById('name-modal').remove();
+
+  // 初始化題目
+  selected = shuffle(QUESTIONS).slice(0, 10);
+  cur = 0; score = 0; correct = 0;
+  document.getElementById('quiz-start-view').style.display = 'none';
+  document.getElementById('quiz-result-view').style.display = 'none';
+  document.getElementById('quiz-game-view').style.display = 'block';
+  document.getElementById('quiz-title').textContent = `🎯 加油，${studentName}！`;
+  document.getElementById('quiz-sub').textContent = '每答完一題立刻知道對錯和解析！';
+  showQuestion();
+}
+
+// ===== 顯示題目 =====
+function showQuestion() {
+  const q = selected[cur];
+  answered = false;
+  document.getElementById('q-progress').textContent = `第 ${cur+1} / 10 題`;
+  document.getElementById('progress-inner').style.width = `${cur * 10}%`;
+  document.getElementById('score-fill').style.width = `${score}%`;
+  document.getElementById('q-num').textContent = `第 ${cur+1} 題`;
+  document.getElementById('q-text').textContent = q.q;
+  document.getElementById('energy-msg').textContent = '';
+  document.getElementById('energy-msg').className = 'energy-msg';
+  const eb = document.getElementById('explain-box');
+  eb.textContent = ''; eb.classList.remove('show');
+  document.getElementById('next-btn').style.display = 'none';
+  document.getElementById('score-display').textContent = `💚 ${score} 分`;
+
+  const labels = ['A','B','C','D'];
+  const opts = document.getElementById('q-options');
+  opts.innerHTML = '';
+  q.opts.forEach((o, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'opt-btn';
+    btn.innerHTML = `<span class="opt-letter">${labels[i]}</span>${o}`;
+    btn.onclick = () => handleAnswer(i, btn, q);
+    opts.appendChild(btn);
+  });
+}
+
+// ===== 處理作答 =====
+function handleAnswer(idx, btn, q) {
+  if (answered) return;
+  answered = true;
+  const allBtns = document.querySelectorAll('.opt-btn');
+  allBtns.forEach(b => b.disabled = true);
+
+  const em = document.getElementById('energy-msg');
+  const eb = document.getElementById('explain-box');
+
+  if (idx === q.ans) {
+    btn.classList.add('correct');
+    score += 10; correct++;
+    em.textContent = '🌿 葉綠素能量 +10！答對了！';
+    em.classList.add('correct');
+  } else {
+    btn.classList.add('wrong');
+    allBtns[q.ans].classList.add('correct');
+    em.textContent = '🔍 再觀察一次，植物博士快升級了！';
+    em.classList.add('wrong');
+  }
+
+  eb.textContent = '💡 解析：' + q.exp;
+  eb.classList.add('show');
+  document.getElementById('score-display').textContent = `💚 ${score} 分`;
+  document.getElementById('score-fill').style.width = `${score}%`;
+  document.getElementById('next-btn').style.display = 'inline-block';
+  document.getElementById('next-btn').textContent = cur < 9 ? '下一題 →' : '查看結果 🏆';
+}
+
+// ===== 下一題 =====
+function nextQuestion() {
+  cur++;
+  if (cur < 10) { showQuestion(); }
+  else { showResult(); }
+}
+
+// ===== 顯示結果並送出成績 =====
+function showResult() {
+  document.getElementById('quiz-game-view').style.display = 'none';
+  document.getElementById('quiz-result-view').style.display = 'block';
+  document.getElementById('progress-inner').style.width = '100%';
+
+  const wrong = 10 - correct;
+  const duration = Math.round((Date.now() - quizStartTime) / 1000); // 秒
+
+  let emoji, rank;
+  if (score >= 90)      { emoji = '🏆'; rank = '植物博士 🌿'; }
+  else if (score >= 70) { emoji = '🔬'; rank = '自然觀察家 🧬'; }
+  else if (score >= 50) { emoji = '🌱'; rank = '植物小學徒'; }
+  else                  { emoji = '💪'; rank = '再挑戰勇者！繼續加油！'; }
+
+  document.getElementById('result-emoji').textContent = emoji;
+  document.getElementById('result-rank').textContent = rank;
+  document.getElementById('result-score').textContent =
+    `${studentName} 答對了 ${correct} 題，得到 ${score} 分！`;
+  document.getElementById('r-correct').textContent = correct;
+  document.getElementById('r-wrong').textContent = wrong;
+  document.getElementById('r-score').textContent = score;
+  document.getElementById('quiz-title').textContent = '🏁 挑戰完成！';
+  document.getElementById('quiz-sub').textContent = `作答時間：${formatDuration(duration)}`;
+
+  // 更新上傳狀態顯示
+  const ss = document.getElementById('send-status');
+  ss.className = 'send-status sending';
+  ss.textContent = '⏳ 成績上傳中…';
+
+  // 送出成績到 Google 試算表
+  fetch(GAS_URL, {
+    method: 'POST',
+    mode: 'no-cors',   // GAS 不支援 CORS，用 no-cors 送出
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      name:     studentName,
+      correct:  correct,
+      wrong:    wrong,
+      score:    score,
+      duration: duration
+    })
+  })
+  .then(() => {
+    // no-cors 模式無法讀回應，只要不報錯就視為成功
+    ss.className = 'send-status done';
+    ss.textContent = '✅ 成績已記錄到老師的試算表！';
+  })
+  .catch(() => {
+    ss.className = 'send-status fail';
+    ss.textContent = '⚠️ 網路錯誤，成績上傳失敗，請告知老師。';
+  });
+}
+
+// ===== 格式化作答時間 =====
+function formatDuration(sec) {
+  const m = Math.floor(sec / 60);
+  const s = sec % 60;
+  return m > 0 ? `${m} 分 ${s} 秒` : `${s} 秒`;
+}
+
+// ===== 重新挑戰 =====
+function restartQuiz() {
+  document.getElementById('quiz-result-view').style.display = 'none';
+  document.getElementById('progress-inner').style.width = '0%';
+  document.getElementById('score-fill').style.width = '0%';
+  startQuiz();
+}
+</script>
+</body>
+</html>
