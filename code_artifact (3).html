@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小學六年級自然第1單元 - 天氣與氣候超強自學特訓營</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Zen Maru Gothic / Nunito -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        skyCloud: '#38BDF8',
+                        sunYellow: '#FACC15',
+                        mintGreen: '#4ADE80',
+                        coralPink: '#FB7185',
+                        lavenderPurple: '#C084FC',
+                        bgWarm: '#FFFBEB'
+                    },
+                    fontFamily: {
+                        sans: ['"Zen Maru Gothic"', '"Nunito"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F0F9FF;
+            background-image: radial-gradient(#BAE6FD 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .bouncy-hover:hover {
+            transform: translateY(-4px) scale(1.02);
+            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .cute-card {
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            border: 3px solid #E0F2FE;
+        }
+        .badge-pulse {
+            animation: pulse-glow 2s infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #E0F2FE;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #38BDF8;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-700 min-h-screen pb-16">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b-4 border-sky-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+            <!-- LOGO AREA -->
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-sunYellow to-amber-300 flex items-center justify-center text-white text-2xl shadow-md transform rotate-3">
+                    <i class="fa-solid font-bold fa-cloud-sun-rain"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl md:text-2xl font-black text-sky-600 tracking-wide flex items-center gap-2">
+                        小六自然自學王 
+                        <span class="text-xs bg-amber-100 text-amber-700 px-2.5 py-0.5 rounded-full font-bold border border-amber-300">第1單元全攻略</span>
+                    </h1>
+                    <p class="text-xs font-bold text-slate-400">探索天氣變化 ‧ 資優深耕 ‧ 25題題庫特訓</p>
+                </div>
+            </div>
+
+            <!-- STUDENT TABLET QUICK STATS -->
+            <div class="hidden md:flex items-center space-x-4 bg-sky-50 px-4 py-2 rounded-2xl border-2 border-sky-200">
+                <div class="flex items-center space-x-2">
+                    <span class="text-xs font-bold text-slate-500">學習進度</span>
+                    <div class="w-24 bg-slate-200 rounded-full h-3 overflow-hidden border">
+                        <div id="topProgressBar" class="bg-gradient-to-r from-mintGreen to-emerald-400 h-full w-0 transition-all duration-500"></div>
+                    </div>
+                    <span id="topProgressText" class="text-xs font-black text-emerald-600">0%</span>
+                </div>
+                <div class="h-6 w-px bg-sky-200"></div>
+                <div class="flex items-center space-x-1 text-amber-500 font-extrabold text-sm">
+                    <i class="fa-solid fa-trophy"></i>
+                    <span id="topScore">0</span> 分
+                </div>
+            </div>
+        </div>
+
+        <!-- MAIN NAVIGATION TABS -->
+        <nav class="bg-sky-100/70 border-t border-sky-200 px-4">
+            <div class="max-w-7xl mx-auto flex space-x-2 md:space-x-4 overflow-x-auto py-2 scrollbar-none">
+                <button onclick="switchTab('core')" id="tab-core" class="tab-btn px-4 py-2 rounded-xl text-sm font-black flex items-center space-x-2 whitespace-nowrap bg-white text-sky-600 shadow border-2 border-sky-300">
+                    <i class="fa-solid fa-book-open"></i><span>1. 核心重點觀念</span>
+                </button>
+                <button onclick="switchTab('advanced')" id="tab-advanced" class="tab-btn px-4 py-2 rounded-xl text-sm font-black flex items-center space-x-2 whitespace-nowrap text-slate-600 hover:bg-white/50">
+                    <i class="fa-solid fa-user-astronaut text-purple-500"></i><span>2. 資優高階延伸</span>
+                </button>
+                <button onclick="switchTab('memory')" id="tab-memory" class="tab-btn px-4 py-2 rounded-xl text-sm font-black flex items-center space-x-2 whitespace-nowrap text-slate-600 hover:bg-white/50">
+                    <i class="fa-solid fa-bolt text-amber-500"></i><span>3. 超強速記與對比</span>
+                </button>
+                <button onclick="switchTab('quiz')" id="tab-quiz" class="tab-btn px-4 py-2 rounded-xl text-sm font-black flex items-center space-x-2 whitespace-nowrap text-slate-600 hover:bg-white/50">
+                    <i class="fa-solid fa-pen-ruler text-rose-500"></i><span>4. 25題滿分測驗</span>
+                </button>
+                <button onclick="switchTab('tablet')" id="tab-tablet" class="tab-btn px-4 py-2 rounded-xl text-sm font-black flex items-center space-x-2 whitespace-nowrap text-slate-600 hover:bg-white/50">
+                    <i class="fa-solid fa-tablet-screen-button text-emerald-500"></i><span>5. 學生學習平板</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 mt-6">
+
+        <!-- TAB 1: CORE KNOWLEDGE MODULES -->
+        <section id="section-core" class="tab-section space-y-8">
+            <!-- BANNER -->
+            <div class="bg-gradient-to-r from-sky-400 via-blue-400 to-indigo-400 rounded-3xl p-6 text-white shadow-lg relative overflow-hidden">
+                <div class="relative z-10 max-w-2xl">
+                    <span class="bg-white/20 text-white font-bold text-xs px-3 py-1 rounded-full uppercase tracking-wider">小六自然 ‧ 第 1 單元總整理</span>
+                    <h2 class="text-2xl md:text-3xl font-black mt-2 mb-3">探索天氣變化：水的三態、天氣圖與永續家園</h2>
+                    <p class="text-sky-100 text-sm leading-relaxed">
+                        本單元涵蓋三大核心：大自然中水的三態變化與水循環、鋒面與天氣圖的判讀技巧、以及氣候變遷與減碳足跡實踐。跟著可愛小老師一起輕鬆掌握！
+                    </p>
+                </div>
+                <div class="absolute -right-6 -bottom-10 opacity-30 md:opacity-50 text-9xl">
+                    <i class="fa-solid fa-cloud-sun"></i>
+                </div>
+            </div>
+
+            <!-- ACTIVITY 1: WATER & WEATHER -->
+            <div class="bg-white cute-card p-6 md:p-8 space-y-6">
+                <div class="flex items-center space-x-3 border-b-2 border-sky-100 pb-4">
+                    <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center font-black text-xl">1</div>
+                    <h3 class="text-xl font-black text-slate-800">活動一：天氣變化的魔術師 — 水與水循環</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- CARD: WATER 3 STATES -->
+                    <div class="bg-sky-50 rounded-2xl p-5 border-2 border-sky-200 space-y-3 bouncy-hover">
+                        <div class="flex items-center justify-between">
+                            <span class="font-black text-sky-700 text-lg">高空的天氣現象</span>
+                            <i class="fa-solid fa-cloud-showers-heavy text-sky-500 text-xl"></i>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-600 font-bold">
+                            <li class="bg-white p-2.5 rounded-xl border border-sky-100 flex items-start gap-2">
+                                <span class="text-sky-500 font-extrabold">☁️ 雲：</span>
+                                <span>水蒸氣上升遇冷，凝結成<b>小水滴</b>或凝華成<b>小冰晶</b>，飄浮在高空。</span>
+                            </li>
+                            <li class="bg-white p-2.5 rounded-xl border border-sky-100 flex items-start gap-2">
+                                <span class="text-blue-500 font-extrabold">🌧️ 雨：</span>
+                                <span>雲中水滴變大過重落下；或冰晶下降過程中<b>融化</b>成液態水。</span>
+                            </li>
+                            <li class="bg-white p-2.5 rounded-xl border border-sky-100 flex items-start gap-2">
+                                <span class="text-indigo-500 font-extrabold">❄️ 雪：</span>
+                                <span>高空溫度低於 $0^\circ\text{C}$，冰晶落下時<b>未融化</b>直接降至地面。</span>
+                            </li>
+                            <li class="bg-white p-2.5 rounded-xl border border-sky-100 flex items-start gap-2">
+                                <span class="text-purple-500 font-extrabold">🧊 冰雹：</span>
+                                <span>強烈上升氣流將冰粒反覆帶至高空凝固變大，最後重重墜落。</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- CARD: GROUND WEATHER -->
+                    <div class="bg-emerald-50 rounded-2xl p-5 border-2 border-emerald-200 space-y-3 bouncy-hover">
+                        <div class="flex items-center justify-between">
+                            <span class="font-black text-emerald-700 text-lg">地表附近的天氣現象</span>
+                            <i class="fa-solid fa-mountain-sun text-emerald-500 text-xl"></i>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-600 font-bold">
+                            <li class="bg-white p-2.5 rounded-xl border border-emerald-100 flex items-start gap-2">
+                                <span class="text-emerald-600 font-extrabold">🌫️ 霧：</span>
+                                <span>水蒸氣靠近地面遇冷，凝結成飄浮在<b>地面附近</b>的小水滴（與雲成因相同，位置不同）。</span>
+                            </li>
+                            <li class="bg-white p-2.5 rounded-xl border border-emerald-100 flex items-start gap-2">
+                                <span class="text-teal-600 font-extrabold">💧 露：</span>
+                                <span>夜間水蒸氣接觸較冷的地面物體（如葉片），凝結成的<b>液態小水滴</b>。</span>
+                            </li>
+                            <li class="bg-white p-2.5 rounded-xl border border-emerald-100 flex items-start gap-2">
+                                <span class="text-cyan-600 font-extrabold">❄️ 霜：</span>
+                                <span>物體表面溫度<b>降至 $0^\circ\text{C}$ 以下</b>，水蒸氣直接<b>凝華</b>成白色固態冰晶。</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- CARD: OCEAN & WATER CYCLE -->
+                    <div class="bg-amber-50 rounded-2xl p-5 border-2 border-amber-200 space-y-3 bouncy-hover">
+                        <div class="flex items-center justify-between">
+                            <span class="font-black text-amber-700 text-lg">水循環與海洋調節</span>
+                            <i class="fa-solid fa-water text-amber-500 text-xl"></i>
+                        </div>
+                        <div class="text-sm font-bold text-slate-600 space-y-2">
+                            <p class="bg-white p-2.5 rounded-xl border border-amber-100">
+                                🔄 <b>大自然水循環：</b> 蒸發/蒸散 $\rightarrow$ 凝結/凝華成雲霧 $\rightarrow$ 降水(雨雪) $\rightarrow$ 逕流/地下水回歸海洋。
+                            </p>
+                            <p class="bg-white p-2.5 rounded-xl border border-amber-100">
+                                🌊 <b>海洋調節作用：</b> 海水比熱大、能吸熱與散熱，緩和沿海氣溫。洋流（如臺灣東部的<b>黑潮</b>）帶來溫暖水氣與氣候影響。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACTIVITY 2: WEATHER FORECAST & FRONTS -->
+            <div class="bg-white cute-card p-6 md:p-8 space-y-6">
+                <div class="flex items-center space-x-3 border-b-2 border-sky-100 pb-4">
+                    <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-black text-xl">2</div>
+                    <h3 class="text-xl font-black text-slate-800">活動二：如何預測天氣變化 — 氣團、鋒面與颱風</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- AIR MASS & FRONTS -->
+                    <div class="space-y-4">
+                        <h4 class="font-black text-slate-700 text-md flex items-center gap-2">
+                            <i class="fa-solid fa-wind text-sky-500"></i> 氣團與三種常見鋒面
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="p-3 bg-blue-50 rounded-xl border-2 border-blue-200">
+                                <div class="font-extrabold text-blue-700 flex justify-between items-center">
+                                    <span>🥶 冷鋒 (Cold Front)</span>
+                                    <span class="text-xs bg-blue-200 text-blue-800 px-2 py-0.5 rounded-full">藍色三角形 ▲▲▲</span>
+                                </div>
+                                <p class="text-xs font-bold text-slate-600 mt-1">冷氣團強勢推擠暖氣團。通過時氣溫驟降、雲量增加易下雨（常見於臺灣冬季與冬春交替）。</p>
+                            </div>
+
+                            <div class="p-3 bg-rose-50 rounded-xl border-2 border-rose-200">
+                                <div class="font-extrabold text-rose-700 flex justify-between items-center">
+                                    <span>☀️ 暖鋒 (Warm Front)</span>
+                                    <span class="text-xs bg-rose-200 text-rose-800 px-2 py-0.5 rounded-full">紅色半圓形 ●●●</span>
+                                </div>
+                                <p class="text-xs font-bold text-slate-600 mt-1">暖氣團強勢推擠冷氣團後退。雲層漸厚，帶來持續性連續降雨。</p>
+                            </div>
+
+                            <div class="p-3 bg-purple-50 rounded-xl border-2 border-purple-200">
+                                <div class="font-extrabold text-purple-700 flex justify-between items-center">
+                                    <span>☔ 滯留鋒 (Stationary Front)</span>
+                                    <span class="text-xs bg-purple-200 text-purple-800 px-2 py-0.5 rounded-full">紅圓藍三角交替 ▲●▲●</span>
+                                </div>
+                                <p class="text-xs font-bold text-slate-600 mt-1">冷暖氣團勢均力敵，鋒面在原地徘徊。臺灣 <b>5~6月梅雨季</b> 的主因，帶來連續陰雨與大雨。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PRESSURE & TYPHOON -->
+                    <div class="space-y-4">
+                        <h4 class="font-black text-slate-700 text-md flex items-center gap-2">
+                            <i class="fa-solid fa-hurricane text-rose-500"></i> 高低氣壓與颱風
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="p-3 bg-amber-50 rounded-xl border-2 border-amber-200">
+                                <div class="font-extrabold text-amber-800">氣壓與地面天氣圖特徵</div>
+                                <p class="text-xs font-bold text-slate-600 mt-1">
+                                    • <b>高氣壓 (H)：</b> 下沉氣流，天氣晴朗穩定，氣壓越中心越高。<br>
+                                    • <b>低氣壓 (L)：</b> 上升氣流，容易凝結成雲下雨，氣壓越中心越低。<br>
+                                    • <b>等壓線：</b> 氣壓相同點的連線，單位為<b>百帕 (hPa)</b>。密集代表風速大。
+                                </p>
+                            </div>
+
+                            <div class="p-3 bg-rose-50 rounded-xl border-2 border-rose-200">
+                                <div class="font-extrabold text-rose-800">🌀 颱風 (Typhoon)</div>
+                                <p class="text-xs font-bold text-slate-600 mt-1">
+                                    • 生成於<b>夏秋兩季的熱帶洋面上</b>，屬於等壓線密集的強烈熱帶低氣壓。<br>
+                                    • <b>衛星雲圖：</b> 呈現螺旋狀濃密雲團。<br>
+                                    • <b>颱風眼：</b> 颱風中心微弱下沉氣流，無風無雨。登陸後因陸地摩擦與缺乏水氣會快速減弱。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACTIVITY 3: CLIMATE CHANGE & FOOTPRINTS -->
+            <div class="bg-white cute-card p-6 md:p-8 space-y-6">
+                <div class="flex items-center space-x-3 border-b-2 border-sky-100 pb-4">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-black text-xl">3</div>
+                    <h3 class="text-xl font-black text-slate-800">活動三：氣候正在改變嗎 — 溫室效應與碳/水足跡</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-4 bg-sky-50 rounded-2xl border-2 border-sky-200">
+                        <span class="font-black text-sky-800 text-md block mb-2">🌦️ 天氣 vs 氣候</span>
+                        <p class="text-xs font-bold text-slate-600 leading-relaxed">
+                            • <b>天氣：</b> 短時間（數小時到數天）的大氣狀態。<br>
+                            • <b>氣候：</b> 長時間（通常30年以上）天氣現象的平均狀態與趨勢。
+                        </p>
+                    </div>
+
+                    <div class="p-4 bg-emerald-50 rounded-2xl border-2 border-emerald-200">
+                        <span class="font-black text-emerald-800 text-md block mb-2">👣 碳足跡 (Carbon Footprint)</span>
+                        <p class="text-xs font-bold text-slate-600 leading-relaxed">
+                            商品從<b>原料開採、生產、運輸、銷售、使用到廢棄回收</b>全生命週期所產生的溫室氣體總排放量（以 $\text{CO}_2$ 當量表示）。優先選購<b>在地當季食材</b>與低碳標籤商品！
+                        </p>
+                    </div>
+
+                    <div class="p-4 bg-blue-50 rounded-2xl border-2 border-blue-200">
+                        <span class="font-black text-blue-800 text-md block mb-2">💧 水足跡 (Water Footprint)</span>
+                        <p class="text-xs font-bold text-slate-600 leading-relaxed">
+                            衡量個人或產品在整個生產供應鏈過程中所直接與間接消耗掉的<b>水資源總量</b>。減少浪費食物、使用雨撲滿可有效降低水足跡。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: ADVANCED GIFTED MODULES -->
+        <section id="section-advanced" class="tab-section hidden space-y-8">
+            <div class="bg-gradient-to-r from-purple-500 to-indigo-600 rounded-3xl p-6 text-white shadow-lg relative overflow-hidden">
+                <div class="relative z-10 max-w-2xl">
+                    <span class="bg-white/20 text-white font-bold text-xs px-3 py-1 rounded-full uppercase tracking-wider">小六自然 ‧ 資優高階延伸</span>
+                    <h2 class="text-2xl md:text-3xl font-black mt-2 mb-3">挑戰科學探究頂峰：資優生必學高階大氣科學</h2>
+                    <p class="text-purple-100 text-sm leading-relaxed">
+                        這裡包含了超越一般課本的資優觀念：露點與相對濕度、潛熱轉移、科氏力與氣旋旋轉方向、錮囚鋒以及氣候變遷正回饋機制！
+                    </p>
+                </div>
+                <div class="absolute -right-6 -bottom-10 opacity-30 text-9xl">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- GIFTED 1: DEW POINT & LATENT HEAT -->
+                <div class="bg-white cute-card p-6 space-y-4 border-2 border-purple-200">
+                    <div class="flex items-center space-x-3 text-purple-700">
+                        <i class="fa-solid fa-temperature-arrow-down text-2xl"></i>
+                        <h3 class="font-black text-lg">資優主題 1：露點 (Dew Point) 與 潛熱 (Latent Heat)</h3>
+                    </div>
+                    <div class="text-sm font-bold text-slate-600 space-y-3">
+                        <div class="bg-purple-50 p-3.5 rounded-xl border border-purple-200">
+                            <span class="text-purple-800 font-extrabold block">💧 露點 (Dew Point)：</span>
+                            空氣降溫至飽和而開始凝結出小水滴的溫度。當空氣溫度降至露點時，<b>相對濕度達到 100%</b>。露點越接近氣溫，表示空氣越潮濕！
+                        </div>
+                        <div class="bg-purple-50 p-3.5 rounded-xl border border-purple-200">
+                            <span class="text-purple-800 font-extrabold block">🔥 潛熱 (Latent Heat) 轉移：</span>
+                            水蒸氣凝結成水滴或凝華成冰晶時，會<b>釋放熱能（潛熱）</b>加熱周圍空氣，這是颱風能夠維持強大能量的重要熱源！相反地，水蒸發時會<b>吸收熱能</b>。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GIFTED 2: CORIOLIS EFFECT -->
+                <div class="bg-white cute-card p-6 space-y-4 border-2 border-indigo-200">
+                    <div class="flex items-center space-x-3 text-indigo-700">
+                        <i class="fa-solid fa-earth-asia text-2xl"></i>
+                        <h3 class="font-black text-lg">資優主題 2：科氏力 (Coriolis Effect) 與 風向偏轉</h3>
+                    </div>
+                    <div class="text-sm font-bold text-slate-600 space-y-3">
+                        <div class="bg-indigo-50 p-3.5 rounded-xl border border-indigo-200">
+                            <span class="text-indigo-800 font-extrabold block">🌀 偏轉原理（北半球向右偏）：</span>
+                            由於地球自轉，北半球運動的空氣會向<b>右偏轉</b>。<br>
+                            • <b>北半球低氣壓 / 颱風：</b> 風吹向中心並受科氏力偏轉，形成<b>逆時針旋轉流入</b>。<br>
+                            • <b>北半球高氣壓：</b> 風從中心向外吹，形成<b>順時針旋轉流出</b>。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GIFTED 3: OCCLUDED FRONT -->
+                <div class="bg-white cute-card p-6 space-y-4 border-2 border-pink-200">
+                    <div class="flex items-center space-x-3 text-pink-700">
+                        <i class="fa-solid fa-cloud-sun-rain text-2xl"></i>
+                        <h3 class="font-black text-lg">資優主題 3：第四種鋒面 — 錮囚鋒 (Occluded Front)</h3>
+                    </div>
+                    <div class="text-sm font-bold text-slate-600 space-y-3">
+                        <div class="bg-pink-50 p-3.5 rounded-xl border border-pink-200">
+                            <span class="text-pink-800 font-extrabold block">🟣 錮囚鋒的形成：</span>
+                            移動速度較快的<b>冷鋒追上前面移動較慢的暖鋒</b>，將中間的暖空氣完全抬升抬離地面，夾在兩個冷氣團之間。天氣圖符號為<b>紫色的三角形與半圓形同側混合排列</b>。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GIFTED 4: FEEDBACK LOOP -->
+                <div class="bg-white cute-card p-6 space-y-4 border-2 border-emerald-200">
+                    <div class="flex items-center space-x-3 text-emerald-700">
+                        <i class="fa-solid fa-arrows-spin text-2xl"></i>
+                        <h3 class="font-black text-lg">資優主題 4：氣候變遷的「正回饋機制」 (Positive Feedback)</h3>
+                    </div>
+                    <div class="text-sm font-bold text-slate-600 space-y-3">
+                        <div class="bg-emerald-50 p-3.5 rounded-xl border border-emerald-200">
+                            <span class="text-emerald-800 font-extrabold block">🧊 冰雪反照率回饋：</span>
+                            全球暖化 $\rightarrow$ 極地冰雪融化 $\rightarrow$ 地表反照率（反射陽光能力）降低 $\rightarrow$ 海洋吸收更多太陽熱能 $\rightarrow$ 加速暖化！這是一種自我加劇的連鎖反應。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: ULTRA-MEMORY TRICKS -->
+        <section id="section-memory" class="tab-section hidden space-y-8">
+            <div class="bg-gradient-to-r from-amber-400 to-orange-400 rounded-3xl p-6 text-white shadow-lg relative overflow-hidden">
+                <div class="relative z-10 max-w-2xl">
+                    <span class="bg-white/20 text-white font-bold text-xs px-3 py-1 rounded-full uppercase tracking-wider">圖解記憶 ‧ 絕不混淆</span>
+                    <h2 class="text-2xl md:text-3xl font-black mt-2 mb-3">超強速記與差異對比卡</h2>
+                    <p class="text-amber-100 text-sm leading-relaxed">
+                        利用精簡圖像與口訣，快速比較「露 vs 霜」、「雲 vs 霧」、「冷鋒 vs 暖鋒」等極易混淆的知識點！
+                    </p>
+                </div>
+                <div class="absolute -right-6 -bottom-10 opacity-30 text-9xl">
+                    <i class="fa-solid fa-bolt-lightning"></i>
+                </div>
+            </div>
+
+            <!-- COMPARISON CARDS GRID -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- MEMORY 1: DEW VS FROST -->
+                <div class="bg-white cute-card p-6 space-y-4">
+                    <h3 class="font-black text-amber-600 text-lg flex items-center gap-2">
+                        <i class="fa-solid fa-[#F59E0B] fa-scale-balanced"></i> 超強速記 1：【露】vs【霜】的關鍵差異
+                    </h3>
+                    <div class="grid grid-cols-2 gap-3 text-center">
+                        <div class="bg-blue-50 p-4 rounded-2xl border-2 border-blue-200">
+                            <span class="text-3xl">💧</span>
+                            <div class="font-black text-blue-700 mt-1">露 (Dew)</div>
+                            <div class="text-xs font-bold text-slate-500 mt-2">溫度：<b>$> 0^\circ\text{C}$</b></div>
+                            <div class="text-xs font-bold text-blue-600 mt-1">形態：<b>液態水滴</b></div>
+                            <div class="text-xs bg-white p-2 rounded-lg mt-2 border border-blue-100 text-slate-600 font-bold">過程：水蒸氣<b>凝結</b></div>
+                        </div>
+
+                        <div class="bg-cyan-50 p-4 rounded-2xl border-2 border-cyan-200">
+                            <span class="text-3xl">❄️</span>
+                            <div class="font-black text-cyan-700 mt-1">霜 (Frost)</div>
+                            <div class="text-xs font-bold text-slate-500 mt-2">溫度：<b>$< 0^\circ\text{C}$</b></div>
+                            <div class="text-xs font-bold text-cyan-600 mt-1">形態：<b>固態冰晶</b></div>
+                            <div class="text-xs bg-white p-2 rounded-lg mt-2 border border-cyan-100 text-slate-600 font-bold">過程：水蒸氣<b>凝華</b></div>
+                        </div>
+                    </div>
+                    <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs font-black text-amber-800 text-center">
+                        💡 記憶口訣：零度以上結為水滴是【露】，零度以下直接變晶是【霜】！
+                    </div>
+                </div>
+
+                <!-- MEMORY 2: CLOUD VS FOG -->
+                <div class="bg-white cute-card p-6 space-y-4">
+                    <h3 class="font-black text-sky-600 text-lg flex items-center gap-2">
+                        <i class="fa-solid fa-scale-balanced"></i> 超強速記 2：【雲】vs【霧】的關鍵差異
+                    </h3>
+                    <div class="grid grid-cols-2 gap-3 text-center">
+                        <div class="bg-sky-50 p-4 rounded-2xl border-2 border-sky-200">
+                            <span class="text-3xl">☁️</span>
+                            <div class="font-black text-sky-700 mt-1">雲 (Cloud)</div>
+                            <div class="text-xs font-bold text-slate-500 mt-2">位置：<b>飄浮在高空</b></div>
+                            <div class="text-xs font-bold text-sky-600 mt-1">成分：小水滴 / 小冰晶</div>
+                        </div>
+
+                        <div class="bg-emerald-50 p-4 rounded-2xl border-2 border-emerald-200">
+                            <span class="text-3xl">🌫️</span>
+                            <div class="font-black text-emerald-700 mt-1">霧 (Fog)</div>
+                            <div class="text-xs font-bold text-slate-500 mt-2">位置：<b>飄浮在地表附近</b></div>
+                            <div class="text-xs font-bold text-emerald-600 mt-1">成分：小水滴</div>
+                        </div>
+                    </div>
+                    <div class="bg-sky-50 p-3 rounded-xl border border-sky-200 text-xs font-black text-sky-800 text-center">
+                        💡 記憶口訣：成因完全一模一樣！在高空叫【雲】，在地面叫【霧】！
+                    </div>
+                </div>
+
+                <!-- MEMORY 3: FRONTS COMPARISON -->
+                <div class="bg-white cute-card p-6 space-y-4 md:col-span-2">
+                    <h3 class="font-black text-indigo-600 text-lg flex items-center gap-2">
+                        <i class="fa-solid fa-diagram-project"></i> 超強速記 3：三大鋒面與符號速記對照表
+                    </h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs font-bold border-collapse">
+                            <thead>
+                                <tr class="bg-sky-100 text-sky-800">
+                                    <th class="p-3 rounded-l-xl">鋒面種類</th>
+                                    <th class="p-3">推擠主導力量</th>
+                                    <th class="p-3">地圖符號與特徵</th>
+                                    <th class="p-3">臺灣典型出現季節</th>
+                                    <th class="p-3 rounded-r-xl">天氣特徵與影響</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100">
+                                <tr class="hover:bg-blue-50/50">
+                                    <span class="hidden"></span>
+                                    <td class="p-3 text-blue-700 font-extrabold text-sm">🥶 冷鋒</td>
+                                    <td class="p-3">冷氣團強勢，推進暖氣團</td>
+                                    <td class="p-3"><span class="bg-blue-100 text-blue-700 px-2 py-1 rounded">▲▲▲ 藍色三角形</span></td>
+                                    <td class="p-3">秋冬與早春（冷氣團南下）</td>
+                                    <td class="p-3">氣溫驟降、陣雨、轉冷</td>
+                                </tr>
+                                <tr class="hover:bg-rose-50/50">
+                                    <td class="p-3 text-rose-700 font-extrabold text-sm">☀️ 暖鋒</td>
+                                    <td class="p-3">暖氣團強勢，推進冷氣團</td>
+                                    <td class="p-3"><span class="bg-rose-100 text-rose-700 px-2 py-1 rounded">●●● 紅色半圓形</span></td>
+                                    <td class="p-3">臺灣極少出現單純暖鋒</td>
+                                    <td class="p-3">氣溫回升、長週期連續降雨</td>
+                                </tr>
+                                <tr class="hover:bg-purple-50/50">
+                                    <td class="p-3 text-purple-700 font-extrabold text-sm">☔ 滯留鋒</td>
+                                    <td class="p-3">冷暖氣團勢均力敵，推擠僵持</td>
+                                    <td class="p-3"><span class="bg-purple-100 text-purple-700 px-2 py-1 rounded">▲●▲● 交替排列</span></td>
+                                    <td class="p-3">5 ~ 6 月（梅雨季節）</td>
+                                    <td class="p-3">長期間陰雨連綿、局部豪雨</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 4: PRACTICE QUIZ ROOM (25 QUESTIONS) -->
+        <section id="section-quiz" class="tab-section hidden space-y-6">
+            <div class="bg-gradient-to-r from-rose-400 to-pink-500 rounded-3xl p-6 text-white shadow-lg flex flex-col md:flex-row items-center justify-between gap-4">
+                <div>
+                    <span class="bg-white/20 text-white font-bold text-xs px-3 py-1 rounded-full uppercase tracking-wider">實戰測驗 ‧ 25 題完整特訓</span>
+                    <h2 class="text-2xl md:text-3xl font-black mt-2">小六自然第1單元 滿分挑戰賽</h2>
+                    <p class="text-rose-100 text-sm mt-1">包含基礎題、中等題、較難題與資優挑戰題！附帶詳細解題與重點標示。</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/20 text-center min-w-[160px]">
+                    <div class="text-xs text-rose-100 font-bold">目前得分</div>
+                    <div id="quizScoreDisplay" class="text-3xl font-black text-amber-300">0 / 100</div>
+                    <div id="quizProgressCount" class="text-xs text-white/80 font-bold mt-1">已答 0 / 25 題</div>
+                </div>
+            </div>
+
+            <!-- FILTER BUTTONS -->
+            <div class="flex items-center space-x-2 overflow-x-auto pb-2 scrollbar-none">
+                <button onclick="filterQuiz('all')" class="quiz-filter-btn px-4 py-1.5 rounded-full text-xs font-black bg-rose-500 text-white shadow">全部 (25題)</button>
+                <button onclick="filterQuiz('easy')" class="quiz-filter-btn px-4 py-1.5 rounded-full text-xs font-black bg-white text-slate-600 border hover:bg-slate-50">🟢 簡易題</button>
+                <button onclick="filterQuiz('medium')" class="quiz-filter-btn px-4 py-1.5 rounded-full text-xs font-black bg-white text-slate-600 border hover:bg-slate-50">🟡 中等題</button>
+                <button onclick="filterQuiz('hard')" class="quiz-filter-btn px-4 py-1.5 rounded-full text-xs font-black bg-white text-slate-600 border hover:bg-slate-50">🔴 較難題</button>
+                <button onclick="filterQuiz('gifted')" class="quiz-filter-btn px-4 py-1.5 rounded-full text-xs font-black bg-white text-slate-600 border hover:bg-slate-50">👑 資優題</button>
+            </div>
+
+            <!-- QUIZ CONTAINER -->
+            <div id="quizContainer" class="space-y-6">
+                <!-- Dynamic Questions will be inserted by JS -->
+            </div>
+        </section>
+
+        <!-- TAB 5: STUDENT TABLET DASHBOARD -->
+        <section id="section-tablet" class="tab-section hidden space-y-8">
+            <div class="bg-gradient-to-r from-emerald-400 to-teal-500 rounded-3xl p-6 text-white shadow-lg relative overflow-hidden">
+                <div class="relative z-10 max-w-2xl">
+                    <span class="bg-white/20 text-white font-bold text-xs px-3 py-1 rounded-full uppercase tracking-wider">個人數位平板</span>
+                    <h2 class="text-2xl md:text-3xl font-black mt-2 mb-2">學習記錄與學習筆記本</h2>
+                    <p class="text-emerald-100 text-sm">進度自動記錄在平板記憶中，可隨時複習與記下個人心得！</p>
+                </div>
+                <div class="absolute -right-6 -bottom-10 opacity-30 text-9xl">
+                    <i class="fa-solid fa-tablet-screen-button"></i>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- STATS & BADGES -->
+                <div class="bg-white cute-card p-6 space-y-4">
+                    <h3 class="font-black text-slate-800 text-lg flex items-center gap-2 border-b pb-3">
+                        <i class="fa-solid fa-award text-amber-500"></i> 成就獎章庫
+                    </h3>
+                    <div class="grid grid-cols-2 gap-3" id="badgeGrid">
+                        <!-- Badges dynamically rendered -->
+                    </div>
+                </div>
+
+                <!-- DIGITAL NOTES BOARD -->
+                <div class="bg-white cute-card p-6 md:col-span-2 space-y-4">
+                    <div class="flex items-center justify-between border-b pb-3">
+                        <h3 class="font-black text-slate-800 text-lg flex items-center gap-2">
+                            <i class="fa-solid fa-note-sticky text-emerald-500"></i> 我的自學備忘錄
+                        </h3>
+                        <button onclick="saveNotes()" class="px-3 py-1 bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-black rounded-xl shadow">
+                            <i class="fa-solid fa-floppy-disk"></i> 儲存筆記
+                        </button>
+                    </div>
+                    <textarea id="studentNotes" class="w-full h-48 p-4 rounded-2xl bg-amber-50/50 border-2 border-amber-200 text-sm font-bold text-slate-700 focus:outline-none focus:border-emerald-400 leading-relaxed" placeholder="在此處記下你的錯題筆記、速記口訣或疑問..."></textarea>
+                    <div class="text-xs text-slate-400 font-bold flex justify-between">
+                        <span>💡 筆記內容將自動存在目前瀏覽器會話中。</span>
+                        <span id="saveStatus" class="text-emerald-600 font-black"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // State variables
+        let currentScore = 0;
+        let answeredCount = 0;
+        let userAnswers = {};
+
+        // 25 QUESTIONS DATASET (Covering Easy, Medium, Hard, Gifted)
+        const quizData = [
+            // Activity 1 (1-8)
+            {
+                id: 1,
+                category: "easy",
+                question: "【簡易】關於「雲」與「霧」的敘述，下列哪一項是完全正確的？",
+                options: [
+                    "雲是氣態的水蒸氣，霧是液態的水滴",
+                    "雲與霧的形成原理相同，差別在於雲飄浮在高空，霧飄浮在地表附近",
+                    "霧只會在冬天出現，雲只會在夏天出現",
+                    "霧降落到地面之後就會變成雪"
+                ],
+                answer: 1,
+                explanation: "<b>重點：</b>雲和霧都是水蒸氣遇冷凝結成的小水滴（或冰晶），成因完全相同，唯一的差異是<b>雲在高空，霧在地面附近</b>。"
+            },
+            {
+                id: 2,
+                category: "easy",
+                question: "【簡易】小萱在寒冷的冬天清晨看到草葉上有白色固態冰晶，這是「霜」。霜的形成溫度通常需降至多少度以下？",
+                options: ["10℃", "5℃", "0℃", "25℃"],
+                answer: 2,
+                explanation: "<b>重點：</b>當物體表面溫度<b>低於 0℃</b> 時，空氣中的水蒸氣會直接<b>凝華</b>成白色固態冰晶（霜）。"
+            },
+            {
+                id: 3,
+                category: "medium",
+                question: "【中等】在做「模擬霜的形成」實驗時，鋼杯中除了冰塊與水之外，加入「食鹽」的主要科學原理是什麼？",
+                options: [
+                    "食鹽能增加水蒸氣的重量",
+                    "食鹽溶解吸熱與冰鹽混合作用，能使溫度迅速降至 0℃ 以下",
+                    "食鹽可以殺菌並改變水滴顏色",
+                    "食鹽能讓水蒸氣直接變成液態水"
+                ],
+                answer: 1,
+                explanation: "<b>重點標示：</b>冰塊加水加食鹽屬於吸熱冷卻混合物，<b>可以使溫度降至零下 (約 -10℃)</b>，從而成功讓杯壁外凝華結霜。"
+            },
+            {
+                id: 4,
+                category: "medium",
+                question: "【中等】關於「冰雹」這種天氣現象的形成原因，下列何者說明最適當？",
+                options: [
+                    "水蒸氣在地面上直接凝固形成的巨大冰塊",
+                    "雲層內對流非常旺盛，冰粒被強烈氣流帶至高空反覆凝固變大後墜落",
+                    "颱風眼經過時強風將海水吹凍成冰塊落下",
+                    "溫室氣體過多導致高空海水結冰"
+                ],
+                answer: 1,
+                explanation: "<b>重點標示：</b>冰雹常發生於<b>強烈對流天氣（如積雨雲）</b>中，冰粒在上下劇烈翻滾中包裹水滴再度凝固，變大後掉落。"
+            },
+            {
+                id: 5,
+                category: "gifted",
+                question: "【資優】當空氣降溫至飽和，水蒸氣開始凝結成水滴的特定溫度稱為「露點 (Dew Point)」。若某日氣溫與露點溫度完全相同，代表此時空氣的相對濕度為多少？",
+                options: ["50%", "75%", "100%", "0%"],
+                answer: 2,
+                explanation: "<b>高階重點：</b>當實際氣溫降到與<b>露點溫度相同</b>時，空氣中的水水蒸氣達到最大飽和狀態，此時<b>相對濕度正好為 100%</b>。"
+            },
+            {
+                id: 6,
+                category: "medium",
+                question: "【中等】洋流對區域氣候與天氣有巨大影響。流經臺灣東部海域、為臺灣帶來溫暖潮濕氣候的著名洋流是哪一個？",
+                options: ["親潮", "黑潮", "加利福尼亞洋流", "秘魯涼流"],
+                answer: 1,
+                explanation: "<b>重點：</b><b>黑潮</b>是源自熱帶太平洋的強大暖流，流經臺灣東部，使臺灣沿海氣溫維持溫暖且水氣充沛。"
+            },
+            {
+                id: 7,
+                category: "easy",
+                question: "【簡易】關於自然界水循環的敘述，下列何者「錯誤」？",
+                options: [
+                    "海洋與地表的水會蒸發變成水蒸氣上升",
+                    "水蒸氣遇冷凝結成雲霧後，透過降雨或降雪回歸地表",
+                    "水滲入地下會變成地下水，最終匯入海洋",
+                    "水蒸發升空後就永遠消失在地球上，循環便中止了"
+                ],
+                answer: 3,
+                explanation: "<b>重點：</b>地球上的水會在氣態、液態、固態之間不斷<b>循環利用</b>，總水量基本保持動態平衡，不會消失。"
+            },
+            {
+                id: 8,
+                category: "gifted",
+                question: "【資優】水蒸氣凝結成液態水 drops 或凝華成冰晶時，會對周圍大氣產生什麼「熱量轉移」效應？",
+                options: [
+                    "釋放潛熱 (Latent Heat)，使周圍空氣溫度上升",
+                    "吸收熱量，使周圍空氣迅速降溫",
+                    "完全不產生任何熱量轉移",
+                    "先吸收熱量再釋放微波"
+                ],
+                answer: 0,
+                explanation: "<b>高階重點：</b>氣態變液態/固態是<b>放熱反應</b>！凝結時釋放的<b>潛熱 (Latent Heat)</b> 是供給颱風與積雨雲持續發展的關鍵能量來源。"
+            },
+
+            // Activity 2 (9-17)
+            {
+                id: 9,
+                category: "easy",
+                question: "【簡易】在地面天氣圖上，標示為「H」代表高氣壓中心，標示為「L」代表低氣壓中心。通常「高氣壓籠罩」區域的天氣狀態為何？",
+                options: ["陰雨連綿", "狂風暴雨", "晴朗穩定", "下大雪"],
+                answer: 2,
+                explanation: "<b>重點：</b>高氣壓 (H) 中心為<b>下沉氣流</b>，不易形成雲霧，因此天氣通常<b>晴朗穩定</b>。"
+            },
+            {
+                id: 10,
+                category: "medium",
+                question: "【中等】冬季時，來自西伯利亞的冷氣團南下推擠暖氣團，在天氣圖上會形成帶有藍色三角形的符號。這道鋒面稱為？",
+                options: ["暖鋒", "冷鋒", "滯留鋒", "錮囚鋒"],
+                answer: 1,
+                explanation: "<b>重點：</b>冷氣團勢力強並主動推擠暖氣團形成的鋒面稱為<b>冷鋒</b>，地圖上記為藍色三角形 ▲。"
+            },
+            {
+                id: 11,
+                category: "medium",
+                question: "【中等】每年 5 ~ 6 月臺灣進入「梅雨季節」，這是因為冷暖氣團勢均力敵，形成在臺灣上空徘徊的哪種鋒面？",
+                options: ["冷鋒", "暖鋒", "滯留鋒", "颱風鋒"],
+                answer: 2,
+                explanation: "<b>重點標示：</b>冷暖氣團勢均力敵形成<b>滯留鋒</b>，符號為紅半圓與藍三角交替排列，導致連續多日陰雨。"
+            },
+            {
+                id: 12,
+                category: "gifted",
+                question: "【資優】由於地球自轉產生的「科氏力 (Coriolis Effect)」，在北半球，低氣壓（或颱風）中心周圍的風向會如何旋轉吹入？",
+                options: [
+                    "順時針方向旋轉流入",
+                    "逆時針方向旋轉流入",
+                    "呈直線垂直吹向中心",
+                    "順時針方向向外輻散"
+                ],
+                answer: 1,
+                explanation: "<b>高階重點：</b>受科氏力影響（北半球向右偏），<b>北半球低氣壓與颱風中心周圍風向為「逆時針旋轉流入」</b>。"
+            },
+            {
+                id: 13,
+                category: "medium",
+                question: "【中等】颱風眼是颱風結構中的特殊區域。當颱風眼通過某地區上空時，當地的天氣現象通常為何？",
+                options: [
+                    "風雨達到全天最強烈狀態",
+                    "風雨驟減甚至無風無雨，有時可見藍天",
+                    "立刻下起大冰雹",
+                    "氣溫瞬間降到 0℃ 以下"
+                ],
+                answer: 1,
+                explanation: "<b>重點：</b><b>颱風眼中心為微弱下沉氣流</b>，雲層稀少，因此經過時會出現短暫的<b>無風無雨</b>狀態。"
+            },
+            {
+                id: 14,
+                category: "easy",
+                question: "【簡易】觀察衛星雲圖時，若發現臺灣上空被厚重的「白色區塊」籠罩，代表當地的天氣最可能是？",
+                options: ["艷陽高照", "雲層厚重且降雨機率高", "晴空萬里", "完全沒有雲"],
+                answer: 1,
+                explanation: "<b>重點：</b>衛星雲圖上越白、越厚實的區塊代表<b>雲層越厚越密</b>，該區域降雨機率很高。"
+            },
+            {
+                id: 15,
+                category: "gifted",
+                question: "【資優】當移動較快的冷鋒追上前面移動較慢的暖鋒，將中間的暖空氣完全抬離地面時，會形成哪一種高階鋒面？",
+                options: ["滯留鋒", "錮囚鋒 (Occluded Front)", "靜止鋒", "副熱帶高壓"],
+                answer: 1,
+                explanation: "<b>高階重點：</b>快冷鋒追上慢暖鋒稱為<b>錮囚鋒</b>，符號為紫色三角形與半圓形混合，常帶來強烈降雨與氣旋消散。"
+            },
+            {
+                id: 16,
+                category: "medium",
+                question: "【中等】發源於蒙古與西伯利亞一帶的「大陸氣團」，其溫濕度物理特性主要為何？",
+                options: ["高溫多濕", "寒冷乾燥", "高溫乾燥", "寒冷多濕"],
+                answer: 1,
+                explanation: "<b>重點標示：</b>高緯度內陸發源的氣團具有<b>「寒冷且乾燥」</b>的特性，南下影響臺灣時會帶來乾冷天氣。"
+            },
+            {
+                id: 17,
+                category: "easy",
+                question: "【簡易】在地面天氣圖上，用來連接氣壓相同各點的封閉曲線稱為等壓線。氣壓的常用國際單位是？",
+                options: ["毫米 (mm)", "攝氏度 (℃)", "百帕 (hPa)", "公克 (g)"],
+                answer: 2,
+                explanation: "<b>重點：</b>氣壓的單位為<b>百帕 (hPa)</b>。"
+            },
+
+            // Activity 3 (18-25)
+            {
+                id: 18,
+                category: "easy",
+                question: "【簡易】「天氣」與「氣候」的主要區別在於觀察時間長短。下列敘述何者屬於「氣候」的描述？",
+                options: [
+                    "今天台北下午下了一場午後雷陣雨",
+                    "基隆冬天經常陰雨連綿，年平均雨量豐富",
+                    "明天新竹的氣溫預測為 22℃",
+                    "強烈颱風小犬目前正通過鵝鑾鼻"
+                ],
+                answer: 1,
+                explanation: "<b>重點：</b>「基隆冬天長期陰雨」屬於<b>長期平均狀態（氣候）</b>；而今天、明天的天氣現象屬於短期的「天氣」。"
+            },
+            {
+                id: 19,
+                category: "medium",
+                question: "【中等】全球暖化加劇的主要原因是溫室氣體增加。下列何者「不是」主要造成溫室效應的氣體？",
+                options: ["二氧化碳 (CO₂)", "甲烷 (CH₄)", "氧氣 (O₂)", "氧化亞氮 (N₂O)"],
+                answer: 2,
+                explanation: "<b>重點標示：</b><b>氧氣 (O₂) 與氮氣 (N₂) 不屬於溫室氣體</b>。主要溫室氣體包含 CO₂、CH₄、N₂O 及水蒸氣等。"
+            },
+            {
+                id: 20,
+                category: "easy",
+                question: "【簡易】產品標籤上的「碳足跡 (Carbon Footprint)」綠色腳印標章，代表什麼意義？",
+                options: [
+                    "這項商品穿在腳上可以減重",
+                    "這項商品從原料、生產、運送到廢棄過程中排放的溫室氣體總量",
+                    "這項商品使用了多少公噸的純水",
+                    "這項商品的製造費用價格"
+                ],
+                answer: 1,
+                explanation: "<b>重點：</b>碳足跡代表產品<b>全生命週期</b>所產生的溫室氣體排放總量。"
+            },
+
+            {
+                id: 21,
+                category: "medium",
+                question: "【中等】為了減少生活中的「碳足跡」與「水足跡」，下列哪一種飲食與購物消費行為最值得推薦？",
+                options: [
+                    "搭飛機空運進口的昂貴歐美水果",
+                    "選擇臺灣在地生產的當季新鮮蔬果",
+                    "每餐都使用精美包裝的一次性塑膠餐具",
+                    "只吃高耗水量的進口牛肉與精細加工食品"
+                ],
+                answer: 1,
+                explanation: "<b>重點：</b>選購<b>在地當季食材</b>可大幅縮短長途運輸產生的碳足跡，並減少包裝浪費。"
+            },
+            {
+                id: 22,
+                category: "gifted",
+                question: "【資優】北極海冰融化導致地表太陽輻射「反照率 (Albedo)」降低，使海水吸收更多熱量並進一步加速冰層融化。這種現象在氣候學中稱為？",
+                options: ["負回饋機制", "正回饋機制 (Positive Feedback)", "氣壓平衡效應", "臭氧層破洞"],
+                answer: 1,
+                explanation: "<b>高階重點：</b>結果反過來加劇最初的原因，形成自我放大循環的機制稱為<b>正回饋機制 (Positive Feedback)</b>。"
+            },
+            {
+                id: 23,
+                category: "medium",
+                question: "【中等】學校裝設「雨撲滿 (Rain Barrel)」用來收集雨水，最主要的環境永續效益為何？",
+                options: [
+                    "製造更多溫室氣體",
+                    "回收雨水用於澆花與洗地板，降低水足跡並節約水資源",
+                    "增加電燈的使用頻率",
+                    "防止地震發生"
+                ],
+                answer: 1,
+                explanation: "<b>重點標示：</b>雨撲滿能<b>收集雨水替代自來水</b>進行非飲用清潔，有效節水並降低水足跡。"
+            },
+            {
+                id: 24,
+                category: "gifted",
+                question: "【資優】在常見溫室氣體中，雖然二氧化碳 (CO₂) 總量最多，但「甲烷 (CH₄)」的全球暖化潛勢 (GWP) 卻高出 CO₂ 數十倍。甲烷主要來源包含下列何者？",
+                options: [
+                    "植物的光合作用",
+                    "牛羊等畜牧業的反芻胃消化過程與有機廢棄物堆肥",
+                    "太陽光照射海水",
+                    "風力發電廠運轉"
+                ],
+                answer: 1,
+                explanation: "<b>高階重點：</b><b>畜牧業（如牛隻反芻）、垃圾填埋與稻田有機物分解</b>是全球大氣中甲烷 (CH₄) 的主要來源。"
+            },
+            {
+                id: 25,
+                category: "medium",
+                question: "【中等】小翔準備上學，下列哪一種交通出行方式對於「節能減碳」最有幫助？",
+                options: [
+                    "請父母每天單獨開大排氣量休旅車接送",
+                    "走路、騎自行車或搭乘大眾運輸工具（公車/捷運）",
+                    "搭乘計程車且一路引擎空轉等待",
+                    "獨自搭乘專用直升機"
+                ],
+                answer: 1,
+                explanation: "<b>重點：</b><b>步行、騎單車或搭乘大眾運輸</b>能顯著減少每人每公里的碳排放量。"
+            }
+        ];
+
+        window.onload = function() {
+            renderQuiz();
+            renderBadges();
+            loadNotes();
+            updateProgress();
+        };
+
+        // TAB SWITCHING SYSTEM
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-section').forEach(sec => sec.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-sky-600', 'shadow', 'border-2', 'border-sky-300');
+                btn.classList.add('text-slate-600');
+            });
+
+            document.getElementById('section-' + tabId).classList.remove('hidden');
+            const activeBtn = document.getElementById('tab-' + tabId);
+            activeBtn.classList.add('bg-white', 'text-sky-600', 'shadow', 'border-2', 'border-sky-300');
+            activeBtn.classList.remove('text-slate-600');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // RENDER QUIZ CARDS
+        function renderQuiz(filter = 'all') {
+            const container = document.getElementById('quizContainer');
+            container.innerHTML = '';
+
+            const filtered = filter === 'all' ? quizData : quizData.filter(q => q.category === filter);
+
+            filtered.forEach((q, idx) => {
+                const qCard = document.createElement('div');
+                qCard.className = 'bg-white cute-card p-6 space-y-4 border-2 border-slate-100 bouncy-hover';
+                
+                let catBadge = '';
+                if(q.category === 'easy') catBadge = '<span class="bg-emerald-100 text-emerald-700 font-black text-xs px-2.5 py-1 rounded-full">🟢 簡易題</span>';
+                if(q.category === 'medium') catBadge = '<span class="bg-amber-100 text-amber-700 font-black text-xs px-2.5 py-1 rounded-full">🟡 中等題</span>';
+                if(q.category === 'hard') catBadge = '<span class="bg-rose-100 text-rose-700 font-black text-xs px-2.5 py-1 rounded-full">🔴 較難題</span>';
+                if(q.category === 'gifted') catBadge = '<span class="bg-purple-100 text-purple-700 font-black text-xs px-2.5 py-1 rounded-full">👑 資優題</span>';
+
+                let optionsHTML = '';
+                q.options.forEach((opt, optIdx) => {
+                    const isSelected = userAnswers[q.id] === optIdx;
+                    const isAnswered = userAnswers[q.id] !== undefined;
+                    let optStyle = 'bg-slate-50 hover:bg-sky-50 border-slate-200 text-slate-700';
+
+                    if (isAnswered) {
+                        if (optIdx === q.answer) {
+                            optStyle = 'bg-emerald-100 border-emerald-400 text-emerald-800 font-black';
+                        } else if (isSelected && optIdx !== q.answer) {
+                            optStyle = 'bg-rose-100 border-rose-400 text-rose-800 font-bold';
+                        }
+                    }
+
+                    optionsHTML += `
+                        <button onclick="checkAnswer(${q.id}, ${optIdx})" ${isAnswered ? 'disabled' : ''} 
+                                class="w-full text-left p-3.5 rounded-xl border-2 transition-all font-bold text-sm flex items-center justify-between ${optStyle}">
+                            <span>${optIdx + 1}. ${opt}</span>
+                            ${isAnswered && optIdx === q.answer ? '<i class="fa-solid fa-circle-check text-emerald-600 text-lg"></i>' : ''}
+                            ${isAnswered && isSelected && optIdx !== q.answer ? '<i class="fa-solid fa-circle-xmark text-rose-600 text-lg"></i>' : ''}
+                        </button>
+                    `;
+                });
+
+                let explanationHTML = '';
+                if (userAnswers[q.id] !== undefined) {
+                    explanationHTML = `
+                        <div class="mt-4 p-4 rounded-2xl bg-sky-50 border-2 border-sky-200 text-xs text-slate-700 leading-relaxed">
+                            <div class="font-black text-sky-800 mb-1 flex items-center gap-1">
+                                <i class="fa-solid fa-lightbulb text-amber-500"></i> 解析重點說明：
+                            </div>
+                            ${q.explanation}
+                        </div>
+                    `;
+                }
+
+                qCard.innerHTML = `
+                    <div class="flex items-center justify-between border-b pb-3">
+                        <span class="font-black text-slate-400 text-xs">第 ${q.id} / 25 題</span>
+                        ${catBadge}
+                    </div>
+                    <h4 class="font-black text-slate-800 text-md leading-snug">${q.question}</h4>
+                    <div class="space-y-2">${optionsHTML}</div>
+                    ${explanationHTML}
+                `;
+
+                container.appendChild(qCard);
+            });
+        }
+
+        // FILTER QUIZ
+        function filterQuiz(category) {
+            document.querySelectorAll('.quiz-filter-btn').forEach(btn => {
+                btn.classList.remove('bg-rose-500', 'text-white');
+                btn.classList.add('bg-white', 'text-slate-600');
+            });
+            event.target.classList.add('bg-rose-500', 'text-white');
+            event.target.classList.remove('bg-white', 'text-slate-600');
+
+            renderQuiz(category);
+        }
+
+        // ANSWER CHECKER
+        function checkAnswer(questionId, selectedIdx) {
+            if (userAnswers[questionId] !== undefined) return;
+
+            userAnswers[questionId] = selectedIdx;
+            const q = quizData.find(item => item.id === questionId);
+
+            if (selectedIdx === q.answer) {
+                currentScore += 4; // 25 * 4 = 100 max
+            }
+            answeredCount++;
+
+            document.getElementById('quizScoreDisplay').innerText = `${currentScore} / 100`;
+            document.getElementById('topScore').innerText = currentScore;
+            document.getElementById('quizProgressCount').innerText = `已答 ${answeredCount} / 25 題`;
+
+            updateProgress();
+            renderQuiz();
+            renderBadges();
+        }
+
+        // UPDATE PROGRESS BAR
+        function updateProgress() {
+            const percent = Math.round((answeredCount / 25) * 100);
+            document.getElementById('topProgressBar').style.width = `${percent}%`;
+            document.getElementById('topProgressText').innerText = `${percent}%`;
+        }
+
+        // BADGE SYSTEM
+        function renderBadges() {
+            const badgeContainer = document.getElementById('badgeGrid');
+            badgeContainer.innerHTML = '';
+
+            const badges = [
+                { title: "自學新手", icon: "🌱", desc: "完成任意 1 題答題", unlocked: answeredCount >= 1 },
+                { title: "大氣小達人", icon: "🌤️", desc: "答對超過 5 題", unlocked: currentScore >= 20 },
+                { title: "鋒面專家", icon: "🌀", desc: "答對超過 15 題", unlocked: currentScore >= 60 },
+                { title: "自然資優王", icon: "👑", desc: "得分達到 90 分以上", unlocked: currentScore >= 90 }
+            ];
+
+            badges.forEach(b => {
+                const bCard = document.createElement('div');
+                bCard.className = `p-3 rounded-2xl border-2 text-center space-y-1 ${b.unlocked ? 'bg-amber-50 border-amber-300 text-amber-900 badge-pulse' : 'bg-slate-50 border-slate-200 text-slate-400 opacity-60'}`;
+                bCard.innerHTML = `
+                    <div class="text-2xl">${b.icon}</div>
+                    <div class="font-black text-xs">${b.title}</div>
+                    <div class="text-[10px] font-bold text-slate-500">${b.desc}</div>
+                `;
+                badgeContainer.appendChild(bCard);
+            });
+        }
+
+        // STUDENT NOTES SAVER
+        function saveNotes() {
+            const text = document.getElementById('studentNotes').value;
+            window.studentAppNotes = text;
+            const status = document.getElementById('saveStatus');
+            status.innerText = "✓ 筆記已成功儲存！";
+            setTimeout(() => status.innerText = "", 2500);
+        }
+
+        function loadNotes() {
+            if (window.studentAppNotes) {
+                document.getElementById('studentNotes').value = window.studentAppNotes;
+            }
+        }
+    </script>
+</body>
+</html>
