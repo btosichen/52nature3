@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>磁磁小U的電磁大冒險｜六上自然 第4單元 電磁作用 自學App</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧲</text></svg>">
+<style>
+:root{
+  --yellow:#FFD93D; --pink:#FF6B9D; --sky:#4FC3F7; --mint:#5DD39E; --orange:#FF9F43; --purple:#A66CFF; --red:#FF5A5F; --blue:#3D8BFD;
+  --ink:#3a2e5c; --soft:#fffaf0; --card:#ffffff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Heiti TC",system-ui,sans-serif;font-size:20px;line-height:1.75;color:var(--ink);
+  background:#fff8e7 radial-gradient(circle at 20px 20px,#ffe9a8 3px,transparent 4px) 0 0/44px 44px;}
+header{background:linear-gradient(120deg,#FFD93D,#FF9F43 45%,#FF6B9D);padding:18px 16px 14px;text-align:center;box-shadow:0 6px 0 #e9567f33}
+.brand{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.brand h1{margin:0;font-size:32px;color:#fff;text-shadow:3px 3px 0 #d94a7a,0 0 12px #fff6}
+.brand p{margin:2px 0 0;color:#fff;font-size:19px;font-weight:700}
+.logo{width:92px;height:92px;animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-6px) rotate(4deg)}}
+nav{position:sticky;top:0;z-index:20;background:#fff;border-bottom:4px solid var(--yellow);display:flex;gap:8px;overflow-x:auto;padding:10px;scrollbar-width:thin}
+nav button{flex:0 0 auto;border:3px solid transparent;background:#f3efff;color:var(--ink);font-size:19px;font-weight:800;padding:8px 14px;border-radius:999px;cursor:pointer;font-family:inherit}
+nav button.active{background:var(--pink);color:#fff;border-color:#e04d80;transform:scale(1.05)}
+main{max-width:1080px;margin:0 auto;padding:18px 14px 80px}
+section.page{display:none;animation:pop .35s ease}
+section.page.show{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(10px)}to{opacity:1}}
+h2{font-size:30px;margin:10px 0 14px;display:flex;align-items:center;gap:10px}
+h2 .tag{font-size:17px;background:var(--purple);color:#fff;border-radius:10px;padding:2px 10px}
+h3{font-size:24px;margin:18px 0 8px}
+.card{background:var(--card);border-radius:24px;padding:18px 20px;margin:16px 0;box-shadow:0 6px 0 #0000000f,0 2px 12px #0000000d;border:3px solid #fff}
+.c-yellow{border-color:var(--yellow);background:#fffbe6}
+.c-pink{border-color:var(--pink);background:#fff0f5}
+.c-sky{border-color:var(--sky);background:#eefaff}
+.c-mint{border-color:var(--mint);background:#ecfbf3}
+.c-orange{border-color:var(--orange);background:#fff4e8}
+.c-purple{border-color:var(--purple);background:#f5efff}
+.c-red{border-color:var(--red);background:#fff0f0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.hl{background:linear-gradient(transparent 55%,#FFE066 55%);font-weight:800}
+.hl-pink{background:linear-gradient(transparent 55%,#ffc2d8 55%);font-weight:800}
+.big{font-size:24px;font-weight:900}
+.key{display:inline-block;background:var(--red);color:#fff;font-size:15px;font-weight:800;border-radius:8px;padding:0 8px;margin-right:6px;vertical-align:middle}
+.key.mid{background:var(--orange)}
+.key.easy{background:var(--mint)}
+.key.gift{background:var(--purple)}
+.memo{background:#fff;border:3px dashed var(--pink);border-radius:18px;padding:12px 16px;margin:12px 0;font-weight:800;font-size:22px;text-align:center}
+.memo small{display:block;font-size:17px;font-weight:600;color:#7a6aa0}
+table{width:100%;border-collapse:separate;border-spacing:0;border-radius:16px;overflow:hidden;margin:10px 0;font-size:19px}
+th{background:var(--sky);color:#fff;padding:10px}
+td{background:#fff;padding:10px;border-bottom:2px solid #eef;text-align:center}
+tr:nth-child(even) td{background:#f7fbff}
+.yes{color:#18a058;font-weight:900}.no{color:#e0444a;font-weight:900}
+ul.dot{padding-left:0;list-style:none;margin:6px 0}
+ul.dot li{padding-left:34px;position:relative;margin:6px 0}
+ul.dot li::before{content:"⭐";position:absolute;left:0}
+.svgbox{background:#fff;border-radius:20px;padding:8px;overflow-x:auto}
+.svgbox svg{display:block;width:100%;height:auto}
+.mindwrap svg{min-width:760px}
+.bubble{position:relative;background:#fff;border:3px solid var(--sky);border-radius:20px;padding:10px 14px;margin:10px 0 10px 70px}
+.bubble::before{content:"";position:absolute;left:-58px;top:0;width:50px;height:50px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23FFD93D'/%3E%3Ccircle cx='35' cy='45' r='7' fill='%233a2e5c'/%3E%3Ccircle cx='65' cy='45' r='7' fill='%233a2e5c'/%3E%3Cpath d='M33 63 Q50 78 67 63' stroke='%233a2e5c' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:stretch}
+.vs .mid{align-self:center;font-size:30px;font-weight:900;color:var(--pink)}
+.vs>div:not(.mid){border-radius:18px;padding:12px;background:#fff}
+@media(max-width:640px){.vs{grid-template-columns:1fr}.vs .mid{text-align:center}body{font-size:19px}h2{font-size:26px}.brand h1{font-size:26px}}
+/* quiz */
+.qcard{background:#fff;border-radius:22px;padding:16px 18px;margin:16px 0;border:3px solid #e6e0ff;box-shadow:0 5px 0 #0000000d}
+.qcard.hard{border-color:var(--red);background:#fff7f7}
+.qcard.mid{border-color:var(--orange);background:#fffaf2}
+.qhead{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.qnum{background:var(--purple);color:#fff;border-radius:12px;padding:0 10px;font-weight:900}
+.qtype{background:#e8f6ff;color:#1f6fa8;border-radius:10px;padding:0 8px;font-size:16px;font-weight:800}
+.qtext{font-size:21px;font-weight:700}
+.opts{display:grid;gap:8px;margin-top:10px}
+.opts button{text-align:left;font-family:inherit;font-size:20px;padding:10px 14px;border-radius:14px;border:3px solid #ddd6ff;background:#fbfaff;cursor:pointer;color:var(--ink)}
+.opts button:hover{border-color:var(--purple)}
+.opts button.right{background:#dff8ea;border-color:#18a058}
+.opts button.wrong{background:#ffe3e3;border-color:#e0444a}
+.opts button:disabled{cursor:default}
+.explain{display:none;margin-top:10px;padding:10px 14px;border-radius:14px;background:#fffbe0;border-left:8px solid var(--yellow)}
+.explain.show{display:block}
+.btn{font-family:inherit;font-size:19px;font-weight:800;border:none;border-radius:999px;padding:10px 20px;cursor:pointer;color:#fff;background:var(--pink);box-shadow:0 4px 0 #c94473;margin:4px}
+.btn.sky{background:var(--sky);box-shadow:0 4px 0 #2a9bcf}
+.btn.mint{background:var(--mint);box-shadow:0 4px 0 #2fa772}
+.btn.orange{background:var(--orange);box-shadow:0 4px 0 #d27b26}
+.btn:active{transform:translateY(3px);box-shadow:none}
+.scorebar{position:sticky;top:64px;z-index:10;background:#fff;border:3px solid var(--yellow);border-radius:18px;padding:8px 14px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;font-weight:800}
+.progress{flex:1;min-width:160px;height:18px;background:#f0ecff;border-radius:999px;overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--mint),var(--sky));transition:.4s}
+/* flashcards */
+.flash{perspective:900px;height:200px;cursor:pointer}
+.flash .inner{position:relative;width:100%;height:100%;transition:transform .55s;transform-style:preserve-3d}
+.flash.flip .inner{transform:rotateY(180deg)}
+.flash .f,.flash .b{position:absolute;inset:0;backface-visibility:hidden;border-radius:22px;display:flex;align-items:center;justify-content:center;text-align:center;padding:14px;font-weight:800;font-size:21px}
+.flash .f{background:linear-gradient(135deg,#FFD93D,#FF9F43);color:#fff;text-shadow:1px 1px 0 #c97a1c}
+.flash .b{background:#fff;border:4px solid var(--mint);transform:rotateY(180deg);font-size:19px}
+.check label{display:flex;gap:10px;align-items:flex-start;padding:8px 10px;border-radius:12px;cursor:pointer;margin:4px 0;background:#fff}
+.check input{width:26px;height:26px;margin-top:4px;accent-color:var(--mint);flex:0 0 auto}
+.home-tiles button{font-family:inherit;border:none;border-radius:22px;padding:18px 12px;font-size:21px;font-weight:900;color:#fff;cursor:pointer;box-shadow:0 6px 0 #0002;min-height:110px}
+.footer{text-align:center;color:#8a7db0;font-size:16px;margin-top:30px}
+.stepflow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;margin:10px 0}
+.stepflow>span{background:#fff;border:3px solid var(--sky);border-radius:14px;padding:6px 12px;font-weight:800}
+.stepflow b{color:var(--pink);font-size:24px}
+details{background:#fff;border-radius:16px;padding:10px 14px;margin:10px 0;border:3px solid #eee6ff}
+details summary{cursor:pointer;font-weight:900;font-size:21px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 20px;border-radius:999px;font-weight:800;opacity:0;transition:.3s;z-index:50;pointer-events:none}
+.toast.show{opacity:1}
+
+/* ===== interactive labs ===== */
+.lab{background:linear-gradient(135deg,#ffffff,#f0faff);border:4px solid var(--sky);border-radius:26px;padding:14px 16px;margin:16px 0;box-shadow:0 6px 0 #4fc3f73a}
+.lab.pinkb{border-color:var(--pink);background:linear-gradient(135deg,#fff,#fff2f7);box-shadow:0 6px 0 #ff6b9d33}
+.lab.orangeb{border-color:var(--orange);background:linear-gradient(135deg,#fff,#fff6ec);box-shadow:0 6px 0 #ff9f4333}
+.labtitle{font-size:23px;font-weight:900;color:#1f6fa8;margin:2px 0 4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.labtitle .play{background:var(--red);color:#fff;font-size:15px;border-radius:999px;padding:2px 10px}
+.labhint{font-size:18px;color:#6b5f8f;margin:0 0 6px}
+.lab svg{display:block;width:100%;height:auto;touch-action:none;user-select:none;-webkit-user-select:none}
+.labsvg{background:#fff;border-radius:20px;border:2px solid #e3eefb;overflow:hidden}
+.ctrls{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.grp{display:flex;align-items:center;gap:6px;background:#f5f2ff;border-radius:16px;padding:6px 10px;flex-wrap:wrap}
+.grp>b{font-size:17px;color:#6b3fc4}
+.tg{font-family:inherit;font-size:18px;font-weight:800;border:3px solid #d8ccff;background:#fff;border-radius:14px;padding:6px 12px;cursor:pointer;color:var(--ink);transition:.15s}
+.tg:hover{border-color:var(--purple)}
+.tg.on{background:var(--yellow);border-color:#e0b400;transform:scale(1.04)}
+.tg.power{background:#ffe3e3;border-color:#ff9a9a}
+.tg.power.on{background:var(--mint);border-color:#2fa772;color:#fff}
+.labmsg{background:#fffbe0;border-left:8px solid var(--yellow);border-radius:14px;padding:10px 14px;font-weight:700;font-size:20px;min-height:54px}
+.labmsg b{color:#e0444a}
+.duo{display:grid;grid-template-columns:3fr 2fr;gap:12px}
+@media(max-width:760px){.duo{grid-template-columns:1fr}}
+.game{background:#f5efff;border:3px dashed var(--purple);border-radius:18px;padding:10px 14px;margin-top:10px}
+.game .q{font-size:21px;font-weight:900}
+.rec td,.rec th{font-size:17px;padding:6px}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <!-- 原創LOGO：磁磁小U（馬蹄形磁鐵小精靈） -->
+    <svg class="logo" viewBox="0 0 120 120" aria-label="磁磁小U Logo">
+      <circle cx="60" cy="60" r="56" fill="#fff" stroke="#ffe066" stroke-width="6"/>
+      <path d="M30 30 v38 a30 30 0 0 0 60 0 v-38 h-18 v38 a12 12 0 0 1 -24 0 v-38z" fill="#FF5A5F" stroke="#3a2e5c" stroke-width="4" stroke-linejoin="round"/>
+      <rect x="30" y="22" width="18" height="16" rx="3" fill="#3D8BFD" stroke="#3a2e5c" stroke-width="4"/>
+      <rect x="72" y="22" width="18" height="16" rx="3" fill="#5DD39E" stroke="#3a2e5c" stroke-width="4"/>
+      <text x="39" y="35" font-size="12" font-weight="900" fill="#fff" text-anchor="middle">N</text>
+      <text x="81" y="35" font-size="12" font-weight="900" fill="#fff" text-anchor="middle">S</text>
+      <circle cx="48" cy="78" r="4" fill="#3a2e5c"/><circle cx="72" cy="78" r="4" fill="#3a2e5c"/>
+      <path d="M52 88 q8 7 16 0" stroke="#3a2e5c" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      <circle cx="42" cy="86" r="4" fill="#ffb3c8"/><circle cx="78" cy="86" r="4" fill="#ffb3c8"/>
+      <path d="M96 8 l-8 16 h7 l-6 14 l14 -19 h-7 l6 -11z" fill="#FFD93D" stroke="#3a2e5c" stroke-width="2.5" stroke-linejoin="round"/>
+    </svg>
+    <div>
+      <h1>磁磁小U的電磁大冒險</h1>
+      <p>六年級上學期・自然 第4單元「電磁作用」自學 App ⚡🧲🧭</p>
+    </div>
+  </div>
+</header>
+
+<nav id="nav">
+  <button data-p="home" class="active">🏠 首頁＋心智圖</button>
+  <button data-p="a1">🧭 活動1 指北針</button>
+  <button data-p="a2">⚡ 活動2 電磁鐵</button>
+  <button data-p="a3">🏗️ 活動3 生活應用</button>
+  <button data-p="gifted">🚀 資優深度補充</button>
+  <button data-p="types">🎯 題型攻略</button>
+  <button data-p="review">🔁 單元總復習</button>
+  <button data-p="quiz">✏️ 練習題30題</button>
+</nav>
+
+<main>
+<!-- ================= 首頁 ================= -->
+<section class="page show" id="home">
+  <div class="bubble">嗨！我是<b>磁磁小U</b>🧲！這個單元只要記住一句話：<span class="hl">「電能生磁，磁能生電」</span>。跟著我闖關，記得每一關都打勾喔！</div>
+
+  <h2>🗺️ 重點整理心智圖</h2>
+  <div class="card svgbox mindwrap">
+  <svg viewBox="0 0 1000 680" role="img" aria-label="電磁作用心智圖">
+    <defs>
+      <filter id="sh" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="4" stdDeviation="0" flood-color="#0002"/></filter>
+    </defs>
+    <!-- branches -->
+    <g stroke-width="10" fill="none" stroke-linecap="round">
+      <path d="M500 340 C420 300 360 200 255 150" stroke="#4FC3F7"/>
+      <path d="M500 340 C580 300 640 200 745 150" stroke="#FF9F43"/>
+      <path d="M500 340 C580 390 640 480 745 520" stroke="#FF6B9D"/>
+      <path d="M500 340 C420 390 360 480 255 520" stroke="#5DD39E"/>
+      <path d="M500 340 L500 610" stroke="#A66CFF" stroke-dasharray="4 16"/>
+    </g>
+    <!-- center -->
+    <g filter="url(#sh)">
+      <ellipse cx="500" cy="340" rx="125" ry="62" fill="#FFD93D" stroke="#3a2e5c" stroke-width="4"/>
+      <text x="500" y="332" text-anchor="middle" font-size="34" font-weight="900" fill="#3a2e5c">⚡電磁作用🧲</text>
+      <text x="500" y="368" text-anchor="middle" font-size="20" font-weight="700" fill="#3a2e5c">電能生磁・磁能生電</text>
+    </g>
+    <!-- branch 1 -->
+    <g filter="url(#sh)">
+      <rect x="20" y="20" width="330" height="250" rx="24" fill="#eefaff" stroke="#4FC3F7" stroke-width="4"/>
+      <text x="185" y="60" text-anchor="middle" font-size="26" font-weight="900" fill="#1f6fa8">🧭 ① 指北針＆地磁</text>
+      <text x="38" y="100" font-size="20" fill="#3a2e5c">• 指針＝小磁鐵，<tspan font-weight="900" fill="#e0444a">箭頭是N極</tspan></text>
+      <text x="38" y="134" font-size="20" fill="#3a2e5c">• 同極相斥、異極相吸</text>
+      <text x="38" y="168" font-size="20" fill="#3a2e5c">• 自由轉動磁鐵：N指北</text>
+      <text x="38" y="202" font-size="20" fill="#3a2e5c">• <tspan font-weight="900" fill="#e0444a">地磁S極在地球北方</tspan></text>
+      <text x="38" y="236" font-size="20" fill="#3a2e5c">• 遠離鐵器、磁鐵、電器</text>
+    </g>
+    <!-- branch 2 -->
+    <g filter="url(#sh)">
+      <rect x="650" y="20" width="330" height="250" rx="24" fill="#fff4e8" stroke="#FF9F43" stroke-width="4"/>
+      <text x="815" y="60" text-anchor="middle" font-size="26" font-weight="900" fill="#c4651a">⚡ ② 電生磁</text>
+      <text x="668" y="100" font-size="20" fill="#3a2e5c">• 1820 丹麥 <tspan font-weight="900">奧斯特</tspan></text>
+      <text x="668" y="134" font-size="20" fill="#3a2e5c">• 通電電線→指針偏轉</text>
+      <text x="668" y="168" font-size="20" fill="#3a2e5c">• 換電流方向→<tspan font-weight="900" fill="#e0444a">反向偏</tspan></text>
+      <text x="668" y="202" font-size="20" fill="#3a2e5c">• 電線上↔下換位→<tspan font-weight="900" fill="#e0444a">反向偏</tspan></text>
+      <text x="668" y="236" font-size="20" fill="#3a2e5c">• 兩個都換→和原來一樣</text>
+    </g>
+    <!-- branch 3 -->
+    <g filter="url(#sh)">
+      <rect x="650" y="400" width="330" height="270" rx="24" fill="#fff0f5" stroke="#FF6B9D" stroke-width="4"/>
+      <text x="815" y="440" text-anchor="middle" font-size="26" font-weight="900" fill="#c23a6c">🔩 ③ 電磁鐵</text>
+      <text x="668" y="480" font-size="20" fill="#3a2e5c">• 線圈＋<tspan font-weight="900">鐵棒</tspan>＋電池</text>
+      <text x="668" y="514" font-size="20" fill="#3a2e5c">• 通電才有磁性，斷電就沒</text>
+      <text x="668" y="548" font-size="20" fill="#3a2e5c">• 換電流方向→<tspan font-weight="900" fill="#e0444a">磁極對調</tspan></text>
+      <text x="668" y="582" font-size="20" fill="#3a2e5c">• 串聯電池↑ 線圈圈數↑</text>
+      <text x="688" y="616" font-size="20" fill="#3a2e5c">→<tspan font-weight="900" fill="#e0444a">磁力變大</tspan></text>
+      <text x="668" y="650" font-size="20" fill="#3a2e5c">• 並聯電池→磁力不變</text>
+    </g>
+    <!-- branch 4 -->
+    <g filter="url(#sh)">
+      <rect x="20" y="400" width="330" height="270" rx="24" fill="#ecfbf3" stroke="#5DD39E" stroke-width="4"/>
+      <text x="185" y="440" text-anchor="middle" font-size="26" font-weight="900" fill="#1f8a57">🏗️ ④ 生活應用</text>
+      <text x="38" y="480" font-size="20" fill="#3a2e5c">• 起重機、馬達、磁浮列車</text>
+      <text x="38" y="514" font-size="20" fill="#3a2e5c">• 磁浮：電流<tspan font-weight="900">大小</tspan>控速度</text>
+      <text x="116" y="548" font-size="20" fill="#3a2e5c">電流<tspan font-weight="900">方向</tspan>控方向</text>
+      <text x="38" y="582" font-size="20" fill="#3a2e5c">• 電磁波：手機、微波爐、</text>
+      <text x="58" y="616" font-size="20" fill="#3a2e5c">遙控器、Wi-Fi、X光</text>
+      <text x="38" y="650" font-size="20" fill="#3a2e5c">• 防護：<tspan font-weight="900" fill="#e0444a">離遠一點、用短一點</tspan></text>
+    </g>
+    <!-- branch 5 -->
+    <g filter="url(#sh)">
+      <rect x="390" y="560" width="220" height="100" rx="22" fill="#f5efff" stroke="#A66CFF" stroke-width="4"/>
+      <text x="500" y="598" text-anchor="middle" font-size="22" font-weight="900" fill="#6b3fc4">🚀 資優延伸</text>
+      <text x="500" y="632" text-anchor="middle" font-size="18" fill="#3a2e5c">法拉第：磁生電</text>
+      <text x="500" y="654" text-anchor="middle" font-size="16" fill="#3a2e5c">悠遊卡・無線充電・發電機</text>
+    </g>
+  </svg>
+  </div>
+  <p style="text-align:center;margin-top:-6px">👉 平板太窄時可以左右滑動心智圖</p>
+
+  <h2>🎒 闖關地圖</h2>
+  <div class="grid3 home-tiles">
+    <button style="background:#4FC3F7" data-go="a1">🧭 活動1<br>指北針為何能辨認方位</button>
+    <button style="background:#FF9F43" data-go="a2">⚡ 活動2<br>電磁鐵是什麼</button>
+    <button style="background:#5DD39E" data-go="a3">🏗️ 活動3<br>電磁作用對生活的影響</button>
+    <button style="background:#A66CFF" data-go="gifted">🚀 資優深度補充</button>
+    <button style="background:#FF6B9D" data-go="types">🎯 常考／常錯／生活／素養</button>
+    <button style="background:#FF5A5F" data-go="quiz">✏️ 練習題 30 題</button>
+  </div>
+
+  <div class="card c-yellow">
+    <h3>🏅 我的學習紀錄（自動存在這台平板）</h3>
+    <div id="homeStats">載入中…</div>
+    <button class="btn sky" onclick="resetAll()">🧹 清除所有紀錄重新開始</button>
+  </div>
+
+  <div class="card c-purple">
+    <h3>🔣 本單元標示說明</h3>
+    <p><span class="key">難</span>難度高、資優常考 &nbsp; <span class="key mid">中</span>中等難度、段考常考 &nbsp; <span class="key easy">易</span>基本觀念 &nbsp; <span class="key gift">資優</span>課外延伸</p>
+    <p><span class="hl">黃色螢光</span>＝一定要背的重點；<span class="hl-pink">粉紅螢光</span>＝最容易搞錯的陷阱！</p>
+  </div>
+</section>
+
+<!-- ================= 活動1 ================= -->
+<section class="page" id="a1">
+  <h2>🧭 活動1 指北針為何能辨認方位 <span class="tag">2節</span></h2>
+
+  <div class="card c-sky">
+    <h3>1-1 磁鐵對指北針的影響</h3>
+  <div class="lab" id="w1">
+    <div class="labtitle">🎮 互動實驗室①：拖拉磁鐵靠近指北針 <span class="play">動手玩</span></div>
+    <p class="labhint">👆 用手指按住<b>磁鐵</b>拖來拖去，看看指針怎麼轉！打開「磁場小指北針」可以看到整個空間的磁力方向。</p>
+    <div class="labsvg"><svg id="w1svg" viewBox="0 0 700 420"></svg></div>
+    <div class="ctrls">
+      <div class="grp"><b>磁鐵：</b><button class="tg" data-w1="rot">🔄 轉90°</button><button class="tg" data-w1="flip">🔁 N、S 對調</button><button class="tg" data-w1="grid">🧭 磁場小指北針</button></div>
+      <div class="grp"><b>快速擺放：</b><button class="tg" data-w1="nE">N極從東方靠近</button><button class="tg" data-w1="sW">S極從西方靠近</button><button class="tg" data-w1="nN">N極從北方靠近</button><button class="tg" data-w1="sS">S極從南方靠近</button><button class="tg" data-w1="away">移開磁鐵</button></div>
+    </div>
+    <div class="labmsg" id="w1msg"></div>
+  </div>
+
+    <div class="grid2">
+      
+      <div>
+        <ul class="dot">
+          <li>指北針的指針是<span class="hl">經過加工的小磁鐵</span>，有 N 極和 S 極。</li>
+          <li><span class="hl">指針箭頭＝N極（通常塗紅色）</span>；箭尾＝S極。</li>
+          <li>磁鐵<b>S極</b>靠近 → 吸引<b>箭頭</b>；磁鐵<b>N極</b>靠近 → 吸引<b>箭尾</b>。</li>
+          <li>為什麼證明指針是「磁鐵」不是「鐵」？👉 因為它<span class="hl-pink">會被排斥</span>！鐵只會被吸，不會被推開。</li>
+        </ul>
+        <div class="memo">🧲 口訣：「異極相吸找對象，<br>同極相斥鬧翻臉」<small>磁鐵哪一極靠近，就吸指針「相反」那一極</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card c-yellow">
+    <h3>1-2 指北針與地磁</h3>
+    <div class="grid2">
+      <div>
+        <p>讓磁鐵<b>自由轉動</b>的兩種方法：</p>
+        <ul class="dot">
+          <li>小廷：用棉線＋紙片把磁鐵<b>懸空吊起來</b>。</li>
+          <li>小妍：把磁鐵固定在塑膠盤上，<b>放在水面</b>漂浮。</li>
+        </ul>
+        <p>👉 靜止後：<span class="hl">N 極指北、S 極指南</span>（和指北針一樣）。</p>
+        <p>🌍 在美國、英國、非洲…<b>全世界</b>的指北針箭頭都指北！</p>
+        <p>因為<span class="hl">地球本身有磁性＝地磁</span>，地球裡面好像藏了一根大磁鐵：</p>
+        <p class="big" style="color:#e0444a">地磁 S 極 → 靠近地球「北方」<br>地磁 N 極 → 靠近地球「南方」</p>
+      </div>
+      
+    </div>
+    
+  <div class="lab" id="w2">
+    <div class="labtitle">🎮 互動實驗室②：地球是一顆大磁鐵 <span class="play">動手玩</span></div>
+    <p class="labhint">👆 拖拉<b>黃色大指北針</b>到地球表面各地，看看是不是都指北？（打開「磁力線」看看地球的磁場長什麼樣子）右邊按「放手」讓磁鐵自由轉動！</p>
+    <div class="duo">
+      <div class="labsvg"><svg id="w2svg" viewBox="0 0 460 460">
+        <defs><radialGradient id="eg" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#7fd6ff"/><stop offset="1" stop-color="#2a8fd6"/></radialGradient></defs>
+        <rect width="460" height="460" fill="#16224a"/>
+        <g fill="#fff" opacity=".7"><circle cx="40" cy="50" r="2"/><circle cx="420" cy="80" r="2"/><circle cx="380" cy="420" r="2"/><circle cx="60" cy="400" r="1.5"/><circle cx="430" cy="250" r="1.5"/><circle cx="25" cy="230" r="1.5"/></g>
+        <circle cx="230" cy="230" r="135" fill="url(#eg)" stroke="#fff" stroke-width="4"/>
+        <path d="M150 150 q30 -50 80 -20 q25 35 -15 60 q-45 15 -65 -40z M250 230 q45 -25 70 25 q-10 60 -60 50 q-35 -35 -10 -75z M140 260 q25 -10 40 20 q-5 30 -30 25 q-20 -20 -10 -45z" fill="#5DD39E" opacity=".9"/>
+        <ellipse cx="230" cy="100" rx="40" ry="10" fill="#fff" opacity=".85"/><ellipse cx="230" cy="360" rx="45" ry="11" fill="#fff" opacity=".85"/>
+        <g id="w2lines" fill="none" stroke="#FFD93D" stroke-width="2.5" stroke-dasharray="7 6" opacity=".85"></g>
+        <g id="w2mag" opacity=".95">
+          <rect id="w2top" x="212" y="125" width="36" height="105" rx="6" stroke="#fff" stroke-width="3"/>
+          <rect id="w2bot" x="212" y="230" width="36" height="105" rx="6" stroke="#fff" stroke-width="3"/>
+          <text id="w2tt" x="230" y="188" text-anchor="middle" font-size="28" font-weight="900" fill="#fff"></text>
+          <text id="w2bt" x="230" y="294" text-anchor="middle" font-size="28" font-weight="900" fill="#fff"></text>
+        </g>
+        <text x="230" y="34" text-anchor="middle" font-size="22" font-weight="900" fill="#fff">⬆ 地球北方（北極）</text>
+        <text x="230" y="446" text-anchor="middle" font-size="22" font-weight="900" fill="#fff">地球南方（南極）⬇</text>
+      </svg></div>
+      <div class="labsvg"><svg id="w2bsvg" viewBox="0 0 360 400">
+        <rect width="360" height="400" fill="#fffdf2"/>
+        <text x="180" y="30" text-anchor="middle" font-size="20" font-weight="900" fill="#3a2e5c">從上往下看「自由轉動的磁鐵」</text>
+        <circle id="w2water" cx="180" cy="215" r="150" fill="#d9f3ff" stroke="#4FC3F7" stroke-width="4"/>
+        <g font-size="24" font-weight="900" text-anchor="middle"><text x="180" y="88" fill="#e0444a">北</text><text x="180" y="360" fill="#7a6aa0">南</text><text x="318" y="223" fill="#7a6aa0">東</text><text x="42" y="223" fill="#7a6aa0">西</text></g>
+        <g id="w2dish"><circle cx="180" cy="215" r="112" fill="#fff" fill-opacity=".55" stroke="#9ad7f5" stroke-width="3" stroke-dasharray="8 6"/></g>
+        <g id="w2bar"></g>
+        <circle id="w2string" cx="180" cy="215" r="7" fill="#c4651a" stroke="#fff" stroke-width="2"/>
+      </svg></div>
+    </div>
+    <div class="ctrls">
+      <div class="grp"><b>地球：</b><button class="tg on" data-w2="xray">👀 透視地球內部</button><button class="tg" data-w2="lines">〰️ 磁力線</button><button class="tg" data-w2="rev">🔄 地磁翻轉（資優）</button></div>
+      <div class="grp"><b>自由轉動：</b><button class="tg on" data-w2="m-water">🛶 水面漂浮</button><button class="tg" data-w2="m-string">🧵 棉線懸吊</button><button class="tg power" data-w2="drop">🖐️ 放手！</button></div>
+    </div>
+    <div class="labmsg" id="w2msg"></div>
+  </div>
+    <div class="memo">🌏 口訣：「北方住著 S 先生，指針 N 頭往北衝」<small>因為異極相吸，指針的 N 才會被地球北方的 S 吸過去</small></div>
+  </div>
+
+  <div class="card c-red">
+    <h3>⚠️ 使用指北針的注意事項</h3>
+    <p>指北針是被<b>地磁</b>吸引才指出方位，所以要<span class="hl">遠離：鐵製品（鐵尺、鐵櫃、鐵製鉛筆盒、鐵夾）、磁鐵、通電的電器</span>。</p>
+    <p>✅ 不會影響的：塑膠水壺、筆記本、橡皮擦、棉質外套、酒精。</p>
+    <p>📜 小故事：古人做的「<b>司南</b>」就是最早的指向工具。早期飛機、船隻用「<b>磁羅盤</b>」辨認方位。</p>
+  </div>
+
+  <div class="card check c-mint" data-check="a1">
+    <h3>✅ 活動1 自我檢核</h3>
+    <label><input type="checkbox">我知道指北針指針箭頭是 N 極</label>
+    <label><input type="checkbox">我會判斷磁鐵哪一極會吸引箭頭／箭尾</label>
+    <label><input type="checkbox">我知道自由轉動的磁鐵靜止後 N 指北</label>
+    <label><input type="checkbox">我能說出地磁 S 極靠近地球北方</label>
+    <label><input type="checkbox">我知道哪些東西會干擾指北針</label>
+  </div>
+</section>
+
+<!-- ================= 活動2 ================= -->
+<section class="page" id="a2">
+  <h2>⚡ 活動2 電磁鐵是什麼 <span class="tag">8節・最重要！</span></h2>
+
+  <div class="card c-orange">
+    <h3>2-1 通電電線對指北針的影響（電生磁）</h3>
+    <p>📖 <b>1820 年，丹麥科學家奧斯特</b>在上課時意外發現：<span class="hl">通電的電線可以讓磁針偏轉</span>，證明電和磁有關係（電流磁效應）。</p>
+    <p>💡 故事伏筆：有艘船被閃電打到，船上的鐵器都變得有磁性 → 電流讓鐵產生磁性！</p>
+    
+  <div class="lab orangeb" id="w3">
+    <div class="labtitle" style="color:#c4651a">🎮 互動實驗室③：奧斯特的電生磁實驗 <span class="play">動手玩</span></div>
+    <p class="labhint">⚡ 先按「通電」，再改變<b>電流方向</b>、<b>電線位置</b>、<b>電池數量</b>，看指針怎麼偏！白色小點是電流流動的方向。</p>
+    <div class="labsvg"><svg id="w3svg" viewBox="0 0 760 440"></svg></div>
+    <div class="ctrls">
+      <div class="grp"><button class="tg power" data-w3="power">⚡ 通電</button></div>
+      <div class="grp"><b>電流方向：</b><button class="tg on" data-w3="dirN">⬆ 往北流</button><button class="tg" data-w3="dirS">⬇ 往南流</button></div>
+      <div class="grp"><b>電線位置：</b><button class="tg on" data-w3="posA">在指北針上方</button><button class="tg" data-w3="posB">在指北針下方</button></div>
+      <div class="grp"><b>電池：</b><button class="tg on" data-w3="n1">1個</button><button class="tg" data-w3="n2">串聯2個</button><button class="tg" data-w3="n3">串聯3個</button></div>
+    </div>
+    <div class="labmsg" id="w3msg"></div>
+    <div class="game">
+      <div class="q">🎲 預測挑戰：先想再按！ <span id="w3score" style="font-size:18px;color:#6b3fc4"></span></div>
+      <div id="w3q" style="margin:6px 0">按「出題」，我會隨機設定電流方向和電線位置，你來預測指針往哪偏！<br><small>💡 參考：電流往北＋電線在上方 → 箭頭向西（左）偏。換一個就反轉，換兩個轉回原！</small></div>
+      <button class="btn" data-w3="new">🎲 出題</button>
+      <button class="btn sky" data-w3="gW" style="display:none">⬅ 箭頭向西偏 ↺</button>
+      <button class="btn orange" data-w3="gE" style="display:none">箭頭向東偏 ↻ ➡</button>
+    </div>
+  </div>
+
+    <div class="memo">🔄 口訣：「換一個，就反轉；換兩個，轉回原」<small>電流方向、電線上下位置，每改一個，偏轉方向就相反一次</small></div>
+    <p>🔧 實驗小撇步：電線要<b>拉直並沿著南北方向</b>擺放；觀察完立刻拿出電池，避免電線發燙、耗電。</p>
+  </div>
+
+  <div class="card c-pink">
+    <h3>2-2 電磁鐵（自己做一個！）</h3>
+    <p>❓ 通電的電線能吸迴紋針嗎？<span class="hl-pink">不行！磁力太弱</span>。繞成線圈也還是太弱 → 要在線圈裡放<b>鐵棒</b>！</p>
+    <div class="stepflow">
+      <span>① 吸管兩端貼不同顏色</span><b>➜</b>
+      <span>② 漆包線<span class="hl">同方向</span>繞30圈</span><b>➜</b>
+      <span>③ 砂紙把兩端的漆<span class="hl">完全磨掉</span></span><b>➜</b>
+      <span>④ 接電池正負極</span><b>➜</b>
+      <span>⑤ 放入鐵棒、通電</span>
+    </div>
+    <div class="grid2">
+      <div class="svgbox">
+        <svg viewBox="0 0 420 220">
+          <rect x="60" y="80" width="300" height="50" rx="10" fill="#b0bec5" stroke="#3a2e5c" stroke-width="3"/>
+          <text x="210" y="112" text-anchor="middle" font-size="18" font-weight="800">鐵棒（鐵芯）</text>
+          <g stroke="#c4651a" stroke-width="6" fill="none">
+            <path d="M90 70 v70 M115 70 v70 M140 70 v70 M165 70 v70 M190 70 v70 M215 70 v70 M240 70 v70 M265 70 v70 M290 70 v70 M315 70 v70"/>
+          </g>
+          <path d="M90 140 C70 190 120 200 150 200 M315 140 C335 190 290 200 260 200" stroke="#c4651a" stroke-width="5" fill="none"/>
+          <rect x="150" y="185" width="110" height="30" rx="6" fill="#FFD93D" stroke="#3a2e5c" stroke-width="3"/>
+          <text x="205" y="207" text-anchor="middle" font-size="17" font-weight="800">電池＋ −</text>
+          <text x="40" y="60" font-size="26" font-weight="900" fill="#FF5A5F">N</text>
+          <text x="365" y="60" font-size="26" font-weight="900" fill="#3D8BFD">S</text>
+          <text x="210" y="40" text-anchor="middle" font-size="18" font-weight="800" fill="#c4651a">漆包線圈（銅線＋絕緣漆）</text>
+        </svg>
+      </div>
+      <div>
+        <table>
+          <tr><th>線圈裡放</th><th>通電前</th><th>通電後</th></tr>
+          <tr><td>木棒</td><td class="no">✗</td><td class="no">✗</td></tr>
+          <tr><td>鋁棒</td><td class="no">✗</td><td class="no">✗</td></tr>
+          <tr><td>鐵棒</td><td class="no">✗</td><td class="yes">✓ 吸得起來</td></tr>
+        </table>
+        <p>⚠️ <span class="hl-pink">鋁是金屬但不會被磁鐵吸</span>，所以鋁棒不能當鐵芯！</p>
+        <p>📌 電磁鐵三元件：<span class="hl">線圈＋鐵棒＋電池（電流）</span></p>
+      </div>
+    </div>
+    <h3>🔀 電磁鐵的磁極</h3>
+    <p>用兩個指北針放在電磁鐵兩端觀察 → 電磁鐵一端是 N、一端是 S，也會<b>同極相斥、異極相吸</b>。</p>
+    
+  <div class="lab pinkb" id="w4">
+    <div class="labtitle" style="color:#c23a6c">🎮 互動實驗室④：電磁鐵大挑戰 <span class="play">動手玩</span></div>
+    <p class="labhint">🔩 換鐵芯、改圈數、改電池、對調正負極，觀察<b>兩邊指北針</b>和<b>迴紋針</b>！按「📋 記錄」把結果填進實驗表，練習找變因。</p>
+    <div class="labsvg"><svg id="w4svg" viewBox="0 0 720 390"></svg></div>
+    <div class="ctrls">
+      <div class="grp"><button class="tg power" data-w4="power">⚡ 通電</button><button class="tg" data-w4="swap">🔁 電池正負極對調</button></div>
+      <div class="grp"><b>線圈裡放：</b><button class="tg on" data-w4="c-iron">鐵棒</button><button class="tg" data-w4="c-al">鋁棒</button><button class="tg" data-w4="c-wood">木棒</button></div>
+      <div class="grp"><b>線圈：</b><button class="tg on" data-w4="t30">30圈</button><button class="tg" data-w4="t60">60圈</button><button class="tg" data-w4="t90">90圈</button></div>
+      <div class="grp"><b>電池：</b><button class="tg on" data-w4="b1">1個</button><button class="tg" data-w4="b2">串聯2個</button><button class="tg" data-w4="bp">並聯2個</button></div>
+    </div>
+    <div class="labmsg" id="w4msg"></div>
+    <p><button class="btn mint" data-w4="rec">📋 記錄這次結果</button><button class="btn sky" data-w4="clr">🧹 清空表格</button></p>
+    <table class="rec"><thead><tr><th>#</th><th>線圈裡放</th><th>圈數</th><th>電池</th><th>電流方向</th><th>右端磁極</th><th>迴紋針</th></tr></thead><tbody id="w4tb"><tr><td colspan="7">還沒有紀錄，通電後按「📋 記錄」</td></tr></tbody></table>
+    <p style="font-size:18px">🧐 想一想：要比較「線圈圈數」的影響，哪兩列紀錄可以比？（只能有<b>一個</b>條件不同喔！）</p>
+  </div>
+    <p class="big">🔁 <span class="hl">改變電流方向（電池正負極對調）→ 磁極對調</span></p>
+    <p>（資優補充：<b>線圈纏繞方向相反</b>也會讓磁極對調；但<span class="hl-pink">增加圈數或電池數量，磁極不會變</span>！）</p>
+  </div>
+
+  <div class="card c-yellow">
+    <h3>2-3 磁力大挑戰：影響電磁鐵磁力的因素</h3>
+    <div class="stepflow">
+      <span>🔍 察覺現象</span><b>➜</b><span>❓ 提出問題</span><b>➜</b><span>📚 蒐集資料</span><b>➜</b><span>💭 假設</span><b>➜</b><span>📝 實驗設計</span><b>➜</b><span>📊 結果</span><b>➜</b><span>🗣️ 討論</span><b>➜</b><span>✅ 結論</span>
+    </div>
+    <table>
+      <tr><th>實驗</th><th style="background:#FF6B9D">操縱變因<br>(只改這個)</th><th style="background:#5DD39E">控制變因<br>(保持相同)</th><th style="background:#FF9F43">應變變因<br>(觀察結果)</th></tr>
+      <tr><td>小恩組<br>電池數量</td><td>電池串聯數量<br>(1個 vs 串聯2個)</td><td>相同鐵棒、相同漆包線、相同線圈圈數、電池種類</td><td>吸起迴紋針數量</td></tr>
+      <tr><td>小晴組<br>線圈圈數</td><td>線圈圈數<br>(30圈 vs 90圈)</td><td>相同電池數量、相同鐵棒、相同漆包線</td><td>吸起迴紋針數量</td></tr>
+    </table>
+    <div class="memo">🎮 變因口訣：「操縱我來改，控制都一樣，應變看結果」<small>操縱變因只能有「一個」！兩個不同就無法比較</small></div>
+    <div class="grid2">
+      <div class="svgbox">
+        <svg viewBox="0 0 400 260">
+          <text x="200" y="28" text-anchor="middle" font-size="20" font-weight="900">吸起迴紋針平均數量（示意）</text>
+          <line x1="50" y1="220" x2="380" y2="220" stroke="#3a2e5c" stroke-width="3"/>
+          <rect x="70" y="170" width="60" height="50" rx="8" fill="#4FC3F7"/><text x="100" y="245" text-anchor="middle" font-size="16" font-weight="800">1個電池</text>
+          <rect x="150" y="110" width="60" height="110" rx="8" fill="#3D8BFD"/><text x="180" y="245" text-anchor="middle" font-size="16" font-weight="800">串聯2個</text>
+          <rect x="230" y="170" width="60" height="50" rx="8" fill="#FFB3C8"/><text x="260" y="245" text-anchor="middle" font-size="16" font-weight="800">30圈</text>
+          <rect x="310" y="70" width="60" height="150" rx="8" fill="#FF6B9D"/><text x="340" y="245" text-anchor="middle" font-size="16" font-weight="800">90圈</text>
+          <text x="180" y="100" text-anchor="middle" font-size="22">⬆️</text><text x="340" y="60" text-anchor="middle" font-size="22">⬆️</text>
+        </svg>
+      </div>
+      <div>
+        <p class="big">💪 讓電磁鐵磁力變大的方法：</p>
+        <ul class="dot">
+          <li><span class="hl">增加電池「串聯」數量</span>（電流變大）</li>
+          <li><span class="hl">增加線圈圈數</span></li>
+          <li>線圈裡放<b>鐵棒</b>（沒鐵芯磁力很弱）</li>
+          <li><span class="hl-pink">電池「並聯」→ 磁力大致不變</span>（就像四年級學的：並聯燈泡亮度不變）</li>
+          <li>❌ 跟漆包線顏色、電池廠牌、吸管顏色無關</li>
+        </ul>
+      </div>
+    </div>
+    <details>
+      <summary>🔬 實驗操作的細節（常考！點開看）</summary>
+      <ul class="dot">
+        <li>每次通電<b>不要太久</b>（約20秒內），電磁鐵很耗電、線圈會發燙，可用木夾夾住。</li>
+        <li>斷電後等約10秒，確認鐵棒不再吸迴紋針，才做下一次。</li>
+        <li><b>不可新舊電池混用</b>，每組都用新電池。</li>
+        <li>每種條件<b>重複做3次、算平均</b> → 減少誤差、發現操作失誤。</li>
+        <li>畫表格：操縱變因寫在直欄（或第一列），中間填應變變因的結果。畫關係圖：<b>橫軸＝操縱變因、縱軸＝應變變因</b>，都要標單位。</li>
+      </ul>
+    </details>
+  </div>
+
+  <div class="card check c-mint" data-check="a2">
+    <h3>✅ 活動2 自我檢核</h3>
+    <label><input type="checkbox">我知道奧斯特在1820年發現電能生磁</label>
+    <label><input type="checkbox">我會判斷改變電流方向／電線位置後指針怎麼偏</label>
+    <label><input type="checkbox">我會做電磁鐵（同方向繞、磨掉漆、放鐵棒）</label>
+    <label><input type="checkbox">我知道改變電流方向，電磁鐵磁極會對調</label>
+    <label><input type="checkbox">我能說出讓電磁鐵磁力變大的兩種方法</label>
+    <label><input type="checkbox">我分得清操縱、控制、應變變因</label>
+  </div>
+</section>
+
+<!-- ================= 活動3 ================= -->
+<section class="page" id="a3">
+  <h2>🏗️ 活動3 電磁作用對生活有什麼影響 <span class="tag">2節</span></h2>
+
+  <div class="card c-mint">
+    <h3>3-1 磁鐵 🆚 電磁鐵（必考比較表）</h3>
+    <div class="svgbox">
+      <svg viewBox="0 0 860 330">
+        <circle cx="300" cy="165" r="150" fill="#4FC3F7" fill-opacity=".35" stroke="#1f8fc4" stroke-width="4"/>
+        <circle cx="560" cy="165" r="150" fill="#FF6B9D" fill-opacity=".35" stroke="#d64a7d" stroke-width="4"/>
+        <g font-size="19" font-weight="800" fill="#3a2e5c">
+          <text x="210" y="60" text-anchor="middle" font-size="24" fill="#1f6fa8">🧲 磁鐵</text>
+          <text x="140" y="120">本來就有磁力</text>
+          <text x="140" y="160">磁力大小固定</text>
+          <text x="140" y="200">磁極方向固定</text>
+          <text x="140" y="240">磁性一直存在</text>
+          <text x="430" y="60" text-anchor="middle" font-size="22" fill="#6b3fc4">💞 共同點</text>
+          <text x="430" y="125" text-anchor="middle">能吸鐵製品</text>
+          <text x="430" y="165" text-anchor="middle">有 N、S 極</text>
+          <text x="430" y="205" text-anchor="middle">同極相斥</text>
+          <text x="430" y="235" text-anchor="middle">異極相吸</text>
+          <text x="650" y="60" text-anchor="middle" font-size="24" fill="#c23a6c">🔩 電磁鐵</text>
+          <text x="590" y="120">通電才有磁力</text>
+          <text x="590" y="160">磁力大小可改變</text>
+          <text x="590" y="200">磁極方向可改變</text>
+          <text x="590" y="240">可控制磁性有無</text>
+        </g>
+      </svg>
+    </div>
+    <div class="memo">🔩 電磁鐵三大超能力：「開關有無、大小可調、方向可換」<small>有無→開關電源｜大小→電流大小、線圈圈數｜方向→電流方向</small></div>
+  </div>
+
+  <div class="card c-sky">
+    <h3>🏙️ 生活中的電磁鐵應用</h3>
+    <div class="grid3">
+      <div class="card c-yellow"><b>🏗️ 電磁鐵起重機</b><br>通電→吸起廢鐵；移到定點→<span class="hl">斷電</span>→磁性消失，廢鐵放下。<br>順序：開開關→通電有磁性→關開關斷電放下。</div>
+      <div class="card c-orange"><b>🚗 電動玩具車的馬達</b><br>裡面有線圈和磁鐵，通電時線圈和磁鐵不斷互相<b>排斥、吸引</b>，讓馬達一直轉動。電風扇、洗衣機、吹風機也有馬達。</div>
+      <div class="card c-pink"><b>🚄 磁浮列車</b><br>靠磁力懸浮，不接觸軌道 → 低震動、低噪音、速度快（課本：時速505公里）。<br><span class="hl">電流大小→控制速度</span><br><span class="hl">電流方向→控制行駛方向</span></div>
+    </div>
+    <p>📌 原理：把電磁鐵的磁力轉成<b>移動或轉動的動力</b>，再用電流控制磁力的有無與大小。</p>
+  </div>
+
+  <div class="card c-purple">
+    <h3>3-2 科技生活的利與弊：電磁波 📡</h3>
+    <p>電器使用時通常會產生<span class="hl">電磁波</span>：是一種<b>電與磁交互作用產生的能量</b>（<span class="hl-pink">不是「電力波」</span>）。</p>
+    <table>
+      <tr><th>產品</th><th>怎麼用電磁波</th></tr>
+      <tr><td>📱 手機</td><td>傳遞訊息、隨身聯絡</td></tr>
+      <tr><td>🍲 微波爐</td><td>快速加熱食物</td></tr>
+      <tr><td>📺 遙控器</td><td>控制遠端的電器</td></tr>
+      <tr><td>🦷 口腔X光攝影機</td><td>拍攝口腔內部構造</td></tr>
+      <tr><td>📶 無線網路、藍芽耳機</td><td>無線傳輸資料</td></tr>
+    </table>
+    <p>❌ 沒有用電磁波：橡皮擦、鉛筆、釘書機（課本習作也把電燈泡、電風扇、電磁鐵起重機歸為「不是應用電磁波來運作」）。</p>
+    <div class="grid2">
+      <div class="card c-mint"><b>👍 好處</b><br>通訊、資料傳輸更方便，加熱更快速。</div>
+      <div class="card c-red"><b>👎 可能的影響</b><br>有些電磁波長期接觸可能提高罹患癌症風險，3C用太久也會影響身體。</div>
+    </div>
+    <div class="memo">🛡️ 防護口訣：「離遠一點、用短一點、用對方法」<small>距離越遠、時間越短，影響越小｜不要睡前把手機放枕頭邊充電</small></div>
+  </div>
+
+  <div class="card check c-mint" data-check="a3">
+    <h3>✅ 活動3 自我檢核</h3>
+    <label><input type="checkbox">我能說出磁鐵和電磁鐵的相同與不同</label>
+    <label><input type="checkbox">我知道起重機為什麼要用電磁鐵</label>
+    <label><input type="checkbox">我知道磁浮列車如何控制速度和方向</label>
+    <label><input type="checkbox">我能舉出3種使用電磁波的產品</label>
+    <label><input type="checkbox">我知道減少電磁波影響的方法</label>
+  </div>
+</section>
+
+<!-- ================= 資優 ================= -->
+<section class="page" id="gifted">
+  <h2>🚀 資優深度補充 <span class="tag">挑戰腦力</span></h2>
+  <div class="bubble">這些是課本「科學閱讀、科學漫畫、科學園地」和國中會學到的延伸內容，學會了你就是電磁小博士！🎓</div>
+
+  <div class="card c-purple">
+    <h3><span class="key gift">資優</span>① 法拉第：磁能生電（電磁感應）</h3>
+    <div class="vs">
+      <div style="border:3px solid #FF9F43"><b>⚡→🧲 電生磁</b><br>1820 奧斯特（丹麥）<br>通電電線讓磁針偏轉<br>應用：電磁鐵、馬達</div>
+      <div class="mid">⇄</div>
+      <div style="border:3px solid #A66CFF"><b>🧲→⚡ 磁生電</b><br>1831 法拉第（英國）<br>磁場「變化」讓封閉線圈產生<span class="hl">感應電流</span><br>應用：發電機、悠遊卡</div>
+    </div>
+    <p>法拉第在封閉線圈旁移動通電線圈，電流計的指針就會擺動 → 證明磁能生電。1831年他用<b>銅盤＋磁鐵</b>做出發電機，被稱為「<b>電學之父</b>」。</p>
+    <p>🔑 關鍵：磁鐵<b>靜止不動</b>放在線圈旁不會產生電流，<span class="hl-pink">要「動」（磁場變化）才會產生</span>！</p>
+  </div>
+
+  <div class="card c-sky">
+    <h3><span class="key gift">資優</span>② 安培右手定則（判斷電磁鐵哪端是N極）</h3>
+    <div class="grid2">
+      <div class="svgbox">
+        <svg viewBox="0 0 360 230">
+          <rect x="40" y="90" width="260" height="50" rx="10" fill="#cfd8e3" stroke="#3a2e5c" stroke-width="3"/>
+          <g stroke="#c4651a" stroke-width="6" fill="none"><path d="M70 80 v70 M100 80 v70 M130 80 v70 M160 80 v70 M190 80 v70 M220 80 v70 M250 80 v70 M280 80 v70"/></g>
+          <path d="M175 55 q-60 -10 -60 25" stroke="#FF6B9D" stroke-width="5" fill="none" marker-end="url(#ar)"/>
+          <defs><marker id="ar" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#FF6B9D"/></marker><marker id="ar2" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#3D8BFD"/></marker></defs>
+          <line x1="300" y1="115" x2="350" y2="115" stroke="#3D8BFD" stroke-width="7" marker-end="url(#ar2)"/>
+          <text x="330" y="80" font-size="26" font-weight="900" fill="#3D8BFD" text-anchor="middle">N</text>
+          <text x="20" y="125" font-size="26" font-weight="900" fill="#3D8BFD">S</text>
+          <text x="170" y="40" font-size="17" font-weight="800" text-anchor="middle" fill="#c23a6c">四指＝電流繞的方向</text>
+          <text x="180" y="200" font-size="17" font-weight="800" text-anchor="middle" fill="#1f6fa8">大拇指指的那端＝N極 👍</text>
+        </svg>
+      </div>
+      <div>
+        <p>✋ 用<b>右手</b>握住線圈，<b>四根手指</b>彎曲的方向和線圈中的<b>電流方向</b>一樣，<b>大拇指</b>指的那一端就是<span class="hl">N極</span>。</p>
+        <p>👉 所以：電流方向反過來、或線圈纏繞方向反過來，大拇指就會指向另一端 → 磁極對調！</p>
+        <p>👉 通電直導線：大拇指指電流方向，四指彎曲方向就是磁場（磁力線）繞的方向，這就是為什麼電線放指北針上方或下方，指針偏轉方向相反。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card c-yellow">
+    <h3><span class="key gift">資優</span>③ 磁場與磁力線</h3>
+    <ul class="dot">
+      <li>磁鐵周圍看不見但有磁力作用的空間叫<b>磁場</b>，可撒鐵粉看到<b>磁力線</b>形狀。</li>
+      <li>磁力線在磁鐵外部從 <b>N 極出發 → 回到 S 極</b>，兩極最密 → 兩極磁力最強。</li>
+      <li>指北針的 N 極（箭頭）會順著磁力線方向指。</li>
+      <li>磁力不用接觸就有作用 → 屬於<span class="hl">超距力</span>（和重力一樣）。</li>
+      <li>通電直導線周圍的磁力線是<b>一圈一圈的同心圓</b>。</li>
+    </ul>
+  </div>
+
+  <div class="card c-pink">
+    <h3><span class="key gift">資優</span>④ 地理北極 ≠ 地磁北極</h3>
+    <ul class="dot">
+      <li>地磁的南北極和地理（地球自轉軸）的南北極<b>不完全重疊</b>，指北針指的「北」和真正的北方有一點夾角，叫<b>磁偏角</b>。</li>
+      <li>地磁的位置會慢慢移動，所以航海圖要定期更新磁偏角。</li>
+      <li>地磁像一把保護傘，能擋住太陽送來的帶電粒子；在南北極附近形成美麗的<b>極光</b>🌌。</li>
+      <li>候鳥、海龜、鴿子可能利用地磁導航！</li>
+    </ul>
+  </div>
+
+  <div class="card c-orange">
+    <h3><span class="key gift">資優</span>⑤ 生活中的「電磁感應」黑科技</h3>
+    <div class="grid3">
+      <div class="card c-sky"><b>💳 悠遊卡／門禁卡</b><br>讀卡機發出電磁波 → 卡片裡的<b>線圈</b>產生感應電流 → 卡片<b>晶片</b>運作，再把資料用電磁波傳回讀卡機。所以卡片<b>不用電池</b>！</div>
+      <div class="card c-mint"><b>🔋 無線充電</b><br>發射端（充電座）：電流→磁場（電流磁效應）<br>接收端（手機）：磁場變化→感應電流（電磁感應）<br>要放在充電座上、有距離限制。</div>
+      <div class="card c-purple"><b>🔊 揚聲器、電鈴</b><br>喇叭裡的線圈通電後隨電流變化被磁鐵吸、推而振動發出聲音；電鈴用電磁鐵一吸一放敲響鈴。</div>
+    </div>
+  </div>
+
+  <div class="card c-red">
+    <h3><span class="key gift">資優</span>⑥ 電磁波的兩大家族</h3>
+    <table>
+      <tr><th>種類</th><th>能量</th><th>例子</th><th>防護</th></tr>
+      <tr><td><b>游離輻射</b></td><td>頻率高、能量大</td><td>X光</td><td>須嚴格防護（照X光穿鉛衣）</td></tr>
+      <tr><td><b>非游離輻射</b></td><td>能量較弱</td><td>家電、廣播、手機、基地臺、微波</td><td>保持距離、縮短時間</td></tr>
+    </table>
+    <p>🌈 冷知識：<b>可見光</b>其實也是電磁波家族的一員！（但課本考題中「燈泡」不算「應用電磁波運作」的產品，考試要依課本答案作答喔）</p>
+  </div>
+
+  <div class="card c-mint">
+    <h3><span class="key gift">資優</span>⑦ 為什麼要放「鐵」芯？磁化小知識</h3>
+    <p>鐵裡面有很多像小磁鐵的「<b>磁區</b>」，平常方向亂七八糟所以沒磁性；線圈通電產生磁場後，磁區被排整齊 → 鐵棒被<b>磁化</b>，磁力大增！斷電後軟鐵的磁區又亂掉 → 磁性消失。鋁、銅、木頭沒有這種性質，所以不行。</p>
+    <p>🧪 自製指北針：用磁鐵同一極朝同一方向摩擦縫衣針數十次，把針放在漂浮的葉片或軟木上，它就會指南北！</p>
+  </div>
+</section>
+
+<!-- ================= 題型攻略 ================= -->
+<section class="page" id="types">
+  <h2>🎯 題型攻略</h2>
+
+  <div class="card c-yellow">
+    <h3>📌 一、常考題型 TOP 8</h3>
+    <ol>
+      <li><span class="key mid">中</span>磁鐵某極從某方位靠近指北針 → 指針哪一端被吸？</li>
+      <li><span class="key mid">中</span>地磁的 N、S 極各靠近地球哪一方？</li>
+      <li><span class="key easy">易</span>哪些物品會影響指北針？（鐵製品、磁鐵、通電電器）</li>
+      <li><span class="key mid">中</span>改變電流方向／電線上下位置，指針怎麼偏？</li>
+      <li><span class="key easy">易</span>線圈中放什麼棒子可以做成電磁鐵？（鐵棒）</li>
+      <li><span class="key mid">中</span>改變電流方向 → 電磁鐵磁極對調</li>
+      <li><span class="key">難</span>實驗設計：找出操縱、控制、應變變因；挑哪兩個裝置比較</li>
+      <li><span class="key easy">易</span>磁鐵與電磁鐵異同；電磁波產品與防護</li>
+    </ol>
+  </div>
+
+  <div class="card c-red">
+    <h3>❌ 二、常錯題型（陷阱大公開）</h3>
+    <table>
+      <tr><th>😵 常見錯誤想法</th><th>✅ 正確觀念</th></tr>
+      <tr><td>地磁 N 極在地球北方</td><td><span class="hl-pink">地磁 S 極在地球北方</span>，才能吸引指針的 N 極</td></tr>
+      <tr><td>指北針指針只是鐵做的</td><td>指針是<b>磁鐵</b>，因為它會被排斥</td></tr>
+      <tr><td>鋁是金屬，鋁棒也能當鐵芯</td><td>鋁不會被磁鐵吸，<b>只有鐵棒</b>可以</td></tr>
+      <tr><td>漆包線繞好就能通電</td><td>表面有絕緣漆，<b>兩端要用砂紙完全磨掉</b></td></tr>
+      <tr><td>增加線圈圈數，磁極會改變</td><td>圈數只改變<b>磁力大小</b>，<b>磁極不變</b></td></tr>
+      <tr><td>電池並聯越多磁力越大</td><td>要<b>串聯</b>才會變大，並聯大致不變</td></tr>
+      <tr><td>電磁鐵斷電後還是有磁性</td><td>電磁鐵<b>斷電磁性就消失</b></td></tr>
+      <tr><td>電線換到下方，指針偏轉不變</td><td>上下換位 → <b>偏轉方向相反</b></td></tr>
+      <tr><td>電流方向和電線位置都改 → 也反向</td><td>改兩個 → <b>和原本相同</b></td></tr>
+      <tr><td>電器產生的叫「電力波」</td><td>正確名稱是<b>電磁波</b></td></tr>
+      <tr><td>用30圈鐵棒vs90圈木棒，能證明材質影響</td><td>有兩個變因不同，<b>無法比較</b></td></tr>
+      <tr><td>吸起的迴紋針數量是操縱變因</td><td>它是<b>應變變因</b>（觀察到的結果）</td></tr>
+    </table>
+  </div>
+
+  <div class="card c-sky">
+    <h3>🏠 三、生活常考題型</h3>
+    <ul class="dot">
+      <li>露營手機沒訊號怎麼辨方位？→ 帶指北針，但要遠離鐵製品、電器。</li>
+      <li>適合帶司南／指北針的情境：山上收訊不佳、海上航行、荒野求生（在校園找教室就不需要）。</li>
+      <li>回收場起重機怎麼放下廢鐵？→ 斷電，磁性消失。能吸起：鋼筋、鐵窗、鐵門、鐵罐；吸不起：鋁罐、塑膠、玻璃。</li>
+      <li>手機放枕頭邊充電好嗎？→ 不好，要離遠一點、縮短使用時間。</li>
+      <li>悠遊卡為何不用電池？→ 電磁感應產生電流。</li>
+      <li>磁浮列車要加速／倒退？→ 調電流大小／改電流方向。</li>
+      <li>家中哪些電器有馬達？→ 電風扇、洗衣機、吹風機、果汁機。</li>
+    </ul>
+  </div>
+
+  <div class="card c-mint">
+    <h3>🌱 四、素養題型（閱讀＋推理）</h3>
+    <details open>
+      <summary>📖 範例1：電磁鐵比賽（改編自習作素養練習）</summary>
+      <p>大家用相同粗細漆包線、相同電池比賽：</p>
+      <table>
+        <tr><th>同學</th><th>電池</th><th>線圈</th><th>棒子</th></tr>
+        <tr><td>小恩</td><td>1個</td><td>30圈</td><td>鐵棒</td></tr>
+        <tr><td>小廷</td><td>1個</td><td>60圈</td><td>鐵棒</td></tr>
+        <tr><td>小妍</td><td>1個</td><td>90圈</td><td>鐵棒</td></tr>
+        <tr><td>小萱</td><td>串聯2個</td><td>30圈</td><td>鐵棒</td></tr>
+        <tr><td>小晴</td><td>1個</td><td>90圈</td><td>木棒</td></tr>
+      </table>
+      <p>Q1 小恩、小廷、小妍誰吸最多？👉 <b>小妍＞小廷＞小恩</b>（圈數越多磁力越大）</p>
+      <p>Q2 要證明「串聯電池越多磁力越大」選誰？👉 <b>小恩和小萱</b>（只差電池數量）</p>
+      <p>Q3 用小恩和小晴比較能證明棒子材質的影響嗎？👉 <b>不行</b>，圈數和材質兩個變因都不同。<br>想證明材質要選：👉 <b>小妍和小晴</b>（都是90圈1個電池，只差棒子）</p>
+    </details>
+    <details>
+      <summary>📖 範例2：小恩的電磁鐵吸不起迴紋針</summary>
+      <p>小恩把漆包線繞90圈接電池，可以讓指北針偏轉，卻吸不起迴紋針。原因？👉 <b>線圈中沒有鐵棒</b>，磁力太弱。放入鐵棒後吸起5支，木棒、鋁棒0支。本實驗的操縱變因是「<b>棒子的材質</b>」。</p>
+    </details>
+    <details>
+      <summary>📖 範例3：設計一個「自動分類回收機」</summary>
+      <p>想把鐵罐和鋁罐分開，可以怎麼做？👉 在輸送帶上方放電磁鐵，通電時吸起鐵罐，鋁罐繼續前進；移到鐵罐回收箱上方再斷電放下。</p>
+    </details>
+  </div>
+
+  <div class="card c-purple">
+    <h3>💡 五、其他：答題技巧＆考前提醒</h3>
+    <ul class="dot">
+      <li>看到「指北針＋磁鐵」→ 先標出指針箭頭是 N，再用「異極相吸」判斷。</li>
+      <li>看到「實驗比較」→ 先圈出兩個裝置<b>哪裡不一樣</b>，只有一個不一樣才可以比。</li>
+      <li>看到「電磁鐵磁極」→ 只有<b>電流方向</b>（或纏繞方向）會改變磁極。</li>
+      <li>看到「磁力大小」→ 串聯電池數、線圈圈數、有沒有鐵芯。</li>
+      <li>是非題看到「一定、永遠、都」要特別小心（例：「電磁鐵一直都有磁力」✗）。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= 總復習 ================= -->
+<section class="page" id="review">
+  <h2>🔁 單元總復習</h2>
+
+  <div class="card c-yellow">
+    <h3>⚖️ 比較大對決（最容易混淆的觀念）</h3>
+    <div class="vs"><div style="border:3px solid #3D8BFD"><b>地理北方</b><br>住著地磁的 <span class="big">S極</span></div><div class="mid">VS</div><div style="border:3px solid #FF5A5F"><b>地理南方</b><br>住著地磁的 <span class="big">N極</span></div></div><br>
+    <div class="vs"><div style="border:3px solid #FF6B9D"><b>串聯電池</b> 🔋🔋<br>電流變大 → 磁力<span class="big">變大</span></div><div class="mid">VS</div><div style="border:3px solid #5DD39E"><b>並聯電池</b> 🔋║🔋<br>磁力大致<span class="big">不變</span>（較耐用）</div></div><br>
+    <div class="vs"><div style="border:3px solid #FF9F43"><b>改變電流方向</b><br>→ 磁極<span class="big">對調</span>，磁力不變</div><div class="mid">VS</div><div style="border:3px solid #A66CFF"><b>增加圈數／串聯電池</b><br>→ 磁力<span class="big">變大</span>，磁極不變</div></div><br>
+    <div class="vs"><div style="border:3px solid #4FC3F7"><b>奧斯特 1820 丹麥</b><br>電 ➜ 磁（電生磁）</div><div class="mid">VS</div><div style="border:3px solid #A66CFF"><b>法拉第 1831 英國</b><br>磁 ➜ 電（磁生電）</div></div>
+  </div>
+
+  <div class="card c-pink">
+    <h3>🧠 超強記憶口訣總整理</h3>
+    <div class="memo">①「北方住著S先生，指針N頭往北衝」</div>
+    <div class="memo">②「換一個，就反轉；換兩個，轉回原」</div>
+    <div class="memo">③「線圈繞同向，漆要磨光光，鐵棒放中央」</div>
+    <div class="memo">④「串聯多、圈數多，電磁鐵變大力士」</div>
+    <div class="memo">⑤「電流換方向，NS 換位置」</div>
+    <div class="memo">⑥「電磁鐵三超能：有無、大小、方向都能控」</div>
+    <div class="memo">⑦「電磁波防護：離遠、用短、用對」</div>
+  </div>
+
+  <div class="card c-sky">
+    <h3>🃏 翻翻記憶卡（點卡片翻面）</h3>
+    <p>翻完覺得記住了就按「✅記住了」，紀錄會存起來喔！ <span id="fcStat"></span></p>
+    <div class="grid3" id="flashGrid"></div>
+  </div>
+
+  <div class="card c-mint">
+    <h3>🗺️ 知識地圖填空（習作p.60-61）</h3>
+    <p>指北針指針受到 <b>地磁</b> 影響，靜止時指向 <b>南、北方</b>。</p>
+    <p>電與磁 → 通電的電線具有磁性 → 例如影響指北針指針偏轉。</p>
+    <p>電磁鐵組成元件：<b>電池</b>、<b>線圈</b>、<b>鐵棒</b>；改變電流方向可以改變 <b>磁極</b> 方向；增加磁力方法：<b>增加</b> 電池串聯數量、增加線圈圈數。</p>
+    <p>生活應用：電磁鐵起重機、磁浮列車等；電磁波應用：手機、微波爐等。</p>
+  </div>
+
+  <div class="card check c-orange" data-check="rev">
+    <h3>🏁 考前最後總檢查</h3>
+    <label><input type="checkbox">心智圖四大分支我都能講出來</label>
+    <label><input type="checkbox">7個口訣都背熟了</label>
+    <label><input type="checkbox">常錯題表格每一題都懂</label>
+    <label><input type="checkbox">練習題拿到 80 分以上</label>
+    <label><input type="checkbox">錯題本的題目都重做對了</label>
+  </div>
+</section>
+
+<!-- ================= 練習題 ================= -->
+<section class="page" id="quiz">
+  <h2>✏️ 練習題 30 題</h2>
+  <div class="scorebar">
+    <span>📊 已作答 <span id="qDone">0</span>/30</span>
+    <span>✅ 答對 <span id="qRight">0</span></span>
+    <span>🏆 最高分 <span id="qBest">0</span></span>
+    <div class="progress"><i id="qBar"></i></div>
+  </div>
+  <p>
+    <button class="btn" onclick="filterQ('all')">全部題目</button>
+    <button class="btn orange" onclick="filterQ('hard')">只看中＋難題</button>
+    <button class="btn sky" onclick="filterQ('wrong')">📕 我的錯題本</button>
+    <button class="btn mint" onclick="resetQuiz()">🔄 重新作答</button>
+  </p>
+  <div id="quizList"></div>
+  <div class="card c-yellow" id="quizResult" style="display:none"></div>
+</section>
+
+<div class="footer">🧲 磁磁小U陪你學自然｜依據六上自然第4單元「電磁作用」教材整理｜學習紀錄只存在本機瀏覽器</div>
+</main>
+<div class="toast" id="toast"></div>
+
+<script>
+// ---------- storage ----------
+const KEY='u4_em_app_v1';
+let S={};
+try{S=JSON.parse(localStorage.getItem(KEY))||{};}catch(e){S={};}
+S.ans=S.ans||{}; S.checks=S.checks||{}; S.fc=S.fc||{}; S.best=S.best||0; S.wrong=S.wrong||{};
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+function toast(t){const el=document.getElementById('toast');el.textContent=t;el.classList.add('show');clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove('show'),1600);}
+
+// ---------- nav ----------
+function go(p){
+  document.querySelectorAll('section.page').forEach(s=>s.classList.toggle('show',s.id===p));
+  document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('active',b.dataset.p===p));
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(p==='home')renderStats();
+}
+document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>go(b.dataset.p));
+document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>go(b.dataset.go));
+
+// ---------- checklists ----------
+document.querySelectorAll('[data-check]').forEach(box=>{
+  const id=box.dataset.check;
+  box.querySelectorAll('input').forEach((inp,i)=>{
+    inp.checked=!!(S.checks[id]&&S.checks[id][i]);
+    inp.onchange=()=>{S.checks[id]=S.checks[id]||{};S.checks[id][i]=inp.checked;save();if(inp.checked)toast('🎉 太棒了！又學會一個！');};
+  });
+});
+
+// ---------- flashcards ----------
+const FC=[
+ ['指北針箭頭是哪一極？','N 極（指向北方）'],
+ ['地磁 S 極在哪？','靠近地球「北方」'],
+ ['磁鐵 N 極靠近指北針，吸引？','指針的箭尾（S極）'],
+ ['誰發現電能生磁？','1820年 丹麥 奧斯特'],
+ ['誰發現磁能生電？','1831年 英國 法拉第（電學之父）'],
+ ['電磁鐵三元件','線圈＋鐵棒＋電池'],
+ ['漆包線兩端為何要磨？','外層絕緣漆不導電'],
+ ['如何讓電磁鐵磁極對調？','改變電流方向（或纏繞方向）'],
+ ['讓磁力變大的2方法','增加串聯電池數、增加線圈圈數'],
+ ['電池並聯，磁力？','大致不變'],
+ ['磁浮列車控制速度？方向？','速度→電流大小\n方向→電流方向'],
+ ['起重機怎麼放下廢鐵？','斷電，磁性消失'],
+ ['電磁波是什麼？','電與磁交互作用產生的能量'],
+ ['減少電磁波影響','離遠一點、用短一點、正確使用'],
+ ['悠遊卡原理','電磁感應：卡內線圈產生感應電流'],
+];
+function renderFC(){
+  const g=document.getElementById('flashGrid');g.innerHTML='';
+  FC.forEach((c,i)=>{
+    const w=document.createElement('div');
+    w.innerHTML=`<div class="flash"><div class="inner"><div class="f">${c[0]}</div><div class="b">${c[1].replace(/\n/g,'<br>')}</div></div></div>
+    <div style="text-align:center"><button class="btn ${S.fc[i]?'mint':'sky'}" data-i="${i}">${S.fc[i]?'✅ 記住了':'⬜ 還沒記住'}</button></div>`;
+    w.querySelector('.flash').onclick=e=>e.currentTarget.classList.toggle('flip');
+    w.querySelector('button').onclick=e=>{S.fc[i]=!S.fc[i];save();renderFC();};
+    g.appendChild(w);
+  });
+  document.getElementById('fcStat').textContent=`（已記住 ${Object.values(S.fc).filter(Boolean).length}/${FC.length} 張）`;
+}
+renderFC();
+
+// ---------- quiz ----------
+// lv: 1易 2中 3難
+const Q=[
+ {lv:1,t:'選擇',q:'指北針的指針「箭頭」是哪一個磁極？',o:['N 極','S 極','沒有磁極','看天氣而定'],a:0,e:'指針是小磁鐵，箭頭是 N 極，所以會指向北方。'},
+ {lv:1,t:'選擇',q:'長條形磁鐵用棉線懸空吊起來，靜止時：',o:['S 極指向北方','N 極指向北方','N 極指向東方','會一直轉不停'],a:1,e:'自由轉動的磁鐵和指北針一樣，N 極指北、S 極指南。'},
+ {lv:2,t:'選擇',q:'將長條形磁鐵的 N 極由東方靠近指北針，會發生什麼事？',o:['指針不停旋轉','指針不會偏轉','指針箭尾會被吸引','指針箭頭會被吸引'],a:2,e:'異極相吸：磁鐵 N 極吸引指針的 S 極（箭尾）。'},
+ {lv:2,t:'是非',q:'地磁的 S 極靠近地球的南方，地磁的 N 極靠近地球的北方。',o:['○ 正確','✕ 錯誤'],a:1,e:'剛好相反！地磁 S 極靠近地球北方，才能吸引指針 N 極（箭頭）指北。'},
+ {lv:1,t:'選擇',q:'使用指北針找方向時，應避免哪一項物品靠近？',o:['塑膠水壺','棉質外套','筆記本','鐵尺'],a:3,e:'鐵製品會被指針吸引，影響指北針的正確性。'},
+ {lv:2,t:'選擇',q:'為什麼可以證明指北針的指針是「磁鐵」而不只是「鐵」？',o:['因為它是紅色的','因為它會被磁鐵排斥','因為它會轉動','因為它很輕'],a:1,e:'鐵只會被磁鐵吸引；指針會被磁鐵的同極排斥，所以指針本身就是磁鐵。'},
+ {lv:1,t:'選擇',q:'哪一位科學家在 1820 年發現通電的電線可以使磁針偏轉？',o:['牛頓','法拉第','奧斯特','愛迪生'],a:2,e:'丹麥科學家奧斯特在 1820 年發現電能生磁（電流磁效應）。'},
+ {lv:2,t:'選擇',q:'指北針放在電線上方，通電後指針箭頭向右轉。若其他條件不變，把指北針移到電線下方，箭頭會？',o:['向右轉','向左轉','不停轉動','靜止不動'],a:1,e:'電線與指北針的上下位置互換，偏轉方向會相反，所以向左轉。'},
+ {lv:3,t:'選擇',q:'電線在指北針上方時，箭頭順時針偏轉。如果同時「改變電流方向」又「把電線改放到指北針下方」，箭頭會？',o:['順時針偏轉','逆時針偏轉','不會偏轉','先順後逆'],a:0,e:'改一個就反向，改兩個等於反向再反向，回到原本的順時針。'},
+ {lv:1,t:'選擇',q:'在通電線圈中放入哪一種棒子，可以吸起迴紋針？',o:['木棒','鋁棒','鐵棒','塑膠棒'],a:2,e:'只有鐵棒能被磁化，做成電磁鐵。'},
+ {lv:2,t:'是非',q:'鋁也是金屬，所以把鋁棒放入通電線圈中，也能吸起很多迴紋針。',o:['○ 正確','✕ 錯誤'],a:1,e:'鋁不會被磁鐵吸引，放鋁棒吸起 0 支。不是所有金屬都會被磁鐵吸！'},
+ {lv:1,t:'選擇',q:'製作電磁鐵時，為什麼要用砂紙把漆包線兩端的漆磨掉？',o:['讓線變漂亮','外層的漆不導電，磨掉電流才能通過','讓線變長','讓線圈變重'],a:1,e:'漆包線是外面鍍一層絕緣漆的銅線，不磨掉電流無法通過。'},
+ {lv:1,t:'是非',q:'纏繞電磁鐵的漆包線時，應該順著同一個方向纏繞。',o:['○ 正確','✕ 錯誤'],a:0,e:'方向亂繞，產生的磁性會互相抵消，磁力變弱。'},
+ {lv:2,t:'選擇',q:'電磁鐵通電時甲端是 N 極、乙端是 S 極。把電池正負極對調後：',o:['甲 N、乙 S','甲 S、乙 N','兩端都是 N','沒有磁性'],a:1,e:'改變電流方向，電磁鐵的磁極會對調。'},
+ {lv:3,t:'是非',q:'把電磁鐵的線圈從 30 圈增加到 90 圈，電磁鐵的磁極也會跟著改變。',o:['○ 正確','✕ 錯誤'],a:1,e:'增加圈數只會讓磁力變大，磁極不變；只有改變電流方向（或纏繞方向）才會改變磁極。'},
+ {lv:1,t:'選擇',q:'下列哪一項「不是」影響電磁鐵磁力大小的因素？',o:['線圈圈數','吸管中是否放鐵棒','電池串聯數量','漆包線的顏色'],a:3,e:'顏色和磁力無關。'},
+ {lv:2,t:'選擇',q:'「電池數量對電磁鐵磁力影響」的實驗中，操縱變因是？',o:['線圈圈數','電池串聯數量','吸起迴紋針的數量','鐵棒的長度'],a:1,e:'刻意改變的條件是電池數量；線圈圈數、鐵棒要保持相同（控制變因）。'},
+ {lv:2,t:'選擇',q:'承上題，「吸起迴紋針的數量」屬於哪一種變因？',o:['操縱變因','控制變因','應變變因','不是變因'],a:2,e:'因為改變操縱變因而跟著改變、被觀察記錄的結果，叫應變變因。'},
+ {lv:3,t:'選擇',q:'小恩：1個電池、30圈、鐵棒；小晴：1個電池、90圈、木棒。小翔說「比較這兩人就能證明棒子材質會影響磁力」，你覺得呢？',o:['同意，因為棒子不同','同意，因為小晴吸得少','不同意，因為圈數和材質兩個條件都不同','不同意，因為電池一樣'],a:2,e:'公平實驗只能改變一個操縱變因，這裡有兩個不同，無法判斷是哪一個造成的。'},
+ {lv:3,t:'選擇',q:'把 2 個電池改成「並聯」接到電磁鐵上，和 1 個電池比，磁力大約會？',o:['變成 2 倍','差不多不變','完全消失','磁極改變'],a:1,e:'並聯時電壓和 1 個電池差不多，電流不會明顯變大，磁力大致不變（就像並聯燈泡亮度不變）。要串聯才會變大。'},
+ {lv:2,t:'選擇',q:'做電磁鐵磁力實驗時，下列哪個做法「正確」？',o:['新舊電池混著用','通電一直不關，比較方便','每種條件重複做3次再算平均','只做1次就下結論'],a:2,e:'重複多次取平均可減少誤差、找出操作失誤；不可新舊電池混用，通電時間也不要太長。'},
+ {lv:1,t:'選擇',q:'電磁鐵「斷電」後會發生什麼改變？',o:['磁性消失','磁極改變','同極相吸','磁力變大'],a:0,e:'電磁鐵要通電才有磁性。'},
+ {lv:1,t:'選擇',q:'下列哪一個是磁鐵與電磁鐵「共同」的特性？',o:['通電才有磁性','磁極方向可以改變','磁力大小可以改變','同極相斥、異極相吸'],a:3,e:'其他三項都是電磁鐵才有的特性。'},
+ {lv:2,t:'選擇',q:'回收場的起重機能把廢鐵移到指定位置放下，是利用電磁鐵的哪一個特性？',o:['N、S 極位置固定','通電才具有磁性','電流方向改變後會轉動','斷電後仍有磁性'],a:1,e:'通電吸起廢鐵，移到定點斷電，磁性消失就放下了。'},
+ {lv:2,t:'選擇',q:'如果想改變磁浮列車「行駛的方向」，應該調整？',o:['電流大小','磁鐵大小','電流方向','線圈顏色'],a:2,e:'電流方向→行駛方向；電流大小→速度。'},
+ {lv:1,t:'選擇',q:'下列哪一種物品在使用時「沒有」應用到電磁波？',o:['橡皮擦','微波爐','口腔X光攝影機','遙控器'],a:0,e:'橡皮擦不用電，也沒有電磁波。'},
+ {lv:1,t:'選擇',q:'下列哪一個方法可以減少電磁波對身體的影響？',o:['增加使用電腦的時間','學習電器產品正確的使用方法','睡前把手機放枕頭邊充電','使用電器時離越近越好'],a:1,e:'離遠一點、用短一點、正確使用。'},
+ {lv:3,t:'選擇',q:'【資優】英國科學家法拉第在 1831 年做出發電機，他證明了什麼？',o:['電能生磁','磁能生電（電磁感應）','地球有磁性','光是電磁波'],a:1,e:'奧斯特：電生磁；法拉第：磁場變化讓線圈產生感應電流＝磁生電，被稱為電學之父。'},
+ {lv:3,t:'選擇',q:'【資優】悠遊卡裡面沒有電池，為什麼靠近讀卡機就能運作？',o:['卡片裡有小磁鐵','讀卡機的電磁波使卡片線圈產生感應電流','卡片吸收陽光發電','靠手的溫度發電'],a:1,e:'讀卡機發出電磁波→卡片線圈產生感應電流→晶片運作並回傳資料。'},
+ {lv:3,t:'素養',q:'小萱想讓電磁鐵吸起更多迴紋針，但手邊只有 1 個電池、很多漆包線和一根鐵釘。她最好的做法是？',o:['把鐵釘換成鋁棒','把電池正負極對調','用漆包線同方向纏繞更多圈','把漆包線的漆全部保留'],a:2,e:'只有1個電池無法串聯，就增加線圈圈數；正負極對調只會改變磁極，不會變大力。'},
+];
+let qFilter='all';
+function lvTag(l){return l===3?'<span class="key">難</span>':l===2?'<span class="key mid">中</span>':'<span class="key easy">易</span>';}
+function renderQuiz(){
+  const L=document.getElementById('quizList');L.innerHTML='';
+  let shown=0;
+  Q.forEach((it,i)=>{
+    if(qFilter==='hard'&&it.lv<2)return;
+    if(qFilter==='wrong'&&!S.wrong[i])return;
+    shown++;
+    const d=document.createElement('div');
+    d.className='qcard'+(it.lv===3?' hard':it.lv===2?' mid':'');
+    d.innerHTML=`<div class="qhead"><span class="qnum">第${i+1}題</span>${lvTag(it.lv)}<span class="qtype">${it.t}</span>${S.wrong[i]?'<span class="qtype" style="background:#ffe3e3;color:#c33">📕 錯題本</span>':''}</div>
+      <div class="qtext">${it.lv>=2?'<span class="hl">':''}${it.q}${it.lv>=2?'</span>':''}</div>
+      <div class="opts">${it.o.map((o,j)=>`<button data-j="${j}">${String.fromCharCode(9312+j)} ${o}</button>`).join('')}</div>
+      <div class="explain">💡 <b>解析：</b>${it.e}</div>`;
+    const btns=d.querySelectorAll('.opts button');
+    const show=(pick)=>{
+      btns.forEach((b,j)=>{b.disabled=true;if(j===it.a)b.classList.add('right');if(j===pick&&pick!==it.a)b.classList.add('wrong');});
+      d.querySelector('.explain').classList.add('show');
+    };
+    if(S.ans[i]!==undefined)show(S.ans[i]);
+    btns.forEach(b=>b.onclick=()=>{
+      const j=+b.dataset.j;S.ans[i]=j;
+      if(j===it.a){toast('🎉 答對了！');if(qFilter!=='wrong')delete S.wrong[i];else{delete S.wrong[i];toast('🎉 答對了！已移出錯題本');}}
+      else{S.wrong[i]=true;toast('💪 加油！已加入錯題本');}
+      save();show(j);updateScore();
+    });
+    L.appendChild(d);
+  });
+  if(!shown)L.innerHTML='<div class="card c-mint big">🎊 這裡沒有題目！錯題本是空的，太厲害了！</div>';
+  updateScore();
+}
+function updateScore(){
+  const done=Object.keys(S.ans).length;
+  const right=Object.entries(S.ans).filter(([i,v])=>Q[i]&&Q[i].a===v).length;
+  document.getElementById('qDone').textContent=done;
+  document.getElementById('qRight').textContent=right;
+  document.getElementById('qBar').style.width=(done/Q.length*100)+'%';
+  const r=document.getElementById('quizResult');
+  if(done===Q.length){
+    const score=Math.round(right/Q.length*100);
+    if(score>S.best){S.best=score;save();}
+    r.style.display='block';
+    r.innerHTML=`<h3>🏁 完成！你的分數：<span class="big" style="color:#e0444a">${score} 分</span></h3><p>${score>=90?'🏆 電磁小博士！太強了！':score>=70?'👍 很不錯！再把錯題本練一練就完美了！':'💪 別灰心！回去複習心智圖和常錯題，再挑戰一次！'}</p>`;
+  }else r.style.display='none';
+  document.getElementById('qBest').textContent=S.best;
+}
+function filterQ(f){qFilter=f;renderQuiz();}
+function resetQuiz(){if(!confirm('確定要清除作答，重新開始嗎？（錯題本會保留）'))return;S.ans={};save();renderQuiz();window.scrollTo({top:0});}
+function resetAll(){if(!confirm('確定清除全部學習紀錄嗎？'))return;S={ans:{},checks:{},fc:{},best:0,wrong:{}};save();location.reload();}
+function renderStats(){
+  let c=0,t=0;document.querySelectorAll('[data-check] input').forEach(i=>{t++;if(i.checked)c++;});
+  const done=Object.keys(S.ans).length,wr=Object.keys(S.wrong).length,fc=Object.values(S.fc).filter(Boolean).length;
+  document.getElementById('homeStats').innerHTML=
+   `<p>✅ 重點檢核：<b>${c}/${t}</b> 項 &nbsp; ✏️ 練習題：<b>${done}/30</b> 題 &nbsp; 🏆 最高分：<b>${S.best}</b> 分</p>
+    <p>📕 錯題本：<b>${wr}</b> 題 &nbsp; 🃏 記憶卡：<b>${fc}/${FC.length}</b> 張</p>
+    <div class="progress"><i style="width:${t?c/t*100:0}%"></i></div>`;
+}
+renderQuiz();renderStats();
+</script>
+<script>
+// ================== 互動實驗室 ==================
+const SVGNS='http://www.w3.org/2000/svg';
+function mk(tag,attrs,parent){const e=document.createElementNS(SVGNS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e;}
+function svgPt(svg,evt){const p=svg.createSVGPoint();p.x=evt.clientX;p.y=evt.clientY;return p.matrixTransform(svg.getScreenCTM().inverse());}
+const wrapA=d=>((d%360)+540)%360-180;
+const fAng=(bx,by)=>Math.atan2(bx,-by)*180/Math.PI; // 0=北(上)，順時針為正
+const NEEDLES=[],LOOPS=[];
+function dir8(ang){const n=['北','東北','東','東南','南','西南','西','西北'];return n[Math.round(((ang%360)+360)%360/45)%8];}
+function makeCompass(parent,cx,cy,r,opt={}){
+  const g=mk('g',{},parent);
+  mk('circle',{cx,cy,r,fill:opt.face||'#fffdf2',stroke:'#3a2e5c','stroke-width':Math.max(1.5,r/24)},g);
+  if(opt.labels){
+    for(let i=0;i<12;i++){const a=i*Math.PI/6;mk('line',{x1:cx+Math.sin(a)*r*.86,y1:cy-Math.cos(a)*r*.86,x2:cx+Math.sin(a)*r*.96,y2:cy-Math.cos(a)*r*.96,stroke:'#b9addb','stroke-width':2},g);}
+    [['北',0,-1],['東',1,0],['南',0,1],['西',-1,0]].forEach(([t,dx,dy])=>{const tx=mk('text',{x:cx+dx*r*.74,y:cy+dy*r*.74+r*.07,'text-anchor':'middle','font-size':r*.19,'font-weight':900,fill:t==='北'?'#e0444a':'#7a6aa0'},g);tx.textContent=t;});
+  }
+  const n=mk('g',{},g);
+  const L=r*(opt.labels?.6:.82),W=r*.15,sw=Math.max(1,r/40);
+  mk('polygon',{points:`${cx},${cy-L} ${cx+W},${cy} ${cx-W},${cy}`,fill:'#FF5A5F',stroke:'#3a2e5c','stroke-width':sw},n);
+  mk('polygon',{points:`${cx},${cy+L} ${cx+W},${cy} ${cx-W},${cy}`,fill:'#d9e2ec',stroke:'#3a2e5c','stroke-width':sw},n);
+  if(opt.labels){const t1=mk('text',{x:cx,y:cy-L*.45,'text-anchor':'middle','font-size':r*.14,'font-weight':900,fill:'#fff'},n);t1.textContent='N';const t2=mk('text',{x:cx,y:cy+L*.6,'text-anchor':'middle','font-size':r*.14,'font-weight':900,fill:'#3a2e5c'},n);t2.textContent='S';}
+  mk('circle',{cx,cy,r:Math.max(2,r*.07),fill:'#3a2e5c'},n);
+  const nd={g:n,cx,cy,ang:opt.start||0,vel:0,target:0,k:opt.k||.06,damp:opt.damp||.86,root:g};
+  NEEDLES.push(nd);return nd;
+}
+function animLoop(){
+  NEEDLES.forEach(n=>{const d=wrapA(n.target-n.ang);n.vel=(n.vel+d*n.k)*n.damp;n.ang+=n.vel;if(Math.abs(n.vel)>.001||Math.abs(d)>.01)n.g.setAttribute('transform',`rotate(${n.ang.toFixed(2)} ${n.cx} ${n.cy})`);});
+  LOOPS.forEach(f=>f());
+  requestAnimationFrame(animLoop);
+}
+function setOn(scope,attr,val,on){scope.querySelectorAll(`[${attr}="${val}"]`).forEach(b=>b.classList.toggle('on',on));}
+function radio(scope,attr,vals,cur){vals.forEach(v=>setOn(scope,attr,v,v===cur));}
+
+// ---------- ① 磁鐵 vs 指北針 ----------
+(function(){
+  const box=document.getElementById('w1');if(!box)return;
+  const svg=document.getElementById('w1svg');
+  mk('rect',{width:700,height:420,fill:'#fffdf5'},svg);
+  const grid=mk('g',{style:'display:none'},svg);const gridN=[];
+  for(let x=55;x<=660;x+=78)for(let y=42;y<=390;y+=70){if(Math.hypot(x-350,y-210)<120)continue;gridN.push(makeCompass(grid,x,y,14,{k:.2,damp:.65,face:'#fff'}));}
+  const main=makeCompass(svg,350,210,98,{labels:true});
+  const M={x:140,y:340,a:0,flip:false};
+  const mg=mk('g',{style:'cursor:grab'},svg);
+  mk('rect',{x:-92,y:-30,width:184,height:60,rx:14,fill:'#000',opacity:.08,transform:'translate(4 5)'},mg);
+  const left=mk('rect',{x:-88,y:-28,width:88,height:56,rx:12,stroke:'#3a2e5c','stroke-width':3},mg);
+  const right=mk('rect',{x:0,y:-28,width:88,height:56,rx:12,stroke:'#3a2e5c','stroke-width':3},mg);
+  const lt=mk('text',{x:-44,y:12,'text-anchor':'middle','font-size':34,'font-weight':900,fill:'#fff'},mg);
+  const rt=mk('text',{x:44,y:12,'text-anchor':'middle','font-size':34,'font-weight':900,fill:'#fff'},mg);
+  const hand=mk('text',{x:0,y:62,'text-anchor':'middle','font-size':26},mg);hand.textContent='👆';
+  const glow=mk('circle',{r:26,fill:'none',stroke:'#FFD93D','stroke-width':6,opacity:0},svg);
+  const msg=document.getElementById('w1msg');
+  const K=1.6e7;
+  function poles(){const a=M.a*Math.PI/180,c=Math.cos(a),s=Math.sin(a),d=64;const R={x:M.x+c*d,y:M.y+s*d},L={x:M.x-c*d,y:M.y-s*d};return M.flip?{N:L,S:R}:{N:R,S:L};}
+  function B(px,py){const p=poles();let bx=0,by=-1;[[p.N,1],[p.S,-1]].forEach(([q,sg])=>{const dx=px-q.x,dy=py-q.y,d=Math.max(30,Math.hypot(dx,dy));bx+=sg*K*dx/d**4;by+=sg*K*dy/d**4;});return[bx,by];}
+  function draw(){
+    const dc=Math.hypot(M.x-350,M.y-210);if(dc<140){const k=140/(dc||1);M.x=350+(M.x-350)*k;M.y=210+(M.y-210)*k;}
+    mg.setAttribute('transform',`translate(${M.x} ${M.y}) rotate(${M.a})`);
+    const nR=!M.flip;right.setAttribute('fill',nR?'#FF5A5F':'#3D8BFD');left.setAttribute('fill',nR?'#3D8BFD':'#FF5A5F');rt.textContent=nR?'N':'S';lt.textContent=nR?'S':'N';
+    lt.setAttribute('transform',`rotate(${-M.a} -44 0)`);rt.setAttribute('transform',`rotate(${-M.a} 44 0)`);hand.setAttribute('transform',`rotate(${-M.a} 0 0)`);
+    const[bx,by]=B(350,210);main.target=fAng(bx,by);
+    gridN.forEach(n=>{const[x,y]=B(n.cx,n.cy);n.target=fAng(x,y);});
+    const p=poles(),dN=Math.hypot(p.N.x-350,p.N.y-210),dS=Math.hypot(p.S.x-350,p.S.y-210);
+    const near=dN<dS?'N':'S',q=near==='N'?p.N:p.S,dd=Math.min(dN,dS);
+    if(dd<260){
+      glow.setAttribute('cx',q.x);glow.setAttribute('cy',q.y);glow.setAttribute('opacity',.9);
+      const from=dir8(fAng(q.x-350,q.y-210));
+      msg.innerHTML=near==='N'
+        ?`磁鐵的 <b>N 極</b>從<b>${from}方</b>靠近 → 異極相吸：指針的<b>箭尾（S極）</b>被吸過來 🔵；箭頭（N極）被推開（同極相斥）。`
+        :`磁鐵的 <b>S 極</b>從<b>${from}方</b>靠近 → 異極相吸：指針的<b>箭頭（N極）</b>被吸過來 🔴；箭尾（S極）被推開（同極相斥）。`;
+    }else{glow.setAttribute('opacity',0);msg.innerHTML='磁鐵離得很遠 → 指北針只受<b>地磁</b>影響，箭頭（N極）指向<b>北方</b> 🧭。試著把磁鐵拖近一點！';}
+  }
+  let drag=null;
+  mg.addEventListener('pointerdown',e=>{const p=svgPt(svg,e);drag={dx:p.x-M.x,dy:p.y-M.y};mg.setPointerCapture(e.pointerId);mg.style.cursor='grabbing';e.preventDefault();});
+  mg.addEventListener('pointermove',e=>{if(!drag)return;const p=svgPt(svg,e);M.x=Math.min(655,Math.max(45,p.x-drag.dx));M.y=Math.min(392,Math.max(28,p.y-drag.dy));draw();});
+  const up=()=>{drag=null;mg.style.cursor='grab';};mg.addEventListener('pointerup',up);mg.addEventListener('pointercancel',up);
+  const pre={nE:[560,210,0,true],sW:[140,210,0,true],nN:[350,28,90,false],sS:[350,392,90,false],away:[70,390,0,false]};
+  box.querySelectorAll('[data-w1]').forEach(b=>b.onclick=()=>{const v=b.dataset.w1;
+    if(v==='rot')M.a=(M.a+90)%360;else if(v==='flip')M.flip=!M.flip;
+    else if(v==='grid'){const on=grid.style.display==='none';grid.style.display=on?'':'none';b.classList.toggle('on',on);}
+    else if(pre[v]){[M.x,M.y,M.a,M.flip]=pre[v];}
+    draw();});
+  draw();
+})();
+
+// ---------- ② 地磁 ----------
+(function(){
+  const box=document.getElementById('w2');if(!box)return;
+  const svg=document.getElementById('w2svg'),lines=document.getElementById('w2lines'),mag=document.getElementById('w2mag');
+  const top=document.getElementById('w2top'),bot=document.getElementById('w2bot'),tt=document.getElementById('w2tt'),bt=document.getElementById('w2bt');
+  const msg=document.getElementById('w2msg');
+  let rev=false,showLines=false;
+  const P=()=>rev?{N:{x:230,y:140},S:{x:230,y:320}}:{N:{x:230,y:320},S:{x:230,y:140}};
+  function B(px,py){const p=P();let bx=0,by=0;[[p.N,1],[p.S,-1]].forEach(([q,sg])=>{const dx=px-q.x,dy=py-q.y,d=Math.max(12,Math.hypot(dx,dy));bx+=sg*dx/d**3;by+=sg*dy/d**3;});return[bx,by];}
+  function trace(){
+    lines.innerHTML='';const p=P();
+    for(let i=0;i<14;i++){
+      const a=(i+.5)/14*2*Math.PI;let x=p.N.x+14*Math.cos(a),y=p.N.y+14*Math.sin(a);const pts=[[x,y]];
+      for(let s=0;s<900;s++){const[bx,by]=B(x,y);const m=Math.hypot(bx,by)||1;x+=4*bx/m;y+=4*by/m;pts.push([x,y]);if(Math.hypot(x-p.S.x,y-p.S.y)<12||x<-40||x>500||y<-40||y>500)break;}
+      mk('polyline',{points:pts.map(q=>q.map(v=>v.toFixed(1)).join(',')).join(' ')},lines);
+      const k=Math.min(pts.length-2,70);if(k>2){const[ax,ay]=pts[k],[bx2,by2]=pts[k+1];const ang=Math.atan2(by2-ay,bx2-ax)*180/Math.PI;mk('polygon',{points:'-7,-6 8,0 -7,6',fill:'#FFD93D',stroke:'none',transform:`translate(${ax} ${ay}) rotate(${ang})`},lines);}
+    }
+  }
+  const surf=[];
+  [30,60,90,120,150,210,240,270,300,330].forEach(d=>{const a=d*Math.PI/180;const g=mk('g',{},svg);surf.push(makeCompass(g,230+Math.sin(a)*168,230-Math.cos(a)*168,17,{k:.12,damp:.75,face:'#fff'}));});
+  const dg=mk('g',{style:'cursor:grab'},svg);const D={x:395,y:110};
+  mk('circle',{r:44,fill:'#FFD93D',opacity:.35},dg);
+  const dn=makeCompass(dg,0,0,34,{face:'#FFF3B0'});
+  const lab=mk('text',{x:0,y:58,'text-anchor':'middle','font-size':17,'font-weight':900,fill:'#FFD93D'},dg);lab.textContent='拖我👆';
+  function upd(){
+    dg.setAttribute('transform',`translate(${D.x} ${D.y})`);
+    // 指北針平放在地面上，只感受到「沿著地面」的磁力方向（水平分量）
+    const flat=(x,y)=>{let[bx,by]=B(x,y);const dx=x-230,dy=y-230,r=Math.hypot(dx,dy)||1,ux=dx/r,uy=dy/r,d=bx*ux+by*uy;return[bx-d*ux,by-d*uy];};
+    const dd=Math.hypot(D.x-230,D.y-230);
+    const[bx,by]=(dd>95&&dd<215)?flat(D.x,D.y):B(D.x,D.y);dn.target=fAng(bx,by);
+    surf.forEach(n=>{const[x,y]=flat(n.cx,n.cy);n.target=fAng(x,y);});
+  }
+  function paint(){
+    top.setAttribute('fill',rev?'#FF5A5F':'#3D8BFD');bot.setAttribute('fill',rev?'#3D8BFD':'#FF5A5F');tt.textContent=rev?'N':'S';bt.textContent=rev?'S':'N';
+    if(showLines)trace();else lines.innerHTML='';
+    msg.innerHTML=rev?'🔄 <b>地磁翻轉了！</b>現在地磁 N 極在北方，指針的 N 極被推開，箭頭全部指向<b>南方</b>！（資優冷知識：地球歷史上地磁真的翻轉過很多次，通常隔幾十萬年才一次。）'
+      :'地球內部像有一根大磁鐵：<b>地磁 S 極在地球北方</b>、<b>地磁 N 極在地球南方</b>。異極相吸 → 指針的 N 極（箭頭）被北方的 S 極吸引，所以<b>全世界的指北針都指北</b> 🌏';
+    upd();
+  }
+  let drag=null;
+  dg.addEventListener('pointerdown',e=>{const p=svgPt(svg,e);drag={dx:p.x-D.x,dy:p.y-D.y};dg.setPointerCapture(e.pointerId);e.preventDefault();});
+  dg.addEventListener('pointermove',e=>{if(!drag)return;const p=svgPt(svg,e);D.x=Math.min(430,Math.max(30,p.x-drag.dx));D.y=Math.min(430,Math.max(30,p.y-drag.dy));upd();});
+  const up=()=>drag=null;dg.addEventListener('pointerup',up);dg.addEventListener('pointercancel',up);
+
+  // 自由轉動的磁鐵
+  const bsvg=document.getElementById('w2bsvg'),bar=document.getElementById('w2bar');
+  const water=document.getElementById('w2water'),dish=document.getElementById('w2dish'),str=document.getElementById('w2string');
+  const bg=mk('g',{},bar);
+  mk('rect',{x:166,y:115,width:28,height:100,rx:8,fill:'#FF5A5F',stroke:'#3a2e5c','stroke-width':3},bg);
+  mk('rect',{x:166,y:215,width:28,height:100,rx:8,fill:'#3D8BFD',stroke:'#3a2e5c','stroke-width':3},bg);
+  const tN=mk('text',{x:180,y:150,'text-anchor':'middle','font-size':24,'font-weight':900,fill:'#fff'},bg);tN.textContent='N';
+  const tS=mk('text',{x:180,y:298,'text-anchor':'middle','font-size':24,'font-weight':900,fill:'#fff'},bg);tS.textContent='S';
+  const freeM={g:bg,cx:180,cy:215,ang:130,vel:0,target:130,k:.012,damp:.982};NEEDLES.push(freeM);
+  bg.setAttribute('transform','rotate(130 180 215)');
+  let mode='water';
+  function setMode(m){mode=m;water.setAttribute('fill',m==='water'?'#d9f3ff':'#fff7e6');water.setAttribute('stroke',m==='water'?'#4FC3F7':'#FFD93D');dish.style.display=m==='water'?'':'none';str.style.display=m==='string'?'':'none';radio(box,'data-w2',['m-water','m-string'],'m-'+m);}
+  box.querySelectorAll('[data-w2]').forEach(b=>b.onclick=()=>{const v=b.dataset.w2;
+    if(v==='xray'){const on=mag.style.opacity==='0';mag.style.opacity=on?'.95':'0';b.classList.toggle('on',on);}
+    else if(v==='lines'){showLines=!showLines;b.classList.toggle('on',showLines);paint();}
+    else if(v==='rev'){rev=!rev;b.classList.toggle('on',rev);paint();}
+    else if(v==='m-water')setMode('water');else if(v==='m-string')setMode('string');
+    else if(v==='drop'){freeM.ang=freeM.target+60+Math.random()*240;freeM.vel=(Math.random()-.5)*6;freeM.target=0;
+      msg.innerHTML='🖐️ 放手了！磁鐵左右擺動，慢慢停下來……不管一開始朝哪裡，靜止時 <b>N 極都指向北方、S 極指向南方</b>（和指北針一樣）！';}
+  });
+  setMode('water');paint();
+})();
+
+// ---------- ③ 電生磁 ----------
+(function(){
+  const box=document.getElementById('w3');if(!box)return;
+  const svg=document.getElementById('w3svg'),msg=document.getElementById('w3msg');
+  const st={on:false,north:true,above:true,n:1};
+  const cx=230,cy=220,R=128;
+  mk('rect',{width:760,height:440,fill:'#fffdf5'},svg);
+  // 電路
+  const frame=mk('path',{d:`M${cx} 32 H420 V172 M420 268 V408 H${cx}`,fill:'none',stroke:'#FF9F43','stroke-width':9,'stroke-linecap':'round','stroke-linejoin':'round'},svg);
+  const fFlow=mk('path',{d:`M${cx} 32 H420 V172 M420 268 V408 H${cx}`,fill:'none',stroke:'#fff','stroke-width':4,'stroke-dasharray':'3 21','stroke-linecap':'round'},svg);
+  const bat=mk('g',{},svg);
+  const batR=mk('rect',{x:398,y:172,width:44,height:96,rx:8,fill:'#FFD93D',stroke:'#3a2e5c','stroke-width':3},bat);
+  const bTop=mk('text',{x:420,y:200,'text-anchor':'middle','font-size':26,'font-weight':900,fill:'#3a2e5c'},bat);
+  const bBot=mk('text',{x:420,y:258,'text-anchor':'middle','font-size':26,'font-weight':900,fill:'#3a2e5c'},bat);
+  const bN=mk('text',{x:452,y:226,'font-size':18,'font-weight':900,fill:'#c4651a'},bat);
+  const below=mk('g',{},svg);
+  mk('line',{x1:cx,y1:32,x2:cx,y2:408,stroke:'#FF9F43','stroke-width':11,'stroke-linecap':'round','stroke-dasharray':'14 8'},below);
+  const flowB=mk('line',{x1:cx,y1:32,x2:cx,y2:408,stroke:'#fff','stroke-width':4,'stroke-dasharray':'3 21','stroke-linecap':'round'},below);
+  const cg=mk('g',{},svg);const nd=makeCompass(cg,cx,cy,R,{labels:true});
+  const face=cg.querySelector('circle');
+  const above=mk('g',{},svg);
+  mk('line',{x1:cx,y1:32,x2:cx,y2:408,stroke:'#FF9F43','stroke-width':11,'stroke-linecap':'round'},above);
+  const flowA=mk('line',{x1:cx,y1:32,x2:cx,y2:408,stroke:'#fff','stroke-width':4,'stroke-dasharray':'3 21','stroke-linecap':'round'},above);
+  const dirArrow=mk('text',{x:cx+18,y:28,'font-size':20,'font-weight':900,fill:'#c4651a'},svg);
+  mk('text',{x:cx,y:436,'text-anchor':'middle','font-size':17,'font-weight':800,fill:'#7a6aa0'},svg).textContent='俯視圖（從上往下看）';
+  // 側面圖
+  const sx=625;
+  mk('rect',{x:478,y:20,width:272,height:400,rx:18,fill:'#f5efff',stroke:'#d8ccff','stroke-width':3},svg);
+  mk('text',{x:sx,y:50,'text-anchor':'middle','font-size':18,'font-weight':900,fill:'#6b3fc4'},svg).textContent='側面圖（從南往北看）';
+  mk('text',{x:500,y:232,'font-size':16,'font-weight':800,fill:'#7a6aa0'},svg).textContent='西';
+  mk('text',{x:728,y:232,'font-size':16,'font-weight':800,fill:'#7a6aa0'},svg).textContent='東';
+  mk('ellipse',{cx:sx,cy:262,rx:88,ry:20,fill:'#fffdf2',stroke:'#3a2e5c','stroke-width':3},svg);
+  mk('text',{x:sx,y:268,'text-anchor':'middle','font-size':15,'font-weight':800,fill:'#3a2e5c'},svg).textContent='指北針';
+  const wg=mk('g',{},svg);
+  const fc1=mk('circle',{r:40,fill:'none',stroke:'#A66CFF','stroke-width':2.5,'stroke-dasharray':'6 6'},wg);
+  const fc2=mk('circle',{r:64,fill:'none',stroke:'#A66CFF','stroke-width':2.5,'stroke-dasharray':'6 6'},wg);
+  const arrs=[0,1,2,3].map(()=>mk('polygon',{points:'-8,-7 9,0 -8,7',fill:'#A66CFF'},wg));
+  mk('circle',{r:17,fill:'#FF9F43',stroke:'#3a2e5c','stroke-width':3},wg);
+  const sym=mk('g',{stroke:'#3a2e5c','stroke-width':3.5,'stroke-linecap':'round'},wg);
+  const big=mk('g',{},svg);
+  const bigA=mk('polygon',{points:'-34,-9 18,-9 18,-20 40,0 18,20 18,9 -34,9',fill:'#e0444a',stroke:'#fff','stroke-width':2},big);
+  const bigT=mk('text',{x:0,y:-26,'text-anchor':'middle','font-size':17,'font-weight':900,fill:'#e0444a'},big);
+  const sideNote=mk('text',{x:sx,y:404,'text-anchor':'middle','font-size':15,'font-weight':800,fill:'#6b3fc4'},svg);
+  let phase=0,off=0;
+  const sgn=()=>(st.north?1:-1)*(st.above?1:-1); // +1 → 向西
+  function draw(){
+    below.style.display=st.above?'none':'';above.style.display=st.above?'':'none';
+    face.setAttribute('fill-opacity',st.above?1:.82);
+    bTop.textContent=st.north?'−':'+';bBot.textContent=st.north?'+':'−';
+    bN.textContent='×'+st.n;
+    dirArrow.textContent=st.north?'⬆ 電流往北':'⬇ 電流往南';dirArrow.setAttribute('y',st.north?28:28);
+    const wy=st.above?182:342;wg.setAttribute('transform',`translate(${sx} ${wy})`);
+    sym.innerHTML='';
+    if(st.north){mk('line',{x1:-8,y1:-8,x2:8,y2:8},sym);mk('line',{x1:8,y1:-8,x2:-8,y2:8},sym);}else mk('circle',{r:3.5,fill:'#3a2e5c'},sym);
+    [fc1,fc2,...arrs].forEach(e=>e.style.display=st.on?'':'none');
+    big.style.display=st.on?'':'none';
+    const s=sgn();
+    big.setAttribute('transform',`translate(${sx} 262) scale(${s>0?-1:1} 1) translate(0 -42)`);
+    bigT.setAttribute('transform',`scale(${s>0?-1:1} 1)`);bigT.textContent=s>0?'磁力往西':'磁力往東';
+    sideNote.textContent=st.north?'⊗ 電流流進畫面（往北）':'⊙ 電流流出畫面（往南）';
+    nd.target=st.on?-s*Math.atan(1.25*st.n)*180/Math.PI:0;
+    if(!st.on){msg.innerHTML='按下「<b>⚡ 通電</b>」，看看指北針會不會動！（沒通電時，指針只受地磁影響指北）';}
+    else{
+      const k=(st.north?0:1)+(st.above?0:1);
+      const rule=k===0?'這是「原本」的情況。':k===1?'和「往北＋上方」比，<b>改了1個</b> → 偏轉方向<b>相反</b>！':'和「往北＋上方」比，<b>改了2個</b> → 負負得正，<b>轉回原來方向</b>！';
+      msg.innerHTML=`電流<b>往${st.north?'北':'南'}</b>、電線在指北針<b>${st.above?'上方':'下方'}</b> → 箭頭向<b>${s>0?'西（左）偏 ↺':'東（右）偏 ↻'}</b>。${rule}<br>🔋 電池越多 → 電流越大 → 偏轉角度越大（現在 ${st.n} 個）。`;
+    }
+  }
+  LOOPS.push(()=>{
+    if(!st.on)return;
+    const v=.9+.5*st.n;off+=(st.north?1:-1)*v;
+    flowA.setAttribute('stroke-dashoffset',off);flowB.setAttribute('stroke-dashoffset',off);fFlow.setAttribute('stroke-dashoffset',-off);
+    phase+=(st.north?1:-1)*.03;
+    arrs.forEach((a,i)=>{const r=i<2?40:64,ph=phase+i*Math.PI;a.setAttribute('transform',`translate(${Math.cos(ph)*r} ${Math.sin(ph)*r}) rotate(${(ph*180/Math.PI)+(st.north?90:-90)})`);});
+  });
+  function setUI(){setOn(box,'data-w3','power',st.on);box.querySelector('[data-w3="power"]').textContent=st.on?'⚡ 通電中（按我斷電）':'⚡ 通電';
+    radio(box,'data-w3',['dirN','dirS'],st.north?'dirN':'dirS');radio(box,'data-w3',['posA','posB'],st.above?'posA':'posB');radio(box,'data-w3',['n1','n2','n3'],'n'+st.n);draw();}
+  // 遊戲
+  S.g3=S.g3||{r:0,t:0};let gAns=null;
+  const qEl=document.getElementById('w3q'),scEl=document.getElementById('w3score'),gW=box.querySelector('[data-w3="gW"]'),gE=box.querySelector('[data-w3="gE"]');
+  const showScore=()=>scEl.textContent=`（答對 ${S.g3.r} / ${S.g3.t} 題）`;showScore();
+  function guess(g){if(gAns===null)return;st.on=true;setUI();const ok=g===gAns;S.g3.t++;if(ok)S.g3.r++;save();showScore();
+    qEl.innerHTML=(ok?'🎉 <b>答對了！</b>':'😮 <b>再想想！</b>')+` 正確答案：箭頭向<b>${gAns==='W'?'西 ↺':'東 ↻'}</b>偏。看上面的指北針驗證一下吧！`;gAns=null;gW.style.display=gE.style.display='none';}
+  box.querySelectorAll('[data-w3]').forEach(b=>b.onclick=()=>{const v=b.dataset.w3;
+    if(v==='power')st.on=!st.on;else if(v==='dirN')st.north=true;else if(v==='dirS')st.north=false;else if(v==='posA')st.above=true;else if(v==='posB')st.above=false;
+    else if(v[0]==='n'&&v.length===2)st.n=+v[1];
+    else if(v==='new'){st.on=false;st.north=Math.random()<.5;st.above=Math.random()<.5;st.n=1+Math.floor(Math.random()*3);gAns=sgn()>0?'W':'E';
+      qEl.innerHTML=`🤔 現在：電流<b>往${st.north?'北':'南'}</b>、電線在指北針<b>${st.above?'上方':'下方'}</b>。通電後，指針箭頭會往哪邊偏？`;gW.style.display=gE.style.display='';}
+    else if(v==='gW'){guess('W');return;}else if(v==='gE'){guess('E');return;}
+    setUI();});
+  setUI();
+})();
+
+// ---------- ④ 電磁鐵 ----------
+(function(){
+  const box=document.getElementById('w4');if(!box)return;
+  const svg=document.getElementById('w4svg'),msg=document.getElementById('w4msg');
+  const st={on:false,swap:false,core:'iron',turns:30,bat:'1'};
+  mk('rect',{width:720,height:390,fill:'#fffdf5'},svg);
+  const X1=232,X2=488,CY=160;
+  // 電線＆電池
+  const wires=mk('path',{d:`M${X1+14} ${CY+34} V300 H300 M420 300 H${X2-14} V${CY+34}`,fill:'none',stroke:'#c4651a','stroke-width':5,'stroke-linejoin':'round'},svg);
+  const batG=mk('g',{},svg);
+  const core=mk('rect',{x:X1,y:CY-22,width:X2-X1,height:44,rx:8,stroke:'#3a2e5c','stroke-width':3},svg);
+  const coreT=mk('text',{x:(X1+X2)/2,y:CY-46,'text-anchor':'middle','font-size':17,'font-weight':900,fill:'#3a2e5c'},svg);
+  const coilG=mk('g',{},svg);
+  const lN=mk('text',{x:X1-26,y:CY+12,'text-anchor':'middle','font-size':38,'font-weight':900},svg);
+  const rN=mk('text',{x:X2+26,y:CY+12,'text-anchor':'middle','font-size':38,'font-weight':900},svg);
+  const cL=makeCompass(svg,105,CY,52,{labels:false,face:'#fff'}),cR=makeCompass(svg,615,CY,52,{labels:false,face:'#fff'});
+  mk('text',{x:105,y:CY+76,'text-anchor':'middle','font-size':15,'font-weight':800,fill:'#7a6aa0'},svg).textContent='⬆北';
+  mk('text',{x:615,y:CY+76,'text-anchor':'middle','font-size':15,'font-weight':800,fill:'#7a6aa0'},svg).textContent='⬆北';
+  // 迴紋針
+  const clips=[];
+  for(let i=0;i<10;i++){const g=mk('g',{},svg);mk('rect',{x:-12,y:-5,width:24,height:10,rx:5,fill:'none',stroke:'#7d8a96','stroke-width':3},g);mk('rect',{x:-7,y:-2,width:14,height:4,rx:2,fill:'none',stroke:'#7d8a96','stroke-width':2},g);
+    const home={x:520+(i%5)*30+(i>4?14:0),y:368-(i>4?12:0),r:(i*37)%60-30};clips.push({g,home,x:home.x,y:home.y,r:home.r});}
+  const strength=()=>{const nb=st.bat==='2'?2:1;return st.turns/30*nb;};
+  function drawCoil(){
+    coilG.innerHTML='';const n=st.turns/5,gap=(X2-X1-28)/(n-1);
+    for(let i=0;i<n;i++){const x=X1+14+i*gap;
+      mk('path',{d:`M${x-3} ${CY-34} Q${x+10} ${CY} ${x-3} ${CY+34}`,fill:'none',stroke:'#a8521a','stroke-width':2.5,opacity:.5},coilG);
+      mk('path',{d:`M${x-3} ${CY-34} Q${x-14} ${CY} ${x-3} ${CY+34}`,fill:'none',stroke:'#e07b2c','stroke-width':4,'stroke-linecap':'round'},coilG);
+      if(st.on&&i%3===1){const down=!st.swap;mk('polygon',{points:down?`${x-15},${CY-4} ${x-5},${CY-4} ${x-10},${CY+8}`:`${x-15},${CY+4} ${x-5},${CY+4} ${x-10},${CY-8}`,fill:'#e0444a'},coilG);}
+    }
+  }
+  function drawBat(){
+    batG.innerHTML='';
+    const cell=(x,y,plusLeft)=>{mk('rect',{x,y,width:56,height:30,rx:6,fill:'#FFD93D',stroke:'#3a2e5c','stroke-width':3},batG);mk('rect',{x:plusLeft?x-6:x+56,y:y+9,width:6,height:12,fill:'#3a2e5c'},batG);
+      const t1=mk('text',{x:x+12,y:y+22,'text-anchor':'middle','font-size':18,'font-weight':900},batG);t1.textContent=plusLeft?'+':'−';const t2=mk('text',{x:x+44,y:y+22,'text-anchor':'middle','font-size':18,'font-weight':900},batG);t2.textContent=plusLeft?'−':'+';};
+    const pl=!st.swap;
+    if(st.bat==='1'){mk('line',{x1:300,y1:300,x2:420,y2:300,stroke:'#c4651a','stroke-width':5},batG);cell(332,285,pl);}
+    else if(st.bat==='2'){mk('line',{x1:300,y1:300,x2:420,y2:300,stroke:'#c4651a','stroke-width':5},batG);cell(302,285,pl);cell(362,285,pl);}
+    else{mk('path',{d:'M300 300 V280 H420 V300 M300 300 V328 H420 V300',fill:'none',stroke:'#c4651a','stroke-width':5},batG);cell(332,265,pl);cell(332,313,pl);}
+    const lb=mk('text',{x:360,y:st.bat==='p'?366:340,'text-anchor':'middle','font-size':16,'font-weight':800,fill:'#6b3fc4'},batG);lb.textContent=st.bat==='1'?'1個電池':st.bat==='2'?'串聯2個':'並聯2個';
+  }
+  let clipsOn=0;
+  function draw(){
+    const cc={iron:['#9aa7b3','鐵棒（會被磁化）'],al:['#e3e9ee','鋁棒（不會被磁鐵吸）'],wood:['#d4a067','木棒']}[st.core];
+    core.setAttribute('fill',cc[0]);coreT.textContent=cc[1];
+    drawCoil();drawBat();
+    const iron=st.core==='iron',s=strength(),eff=st.on?(iron?s:.12):0;
+    const rightN=!st.swap;
+    if(st.on){lN.textContent=rightN?'S':'N';rN.textContent=rightN?'N':'S';lN.setAttribute('fill',rightN?'#3D8BFD':'#FF5A5F');rN.setAttribute('fill',rightN?'#FF5A5F':'#3D8BFD');lN.setAttribute('opacity',iron?1:.35);rN.setAttribute('opacity',iron?1:.35);}else{lN.textContent=rN.textContent='';}
+    const bx=(rightN?1:-1)*eff*2.2;const a=fAng(bx,-1);cL.target=a;cR.target=a;
+    clipsOn=st.on&&iron?Math.min(10,Math.round(2*s)):0;
+    const batTxt=st.bat==='1'?'1個電池':st.bat==='2'?'串聯2個電池':'並聯2個電池';
+    if(!st.on)msg.innerHTML='還沒通電：電磁鐵<b>沒有磁性</b>，兩個指北針都指北，迴紋針吸不起來。按「⚡ 通電」！';
+    else if(!iron)msg.innerHTML=`通電了，但線圈裡是<b>${st.core==='al'?'鋁棒':'木棒'}</b> → 線圈的磁力很弱，指北針只偏一點點，<b>吸不起迴紋針</b>（0支）。換成鐵棒試試！`;
+    else msg.innerHTML=`右端是 <b>${rightN?'N':'S'} 極</b>、左端是 <b>${rightN?'S':'N'} 極</b>（看指北針：靠近 N 極那端吸箭尾，靠近 S 極那端吸箭頭）。<br>${st.turns}圈＋${batTxt} → 吸起 <b>${clipsOn} 支</b>迴紋針${st.bat==='p'?'（並聯和1個電池差不多，磁力沒有變大喔！）':''}${clipsOn>=10?'（全吸起來了！）':''}`;
+  }
+  LOOPS.push(()=>{
+    clips.forEach((c,i)=>{const t=i<clipsOn?{x:X2+4+(i%2?6:-6),y:CY+30+i*13,r:i%2?70:110}:c.home;c.x+=(t.x-c.x)*.12;c.y+=(t.y-c.y)*.12;c.r+=(t.r-c.r)*.12;c.g.setAttribute('transform',`translate(${c.x.toFixed(1)} ${c.y.toFixed(1)}) rotate(${c.r.toFixed(1)})`);});
+  });
+  function setUI(){setOn(box,'data-w4','power',st.on);box.querySelector('[data-w4="power"]').textContent=st.on?'⚡ 通電中（按我斷電）':'⚡ 通電';setOn(box,'data-w4','swap',st.swap);
+    radio(box,'data-w4',['c-iron','c-al','c-wood'],'c-'+st.core);radio(box,'data-w4',['t30','t60','t90'],'t'+st.turns);radio(box,'data-w4',['b1','b2','bp'],'b'+st.bat);draw();}
+  const tb=document.getElementById('w4tb');let rows=[];
+  function renderRows(){tb.innerHTML=rows.length?rows.map((r,i)=>`<tr><td>${i+1}</td><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td><td><b>${r[5]}</b></td></tr>`).join(''):'<tr><td colspan="7">還沒有紀錄，通電後按「📋 記錄」</td></tr>';}
+  box.querySelectorAll('[data-w4]').forEach(b=>b.onclick=()=>{const v=b.dataset.w4;
+    if(v==='power')st.on=!st.on;else if(v==='swap')st.swap=!st.swap;
+    else if(v.startsWith('c-'))st.core=v.slice(2);else if(v[0]==='t')st.turns=+v.slice(1);else if(v[0]==='b'&&v.length===2)st.bat=v[1];
+    else if(v==='rec'){if(!st.on){toast('先通電再記錄喔！');return;}rows.push([{iron:'鐵棒',al:'鋁棒',wood:'木棒'}[st.core],st.turns+'圈',st.bat==='1'?'1個':st.bat==='2'?'串聯2個':'並聯2個',st.swap?'對調':'原本',st.core==='iron'?(st.swap?'S':'N'):'很弱',clipsOn+'支']);if(rows.length>12)rows.shift();renderRows();toast('📋 已記錄！');return;}
+    else if(v==='clr'){rows=[];renderRows();return;}
+    setUI();});
+  setUI();
+})();
+requestAnimationFrame(animLoop);
+
+</script>
+</body>
+</html>
