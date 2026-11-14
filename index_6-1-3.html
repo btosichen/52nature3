@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>動物大解密｜六上自然第3單元 自學小站</title>
+<style>
+:root{
+  --pink:#ff6fa5; --pink-l:#ffe3ef;
+  --yellow:#ffc93c; --yellow-l:#fff6d6;
+  --blue:#3fa9f5; --blue-l:#e0f3ff;
+  --green:#38c98a; --green-l:#ddf8ea;
+  --orange:#ff8a3d; --orange-l:#ffecdc;
+  --purple:#9b6dff; --purple-l:#efe6ff;
+  --red:#ff4d4d; --text:#3b3355; --muted:#6b6385;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  font-size:20px; line-height:1.75; color:var(--text);
+  background:#fffaf2;
+  background-image:radial-gradient(#ffd9e8 2px,transparent 2px),radial-gradient(#d4efff 2px,transparent 2px);
+  background-size:44px 44px; background-position:0 0,22px 22px;
+}
+header{
+  background:linear-gradient(120deg,#ff9ac2,#ffc93c 50%,#7fd3ff);
+  padding:18px 16px 14px; text-align:center; color:#fff;
+  border-bottom:6px solid #fff; box-shadow:0 4px 0 #ffd2e4;
+}
+.brand{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.brand h1{margin:0;font-size:2.1rem;letter-spacing:2px;text-shadow:3px 3px 0 #ff6fa5,0 0 1px #000}
+.brand p{margin:0;font-size:1.05rem;font-weight:700;color:#5b2a6e}
+.logo{width:92px;height:92px;filter:drop-shadow(0 4px 0 rgba(0,0,0,.12))}
+nav{
+  position:sticky;top:0;z-index:50;background:#fff;
+  display:flex;gap:8px;overflow-x:auto;padding:10px;border-bottom:4px dashed #ffc0d9;
+}
+nav button{
+  flex:0 0 auto;border:3px solid transparent;border-radius:999px;
+  padding:8px 16px;font-size:1.05rem;font-weight:800;cursor:pointer;
+  background:var(--yellow-l);color:var(--text);font-family:inherit;
+}
+nav button.on{background:var(--pink);color:#fff;border-color:#fff;box-shadow:0 3px 0 #d94c84}
+main{max-width:1100px;margin:0 auto;padding:18px 14px 80px}
+section{display:none;animation:pop .35s ease}
+section.show{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+h2{font-size:1.75rem;margin:8px 0 14px;display:flex;align-items:center;gap:10px}
+h2 .tag{background:var(--pink);color:#fff;border-radius:14px;padding:2px 14px;font-size:1.1rem}
+h3{font-size:1.35rem;margin:22px 0 10px}
+.card{
+  background:#fff;border-radius:24px;padding:18px 20px;margin:14px 0;
+  border:4px solid var(--blue-l);box-shadow:0 6px 0 rgba(63,169,245,.18);
+}
+.card.pink{border-color:var(--pink-l);box-shadow:0 6px 0 rgba(255,111,165,.2)}
+.card.yellow{border-color:#ffe59a;box-shadow:0 6px 0 rgba(255,201,60,.3)}
+.card.green{border-color:var(--green-l);box-shadow:0 6px 0 rgba(56,201,138,.22)}
+.card.orange{border-color:var(--orange-l);box-shadow:0 6px 0 rgba(255,138,61,.22)}
+.card.purple{border-color:var(--purple-l);box-shadow:0 6px 0 rgba(155,109,255,.22)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.big-emoji{font-size:2.6rem;line-height:1}
+.hl{background:linear-gradient(transparent 55%,#fff07a 55%);font-weight:800}
+.hlp{background:linear-gradient(transparent 55%,#ffc4dc 55%);font-weight:800}
+.hlb{background:linear-gradient(transparent 55%,#bfe6ff 55%);font-weight:800}
+.star{
+  display:inline-block;background:var(--red);color:#fff;border-radius:10px;
+  padding:0 10px;font-size:.85rem;font-weight:900;margin-right:6px;vertical-align:middle
+}
+.star.mid{background:var(--orange)}
+.star.easy{background:var(--green)}
+.must{border:4px dashed var(--red)!important;position:relative}
+.must::before{
+  content:"🔥 必考重點";position:absolute;top:-16px;right:16px;background:var(--red);color:#fff;
+  font-size:.85rem;font-weight:900;padding:0 12px;border-radius:12px
+}
+table{width:100%;border-collapse:separate;border-spacing:0;border-radius:16px;overflow:hidden;margin:8px 0;font-size:1.02rem}
+th{background:var(--blue);color:#fff;padding:10px}
+td{background:#fff;padding:10px;border-bottom:2px solid var(--blue-l);text-align:center}
+tr:nth-child(even) td{background:#f5fbff}
+.formula{
+  font-size:1.35rem;font-weight:900;text-align:center;background:var(--yellow-l);
+  border-radius:18px;padding:12px;margin:10px 0;border:3px solid var(--yellow)
+}
+.flow{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px;margin:10px 0}
+.flow .step{background:var(--green-l);border:3px solid var(--green);border-radius:16px;padding:8px 14px;font-weight:800;text-align:center}
+.flow .arr{font-size:1.6rem;color:var(--orange);font-weight:900}
+.ladder{display:flex;flex-direction:column-reverse;gap:6px;align-items:center}
+.ladder div{border-radius:14px;padding:8px 10px;font-weight:800;text-align:center;color:#fff}
+details{background:var(--purple-l);border-radius:16px;padding:10px 16px;margin:10px 0;cursor:pointer}
+details summary{font-weight:800;color:#6a3fd9}
+details[open]{background:#f7f2ff}
+.ans{color:#1a8a5c;font-weight:800}
+.wrong{color:var(--red);font-weight:800}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:stretch}
+.vs .mid{align-self:center;font-size:1.6rem;font-weight:900;color:var(--pink)}
+.vs .side{border-radius:18px;padding:12px;text-align:center}
+.bubble{background:#fff;border:3px solid var(--pink);border-radius:20px;padding:10px 16px;margin:8px 0;position:relative}
+.mascot-tip{display:flex;gap:12px;align-items:flex-start}
+.mascot-tip svg{flex:0 0 64px}
+.btn{
+  border:none;border-radius:999px;padding:10px 22px;font-size:1.1rem;font-weight:900;cursor:pointer;
+  font-family:inherit;color:#fff;background:var(--blue);box-shadow:0 4px 0 #1f7fc2;margin:4px
+}
+.btn.pink{background:var(--pink);box-shadow:0 4px 0 #d94c84}
+.btn.green{background:var(--green);box-shadow:0 4px 0 #1f9a64}
+.btn.yellow{background:var(--yellow);color:var(--text);box-shadow:0 4px 0 #d9a21c}
+.btn.gray{background:#b9b3cc;box-shadow:0 4px 0 #8e88a3}
+.btn:active{transform:translateY(3px);box-shadow:none}
+/* quiz */
+.q-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.progress{height:18px;background:#ffe3ef;border-radius:999px;overflow:hidden;margin:10px 0}
+.progress div{height:100%;background:linear-gradient(90deg,#ff6fa5,#ffc93c);transition:width .3s}
+.opt{
+  display:block;width:100%;text-align:left;border:3px solid var(--blue-l);background:#fff;
+  border-radius:18px;padding:12px 16px;margin:8px 0;font-size:1.1rem;cursor:pointer;font-family:inherit;color:var(--text)
+}
+.opt:hover{border-color:var(--blue)}
+.opt.right{background:var(--green-l);border-color:var(--green)}
+.opt.bad{background:#ffe1e1;border-color:var(--red)}
+.explain{border-radius:18px;padding:12px 16px;margin-top:10px;background:var(--yellow-l);border:3px solid var(--yellow)}
+.filter button{border:3px solid var(--pink-l);background:#fff;border-radius:999px;padding:4px 14px;font-size:1rem;font-weight:800;cursor:pointer;font-family:inherit;margin:3px}
+.filter button.on{background:var(--pink);color:#fff;border-color:var(--pink)}
+.flash-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.flash{perspective:900px;height:170px;cursor:pointer}
+.flash-in{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flash.flip .flash-in{transform:rotateY(180deg)}
+.flash-f,.flash-b{position:absolute;inset:0;backface-visibility:hidden;border-radius:22px;display:flex;align-items:center;justify-content:center;text-align:center;padding:14px;font-weight:800;font-size:1.1rem}
+.flash-f{background:linear-gradient(135deg,#ffe3ef,#fff6d6);border:4px solid var(--pink)}
+.flash-b{background:linear-gradient(135deg,#ddf8ea,#e0f3ff);border:4px solid var(--green);transform:rotateY(180deg)}
+.check label{display:flex;gap:10px;align-items:center;background:#fff;border-radius:14px;padding:8px 12px;margin:6px 0;border:3px solid var(--green-l);cursor:pointer}
+.check input{width:26px;height:26px;accent-color:var(--green)}
+textarea{width:100%;min-height:180px;border-radius:18px;border:3px solid var(--blue-l);padding:12px;font-size:1.1rem;font-family:inherit}
+.mindmap svg{width:100%;height:auto}
+.mindmap .node{cursor:pointer}
+.mindmap .node:hover rect{filter:brightness(1.07)}
+.chip{display:inline-block;background:var(--blue-l);border-radius:999px;padding:2px 12px;margin:3px;font-weight:700}
+footer{text-align:center;color:var(--muted);font-size:.95rem;padding:20px}
+@media (max-width:640px){
+  body{font-size:18px}
+  .brand h1{font-size:1.6rem}
+  .vs{grid-template-columns:1fr}
+  .vs .mid{text-align:center}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <!-- 原創 LOGO：拿放大鏡的小企鵝偵探 -->
+    <svg class="logo" viewBox="0 0 120 120" aria-label="動物大解密 LOGO">
+      <circle cx="60" cy="60" r="56" fill="#fff"/>
+      <circle cx="60" cy="60" r="56" fill="none" stroke="#ff6fa5" stroke-width="6" stroke-dasharray="10 6"/>
+      <ellipse cx="55" cy="68" rx="28" ry="32" fill="#4a90d9"/>
+      <ellipse cx="55" cy="74" rx="19" ry="23" fill="#fff"/>
+      <circle cx="46" cy="55" r="6" fill="#fff"/><circle cx="64" cy="55" r="6" fill="#fff"/>
+      <circle cx="47" cy="56" r="3" fill="#3b3355"/><circle cx="63" cy="56" r="3" fill="#3b3355"/>
+      <path d="M50 63 L55 70 L60 63 Z" fill="#ffc93c"/>
+      <circle cx="40" cy="66" r="4" fill="#ffb3cf"/><circle cx="70" cy="66" r="4" fill="#ffb3cf"/>
+      <path d="M33 36 Q55 18 77 36 L75 40 Q55 30 35 40 Z" fill="#ff6fa5"/>
+      <circle cx="55" cy="25" r="5" fill="#ffc93c"/>
+      <circle cx="88" cy="78" r="13" fill="#e0f3ff" stroke="#ff8a3d" stroke-width="5"/>
+      <line x1="97" y1="88" x2="108" y2="100" stroke="#ff8a3d" stroke-width="7" stroke-linecap="round"/>
+      <path d="M82 76 q3 -4 6 0" stroke="#3fa9f5" stroke-width="2" fill="none"/>
+    </svg>
+    <div>
+      <h1>動物大解密</h1>
+      <p>六上自然 第3單元｜小企鵝偵探自學小站 🔍</p>
+    </div>
+  </div>
+</header>
+
+<nav id="nav">
+  <button data-s="home" class="on">🗺️ 心智圖</button>
+  <button data-s="key">📚 重點整理</button>
+  <button data-s="memory">🧠 超強記憶</button>
+  <button data-s="deep">🚀 資優加深</button>
+  <button data-s="exam">⚠️ 常考常錯</button>
+  <button data-s="life">🌏 生活素養</button>
+  <button data-s="quiz">✏️ 練習30題</button>
+  <button data-s="review">🏆 總復習</button>
+  <button data-s="note">📒 我的筆記</button>
+</nav>
+
+<main>
+
+<!-- ===================== 心智圖 ===================== -->
+<section id="home" class="show">
+  <h2>🗺️ 單元心智圖 <span class="tag">先看全貌</span></h2>
+  <div class="card mindmap">
+    <svg id="mm" viewBox="0 0 1100 710"></svg>
+    <p style="text-align:center;margin:4px 0 0;color:var(--muted);font-size:1rem">👆 點一下小方塊，直接跳到那個重點！</p>
+  </div>
+
+  <div class="grid">
+    <div class="card pink"><div class="big-emoji">🏃</div><h3>活動1 動物如何運動</h3>
+      <p>肌肉 + 骨骼 + 關節 合作運動；沒骨骼的動物靠<span class="hl">肌肉</span>運動；用<span class="hl">二分法</span>分類。</p></div>
+    <div class="card"><div class="big-emoji">🫁</div><h3>活動2 動物如何呼吸</h3>
+      <p>鼻→氣管→肺；石灰水證明呼出氣<span class="hlb">二氧化碳較多</span>；細胞→組織→器官→系統→個體。</p></div>
+    <div class="card green"><div class="big-emoji">🐄</div><h3>活動3 動物與生活</h3>
+      <p>食衣住行都靠動物；經濟動物養殖要顧<span class="hl">食安與環保</span>；模仿動物發明叫<span class="hlp">仿生</span>。</p></div>
+  </div>
+
+  <div class="card yellow">
+    <h3 style="margin-top:0">🧭 自學路線（建議照順序）</h3>
+    <div class="flow">
+      <div class="step">🗺️ 心智圖</div><div class="arr">➜</div>
+      <div class="step">📚 重點</div><div class="arr">➜</div>
+      <div class="step">🧠 口訣</div><div class="arr">➜</div>
+      <div class="step">⚠️ 常錯</div><div class="arr">➜</div>
+      <div class="step">✏️ 30題</div><div class="arr">➜</div>
+      <div class="step">🏆 總復習</div>
+    </div>
+    <p style="text-align:center;margin:0">標示說明：<span class="star easy">★ 基礎</span><span class="star mid">★★ 中等</span><span class="star">★★★ 進階</span> 紅色虛線框 = 🔥必考重點</p>
+  </div>
+</section>
+
+<!-- ===================== 重點整理 ===================== -->
+<section id="key">
+  <h2>📚 重點整理 <span class="tag">課本精華</span></h2>
+
+  <h3 id="k1">🏃 活動1｜動物如何運動</h3>
+  <div class="card pink must">
+    <h3 style="margin-top:0">1-1 人體運動三兄弟</h3>
+    <div class="grid">
+      <div style="text-align:center"><div class="big-emoji">💪</div><b>肌肉</b><br>軟軟的，會<span class="hl">收縮</span>產生運動、維持姿勢</div>
+      <div style="text-align:center"><div class="big-emoji">🦴</div><b>骨骼</b><br>硬硬的，<span class="hl">支撐、幫助運動、保護</span>身體</div>
+      <div style="text-align:center"><div class="big-emoji">🔩</div><b>關節</b><br><span class="hl">骨骼和骨骼連接</span>的地方，可彎曲</div>
+    </div>
+    <div class="formula">肌肉 拉 骨骼 ➜ 關節 彎曲或伸直 ➜ 做出動作</div>
+    <p>📎 <b>肌腱</b>：肌肉兩端白色的構造，<span class="hl">連接肌肉和骨骼</span>。肌腱<span class="wrong">不能主動收縮</span>，但能把肌肉的力量傳給骨骼。</p>
+  </div>
+
+  <div class="card pink must">
+    <h3 style="margin-top:0">💪 手臂彎曲 vs 伸直</h3>
+    <svg viewBox="0 0 720 230" style="width:100%;height:auto">
+      <!-- bent arm -->
+      <text x="170" y="28" text-anchor="middle" font-size="24" font-weight="900" fill="#ff6fa5">手臂彎曲 🙆</text>
+      <rect x="40" y="150" width="190" height="26" rx="13" fill="#f5e6c8" stroke="#c9a96b" stroke-width="3"/>
+      <rect x="205" y="55" width="26" height="120" rx="13" fill="#f5e6c8" stroke="#c9a96b" stroke-width="3" transform="rotate(25 218 165)"/>
+      <circle cx="225" cy="163" r="14" fill="#ffc93c"/>
+      <ellipse cx="135" cy="130" rx="70" ry="24" fill="#ff6fa5"/>
+      <text x="135" y="137" text-anchor="middle" font-size="18" font-weight="900" fill="#fff">內側 收縮</text>
+      <ellipse cx="135" cy="196" rx="80" ry="11" fill="#ffc4dc"/>
+      <text x="135" y="225" text-anchor="middle" font-size="17" font-weight="800" fill="#a14370">外側 舒張</text>
+      <!-- straight arm -->
+      <text x="530" y="28" text-anchor="middle" font-size="24" font-weight="900" fill="#3fa9f5">手臂伸直 🙅</text>
+      <rect x="390" y="110" width="300" height="26" rx="13" fill="#f5e6c8" stroke="#c9a96b" stroke-width="3"/>
+      <circle cx="560" cy="123" r="14" fill="#ffc93c"/>
+      <ellipse cx="480" cy="95" rx="80" ry="11" fill="#bfe6ff"/>
+      <text x="480" y="75" text-anchor="middle" font-size="17" font-weight="800" fill="#1f7fc2">內側 舒張</text>
+      <ellipse cx="480" cy="158" rx="72" ry="22" fill="#3fa9f5"/>
+      <text x="480" y="165" text-anchor="middle" font-size="18" font-weight="900" fill="#fff">外側 收縮</text>
+      <text x="610" y="210" text-anchor="middle" font-size="16" fill="#6b6385">🟡 = 關節（手肘）</text>
+    </svg>
+    <div class="formula">彎曲：內縮外舒 ｜ 伸直：內舒外縮</div>
+    <p>🔑 兩側肌肉永遠<span class="hl">一邊收縮、一邊舒張</span>，像拔河一樣輪流用力！</p>
+  </div>
+
+  <div class="card pink">
+    <h3 style="margin-top:0">1-2 動物的構造與運動方式</h3>
+    <table>
+      <tr><th>動物</th><th>運動方式</th><th>靠什麼運動</th><th>有骨骼？</th></tr>
+      <tr><td>🐕 狗</td><td>走、跑、跳</td><td>肌肉＋骨骼＋關節</td><td>✅</td></tr>
+      <tr><td>🐦 鳥</td><td>飛行（也會走、跳）</td><td>肌肉＋骨骼＋關節</td><td>✅</td></tr>
+      <tr><td>🪱 蚯蚓</td><td>爬行</td><td><span class="hl">身體的肌肉</span>（變長變短）</td><td>❌</td></tr>
+      <tr><td>🐌 蝸牛</td><td>爬行</td><td><span class="hl">腹足</span>的肌肉</td><td>❌</td></tr>
+      <tr><td>🦪 河蚌</td><td>移動</td><td><span class="hl">斧足</span>的肌肉</td><td>❌</td></tr>
+      <tr><td>🐙 章魚</td><td>游水、爬行</td><td><span class="hl">腕足</span>的肌肉</td><td>❌</td></tr>
+    </table>
+    <p>👉 <b>所有動物都有肌肉</b>，但不一定有骨骼和關節！</p>
+    <div class="vs">
+      <div class="side" style="background:var(--pink-l)"><b>🐦 鳥</b><br>一對翅膀、飛行<br>兩隻腳走或跳</div>
+      <div class="mid">VS</div>
+      <div class="side" style="background:var(--yellow-l)"><b>🧒 人</b><br>兩隻手<br>兩隻腳走、跑、跳</div>
+    </div>
+    <p style="text-align:center">共同點：都有<span class="hl">肌肉、骨骼和關節</span>，都用兩隻腳走或跳。</p>
+  </div>
+
+  <div class="card pink must" id="k-2fen">
+    <h3 style="margin-top:0">1-3 動物的分類：二分法 ✂️</h3>
+    <p>選<span class="hl">一個特徵</span>當標準 ➜ <b>符合</b>的一類、<b>不符合</b>的另一類，一直分下去。</p>
+    <p>可用的標準：<span class="chip">外形特徵</span><span class="chip">身體構造</span><span class="chip">運動方式</span><span class="chip">繁殖方式</span></p>
+    <svg viewBox="0 0 700 260" style="width:100%;height:auto;font-weight:800">
+      <rect x="230" y="8" width="240" height="42" rx="18" fill="#fff6d6" stroke="#ffc93c" stroke-width="3"/>
+      <text x="350" y="36" text-anchor="middle" font-size="19">狗、鳥、蚯蚓、金魚</text>
+      <path d="M350 50 L180 100 M350 50 L520 100" stroke="#ff8a3d" stroke-width="4"/>
+      <rect x="100" y="100" width="160" height="40" rx="16" fill="#ffe3ef" stroke="#ff6fa5" stroke-width="3"/>
+      <text x="180" y="127" text-anchor="middle" font-size="18">有腳：狗、鳥</text>
+      <rect x="420" y="100" width="200" height="40" rx="16" fill="#e0f3ff" stroke="#3fa9f5" stroke-width="3"/>
+      <text x="520" y="127" text-anchor="middle" font-size="18">沒有腳：蚯蚓、金魚</text>
+      <path d="M180 140 L100 195 M180 140 L260 195 M520 140 L440 195 M520 140 L600 195" stroke="#ff8a3d" stroke-width="4"/>
+      <rect x="40" y="195" width="120" height="40" rx="16" fill="#ddf8ea" stroke="#38c98a" stroke-width="3"/><text x="100" y="222" text-anchor="middle" font-size="17">胎生：狗</text>
+      <rect x="190" y="195" width="140" height="40" rx="16" fill="#ddf8ea" stroke="#38c98a" stroke-width="3"/><text x="260" y="222" text-anchor="middle" font-size="17">不是胎生：鳥</text>
+      <rect x="380" y="195" width="120" height="40" rx="16" fill="#efe6ff" stroke="#9b6dff" stroke-width="3"/><text x="440" y="222" text-anchor="middle" font-size="17">有鰭：金魚</text>
+      <rect x="530" y="195" width="140" height="40" rx="16" fill="#efe6ff" stroke="#9b6dff" stroke-width="3"/><text x="600" y="222" text-anchor="middle" font-size="17">沒有鰭：蚯蚓</text>
+    </svg>
+    <p>⚠️ 標準一定要<span class="hl">客觀、看得出來</span>（有沒有翅膀 ✅），不能用「可愛／不可愛」「我喜歡／不喜歡」這種主觀標準 ❌。</p>
+  </div>
+
+  <h3 id="k2">🫁 活動2｜動物如何呼吸</h3>
+  <div class="card must">
+    <h3 style="margin-top:0">2-1 空氣在人體的旅行</h3>
+    <div class="flow">
+      <div class="step">👃 鼻<br><small>吸入、排出</small></div><div class="arr">➜</div>
+      <div class="step">🌬️ 氣管<br><small>連接鼻和肺</small></div><div class="arr">➜</div>
+      <div class="step" style="background:var(--pink-l);border-color:var(--pink)">🫁 肺<br><small>氣體交換</small></div><div class="arr">➜</div>
+      <div class="step">🌬️ 氣管</div><div class="arr">➜</div>
+      <div class="step">👃 鼻</div>
+    </div>
+    <p>🔄 在肺裡：<span class="hlb">氧氣進入身體、二氧化碳排出</span>，這叫<b>氣體交換</b>。</p>
+    <p>👄 口也能吸空氣，但口是<span class="hl">消化器官</span>；鼻有鼻毛、黏液能<b>清潔、溼潤</b>空氣，所以鼻才是呼吸器官。</p>
+  </div>
+
+  <div class="card must" id="k-exp">
+    <h3 style="margin-top:0">🧪 探究實驗：呼出的氣體有比較多二氧化碳嗎？</h3>
+    <div class="grid">
+      <div class="card yellow" style="margin:0"><b>🅰️ 實驗袋</b><br>澄清石灰水 80mL + 對吸管<span class="hl">吐氣</span><br>➜ <b>變得很混濁</b> 🥛</div>
+      <div class="card green" style="margin:0"><b>🅱️ 對照袋</b><br>等量澄清石灰水 + 收集<span class="hl">空氣</span><br>➜ 較無明顯變化 💧</div>
+    </div>
+    <div class="formula">澄清石灰水 + 二氧化碳 ➜ 變混濁</div>
+    <p>✅ 結論：人體呼出的氣體中，含有<span class="hl">比空氣中較多的二氧化碳</span>。<br>
+    ⚠️ 注意：①短吸管<b>不可碰到</b>石灰水 ②只能吐氣，<b>不可吸氣</b>。<br>
+    🧠 探究步驟：察覺現象 → 提出問題 → 蒐集資料 → 假設 → 實驗設計 → 實驗 → 結果 → 討論 → 結論</p>
+  </div>
+
+  <div class="card must" id="k-level">
+    <h3 style="margin-top:0">2-2 人體的組成層次（從小到大）</h3>
+    <div class="flow">
+      <div class="step" style="background:#ffe3ef;border-color:#ff6fa5">🔬 細胞<br><small>上皮細胞</small></div><div class="arr">➜</div>
+      <div class="step" style="background:#ffecdc;border-color:#ff8a3d">🧱 組織<br><small>上皮組織</small></div><div class="arr">➜</div>
+      <div class="step" style="background:#fff6d6;border-color:#ffc93c">👃 器官<br><small>鼻、氣管、肺</small></div><div class="arr">➜</div>
+      <div class="step" style="background:#ddf8ea;border-color:#38c98a">🫁 器官系統<br><small>呼吸系統</small></div><div class="arr">➜</div>
+      <div class="step" style="background:#e0f3ff;border-color:#3fa9f5">🧒 個體<br><small>人體</small></div>
+    </div>
+    <p>⭐ <span class="hl">細胞是構成生物體的最小單位</span>。其他系統：神經系統（傳訊息）、循環系統（運送物質）、消化系統（處理食物）、免疫系統（保護身體）。</p>
+  </div>
+
+  <div class="card must" id="k-breath">
+    <h3 style="margin-top:0">2-3 動物的呼吸器官</h3>
+    <div class="grid">
+      <div class="card pink" style="margin:0;text-align:center"><div class="big-emoji">🐕🧒</div><b>肺</b><br>人、狗<br><small>（哺乳類、鳥、爬蟲類）</small></div>
+      <div class="card" style="margin:0;text-align:center"><div class="big-emoji">🐟</div><b>鰓</b><br>鯉魚、金魚<br><small>吸收<b>溶在水中</b>的氧氣</small></div>
+      <div class="card green" style="margin:0;text-align:center"><div class="big-emoji">🦗</div><b>氣管</b><br>蝗蟲等昆蟲<br><small>空氣從身體兩側<b>氣門</b>進出</small></div>
+    </div>
+  </div>
+
+  <h3 id="k3">🐄 活動3｜動物與我們生活有關嗎</h3>
+  <div class="card green">
+    <h3 style="margin-top:0">3-1 動物與我們的生活（食衣住行）</h3>
+    <div class="grid">
+      <div>🍗 <b>食</b>：牛奶、雞肉、雞蛋、魚、蝦、貝、蜂蜜</div>
+      <div>🧥 <b>衣</b>：羊毛衣、蠶絲布、真皮皮鞋、皮包</div>
+      <div>🏠 <b>住</b>：蚵殼磨粉當建築材料</div>
+      <div>🐴 <b>行</b>：馬車、牛車</div>
+    </div>
+    <p>🐖 <b>經濟動物</b>：能生產肉、乳、蛋、皮毛等，帶來經濟價值的動物（豬、牛、羊、雞、鴨、鵝）。</p>
+    <p>🌱 養殖要注重<span class="hl">食品安全與環境保護</span>，避免過度開發：</p>
+    <div class="vs">
+      <div class="side" style="background:var(--yellow-l)">🐔 傳統<b>格子籠</b><br>➜ 改為提供<span class="hl">活動空間＋戶外時間</span></div>
+      <div class="mid">➜</div>
+      <div class="side" style="background:var(--blue-l)">🐟 傳統<b>漁塭</b>依賴陸地水土<br>➜ <span class="hl">箱網養殖</span>減少環境衝擊</div>
+    </div>
+  </div>
+  <div class="card green must" id="k-bio">
+    <h3 style="margin-top:0">3-2 來自動物的靈感：仿生 ✈️</h3>
+    <p><span class="hlp">仿生</span> = 模仿生物的<b>構造或行為</b>，研發工具或產品（不是直接拿動物來用）。</p>
+    <table>
+      <tr><th>發明</th><th>模仿</th></tr>
+      <tr><td>✈️ 飛機</td><td>鳥的翅膀外形與飛行方式</td></tr>
+      <tr><td>🩴 蛙鞋</td><td>動物的蹼</td></tr>
+      <tr><td>🚣 船槳</td><td>魚的鰭（胸鰭、腹鰭）</td></tr>
+      <tr><td>🔘 吸盤</td><td>章魚腕足的吸盤</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ===================== 超強記憶 ===================== -->
+<section id="memory">
+  <h2>🧠 超強記憶法 <span class="tag">口訣＋比較</span></h2>
+
+  <div class="card yellow">
+    <h3 style="margin-top:0">🎵 口訣一：運動三兄弟</h3>
+    <div class="formula">肌肉是「馬達」🔋 骨骼是「支架」🏗️ 關節是「門軸」🚪</div>
+    <p>門要打開（彎曲），要有馬達拉、門板撐、門軸轉，少一個都不行（對人來說）。</p>
+  </div>
+
+  <div class="card pink must">
+    <h3 style="margin-top:0">🎵 口訣二：手臂肌肉</h3>
+    <div class="formula">「彎內縮、直外縮」</div>
+    <p>🏋️ 秘訣：做「秀肌肉」動作時，鼓起來那塊就是<span class="hl">收縮</span>中的肌肉（彎曲時鼓在內側）。<br>
+    收縮 = 變短、變粗、變硬 😤 ｜ 舒張 = 變長、放鬆 😌</p>
+  </div>
+
+  <div class="card pink">
+    <h3 style="margin-top:0">🎵 口訣三：沒有骨骼的動物</h3>
+    <div class="formula">「蚯身、蝸腹、蚌斧、章腕」</div>
+    <p>🪱蚯蚓靠<b>身體</b>肌肉 ｜ 🐌蝸牛靠<b>腹足</b> ｜ 🦪河蚌靠<b>斧足</b> ｜ 🐙章魚靠<b>腕足</b><br>共通點：全部都靠<span class="hl">肌肉</span>收縮和舒張！</p>
+  </div>
+
+  <div class="card must">
+    <h3 style="margin-top:0">🎵 口訣四：呼吸器官</h3>
+    <div class="formula">「人狗用肺、魚用鰓、蟲走氣管」</div>
+    <table>
+      <tr><th></th><th>🫁 肺</th><th>🐟 鰓</th><th>🦗 氣管</th></tr>
+      <tr><td><b>誰用</b></td><td>人、狗、貓、鳥、蛇、<span class="hl">鯨、海豚</span></td><td>魚、蝦、蝌蚪</td><td>蝗蟲、蝴蝶等昆蟲</td></tr>
+      <tr><td><b>氧氣來源</b></td><td>空氣</td><td>溶在水中的氧</td><td>空氣（從氣門進）</td></tr>
+      <tr><td><b>記憶圖</b></td><td>🎈 兩個氣球</td><td>🪮 紅色梳子</td><td>🚇 身體裡的地鐵管</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">🎵 口訣五：空氣旅行</h3>
+    <div class="formula">「鼻 ➜ 氣管 ➜ 肺，原路回家」🔁</div>
+    <p>像回文一樣：<b>鼻 氣管 肺 氣管 鼻</b>，前後對稱！不會經過「口、胃、心臟」。</p>
+  </div>
+
+  <div class="card must">
+    <h3 style="margin-top:0">🎵 口訣六：組成層次＝樂高機器人 🤖</h3>
+    <div class="ladder" style="max-width:520px;margin:0 auto">
+      <div style="background:#ff6fa5;width:40%">🔬 細胞＝1 顆積木</div>
+      <div style="background:#ff8a3d;width:55%">🧱 組織＝同色積木拼成一片</div>
+      <div style="background:#ffc93c;width:70%;color:#3b3355">👃 器官＝做成一個零件（手臂）</div>
+      <div style="background:#38c98a;width:85%">🫁 器官系統＝零件組成一套功能</div>
+      <div style="background:#3fa9f5;width:100%">🧒 個體＝整台機器人完成！</div>
+    </div>
+    <div class="formula" style="margin-top:14px">「細 組 器 系 個」➜「<u>細</u>心<u>組</u>裝<u>器</u>材<u>系</u>統一<u>個</u>」</div>
+  </div>
+
+  <div class="card orange">
+    <h3 style="margin-top:0">🎵 口訣七：石灰水只認二氧化碳</h3>
+    <div class="formula">「石灰水，遇二氧，白白混濁像牛奶」🥛</div>
+    <div class="vs">
+      <div class="side" style="background:var(--orange-l)"><b>二氧化碳 CO₂</b><br>使澄清石灰水<b>變混濁</b></div>
+      <div class="mid">≠</div>
+      <div class="side" style="background:var(--blue-l)"><b>氧氣 O₂</b><br>能<b>助燃</b>（線香燒得更旺）<br>石灰水不會變</div>
+    </div>
+  </div>
+
+  <div class="card green">
+    <h3 style="margin-top:0">🎵 口訣八：仿生配對</h3>
+    <div class="formula">「鳥飛機、蹼蛙鞋、鰭船槳、章吸盤」</div>
+    <div class="vs">
+      <div class="side" style="background:var(--green-l)"><b>🦾 仿生</b><br>模仿構造／行為<br>例：蛙鞋、飛機</div>
+      <div class="mid">≠</div>
+      <div class="side" style="background:var(--yellow-l)"><b>🐑 利用動物資源</b><br>直接使用動物的東西<br>例：羊毛衣、牛奶</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 資優加深 ===================== -->
+<section id="deep">
+  <h2>🚀 資優加深教材 <span class="tag">挑戰更深一層</span></h2>
+  <div class="mascot-tip card purple">
+    <svg viewBox="0 0 64 64"><circle cx="32" cy="34" r="26" fill="#4a90d9"/><ellipse cx="32" cy="40" rx="17" ry="18" fill="#fff"/><circle cx="25" cy="28" r="3" fill="#3b3355"/><circle cx="39" cy="28" r="3" fill="#3b3355"/><path d="M28 34 L32 39 L36 34Z" fill="#ffc93c"/></svg>
+    <div class="bubble">這一區是「課本之外」的知識，考試不一定考，但能讓你<b>真正懂為什麼</b>，遇到素養題就不怕！</div>
+  </div>
+
+  <div class="grid">
+    <div class="card purple">
+      <h3 style="margin-top:0">💪 肌肉有三種</h3>
+      <table>
+        <tr><th>種類</th><th>在哪裡</th><th>能控制嗎</th></tr>
+        <tr><td>骨骼肌</td><td>連在骨骼上</td><td>✅ 可以</td></tr>
+        <tr><td>心肌</td><td>心臟</td><td>❌ 不行</td></tr>
+        <tr><td>平滑肌</td><td>胃、腸、血管壁</td><td>❌ 不行</td></tr>
+      </table>
+      <p>本單元講的「手臂肌肉」是<b>骨骼肌</b>。</p>
+    </div>
+    <div class="card purple">
+      <h3 style="margin-top:0">🦴 骨骼的秘密數字</h3>
+      <p>成年人大約有 <span class="hl">206 塊</span>骨頭；嬰兒骨頭比較多（約 300 塊），長大時有些會<b>癒合</b>在一起。</p>
+      <p>骨骼可分為<b>硬骨</b>和<b>軟骨</b>（摸摸耳朵、鼻尖就是軟骨）。</p>
+    </div>
+    <div class="card purple">
+      <h3 style="margin-top:0">🔩 關節有三種</h3>
+      <p>🔒 <b>不動關節</b>：頭顱骨<br>↔️ <b>少動關節</b>：脊椎<br>🔄 <b>可動關節</b>：手指、膝蓋、肩膀</p>
+      <p>肩膀可以轉圈圈，膝蓋只能前後彎，因為關節形狀不同！</p>
+    </div>
+    <div class="card purple">
+      <h3 style="margin-top:0">🪱 蚯蚓怎麼爬？</h3>
+      <p>身體有<b>環肌</b>（一圈圈）和<b>縱肌</b>（長條）兩種肌肉，<span class="hl">輪流收縮</span>讓身體變細長、變粗短；體表的<b>剛毛</b>像小釘子抓住地面。</p>
+      <p>🐌 蝸牛則是腹足肌肉像波浪一樣收縮，並分泌<b>黏液</b>幫助滑行，而且<b>只能前進不能後退</b>。</p>
+    </div>
+    <div class="card purple">
+      <h3 style="margin-top:0">🌳 生物分類七層樓</h3>
+      <div class="formula" style="font-size:1.15rem">界 ➜ 門 ➜ 綱 ➜ 目 ➜ 科 ➜ 屬 ➜ 種</div>
+      <p>口訣：「<b>姐（界）們（門）剛（綱）沐（目）浴（科）熟（屬）睡（種）</b>」<br>
+      人類：動物界、脊索動物門、哺乳綱、靈長目、人科、人屬、智人種。<br>
+      科學家分類其實就是<b>一層一層的二分法</b>！</p>
+    </div>
+    <div class="card purple">
+      <h3 style="margin-top:0">🐸 青蛙的雙重人生</h3>
+      <p>蝌蚪住在水裡用<span class="hl">鰓</span>呼吸；長成青蛙後用<span class="hl">肺</span>呼吸，還能靠<b>溼潤的皮膚</b>幫忙交換氣體。所以青蛙皮膚要保持溼溼的！</p>
+    </div>
+    <div class="card purple">
+      <h3 style="margin-top:0">🫁 肺泡：超大交換面積</h3>
+      <p>肺裡有數億個像葡萄的小氣囊叫<b>肺泡</b>，全部攤開的面積大約有<span class="hl">半個網球場</span>那麼大！面積越大，氣體交換越快。</p>
+      <p>🐟 魚鰓是紅色的，因為鰓絲裡有很多微血管；鰓絲很多很細，也是為了增加面積。</p>
+    </div>
+    <div class="card purple">
+      <h3 style="margin-top:0">🐋 用肺呼吸的水中動物</h3>
+      <p>鯨、海豚住在海裡，但牠們是<b>哺乳類</b>，用<span class="hl">肺</span>呼吸，所以要浮出水面換氣（頭頂的噴氣孔就是鼻孔）。</p>
+      <p>🦆 鴨嘴獸是會<b>生蛋</b>的哺乳類；🦇 蝙蝠是會<b>飛</b>的哺乳類（胎生）。分類要看「特徵」不要看「印象」！</p>
+    </div>
+    <div class="card purple">
+      <h3 style="margin-top:0">🧪 石灰水為什麼會混濁？</h3>
+      <p>澄清石灰水是<b>氫氧化鈣</b>（熟石灰）溶在水裡，遇到二氧化碳會產生不溶於水的白色<b>碳酸鈣</b>（就是蛋殼、貝殼、粉筆的主要成分）小顆粒，所以看起來白白的。</p>
+      <p>對照袋放久了表面也會有薄白膜，因為空氣中<b>也有少量</b>二氧化碳。</p>
+    </div>
+    <div class="card purple">
+      <h3 style="margin-top:0">🚄 更多仿生發明</h3>
+      <p>🐦 翠鳥嘴 ➜ 日本新幹線車頭（減少噪音）<br>
+      🦈 鯊魚皮 ➜ 鯊魚泳衣（減少水的阻力）<br>
+      🦎 壁虎腳 ➜ 壁虎膠帶（細毛黏附）<br>
+      🐝 蜂巢 ➜ 蜂巢結構板（輕又堅固）<br>
+      🦇 蝙蝠回聲 ➜ 聲納、倒車雷達<br>
+      🦎 變色龍舌頭 ➜ 遠距離取物夾</p>
+    </div>
+    <div class="card purple">
+      <h3 style="margin-top:0">🏷️ 產銷履歷</h3>
+      <p>農產品從養殖到上架的過程都有紀錄，掃描<b>QR code</b>就能查到來源，讓食物「看得到履歷」，保障食品安全。</p>
+      <p>🐟 臺灣的箱網養殖多在<b>澎湖、屏東</b>海域。</p>
+    </div>
+    <div class="card purple">
+      <h3 style="margin-top:0">🔬 變因小教室</h3>
+      <p>🔧 <b>操縱變因</b>：故意改變的（例：水中有沒有氧氣）<br>
+      📏 <b>應變變因</b>：觀察到的結果（例：金魚有沒有浮上水面）<br>
+      🔒 <b>控制變因</b>：保持一樣的（例：金魚種類、水量、魚缸大小）</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 常考常錯 ===================== -->
+<section id="exam">
+  <h2>⚠️ 常考題型 & 常錯題型</h2>
+
+  <h3>📌 常考題型 TOP 8</h3>
+  <div class="grid">
+    <div class="card yellow"><span class="star mid">★★</span><b>手臂彎曲／伸直時，內外側肌肉的變化</b><br><small>➜ 彎內縮外舒、直內舒外縮</small></div>
+    <div class="card yellow"><span class="star easy">★</span><b>肌肉、骨骼、關節各自的功能</b><br><small>➜ 收縮／支撐保護／連接骨骼</small></div>
+    <div class="card yellow"><span class="star mid">★★</span><b>沒有骨骼的動物靠什麼運動</b><br><small>➜ 蚯身、蝸腹、蚌斧、章腕</small></div>
+    <div class="card yellow"><span class="star">★★★</span><b>二分法分類圖填空／找錯誤</b><br><small>➜ 每一層只用一個標準、要客觀</small></div>
+    <div class="card yellow"><span class="star easy">★</span><b>空氣進出人體的路徑</b><br><small>➜ 鼻→氣管→肺→氣管→鼻</small></div>
+    <div class="card yellow"><span class="star">★★★</span><b>石灰水實驗：目的、對照組、結論</b><br><small>➜ CO₂ 變混濁；呼出氣 CO₂ 較多</small></div>
+    <div class="card yellow"><span class="star mid">★★</span><b>人體組成層次排序</b><br><small>➜ 細胞→組織→器官→系統→個體</small></div>
+    <div class="card yellow"><span class="star mid">★★</span><b>動物呼吸器官配對、仿生配對</b><br><small>➜ 肺／鰓／氣管；飛機、蛙鞋、船槳、吸盤</small></div>
+  </div>
+
+  <h3>❌ ➜ ✅ 常錯題型（一定要看！）</h3>
+  <div class="card pink must">
+    <p><span class="wrong">❌ 章魚是利用肌肉拉動骨骼運動。</span><br><span class="ans">✅ 章魚沒有骨骼和關節，是用腕足的肌肉運動。</span></p>
+    <p><span class="wrong">❌ 動物運動一定要有肌肉、骨骼和關節，缺一就不能動。</span><br><span class="ans">✅ 蚯蚓、蝸牛沒有骨骼和關節也能運動，只要有肌肉就能動。</span></p>
+    <p><span class="wrong">❌ 狗和鴿子都是用「四肢」走、跑、跳。</span><br><span class="ans">✅ 鴿子是兩隻腳加一對翅膀，不是四肢著地走。</span></p>
+    <p><span class="wrong">❌ 肌腱能主動收縮。</span><br><span class="ans">✅ 肌腱不能主動收縮，只負責連接並傳遞肌肉的力量。</span></p>
+  </div>
+  <div class="card must">
+    <p><span class="wrong">❌ 在鼻腔進行氣體交換。</span><br><span class="ans">✅ 氣體交換在「肺」進行。</span></p>
+    <p><span class="wrong">❌ 澄清石灰水遇到氧氣會變混濁。</span><br><span class="ans">✅ 是遇到「二氧化碳」才變混濁。</span></p>
+    <p><span class="wrong">❌ 人呼出的氣體全部都是二氧化碳。</span><br><span class="ans">✅ 呼出氣還有氮氣、剩下的氧氣，只是二氧化碳「比空氣多」。</span></p>
+    <p><span class="wrong">❌ 所有動物都跟人一樣用肺呼吸。</span><br><span class="ans">✅ 魚用鰓、蝗蟲用氣管。</span></p>
+    <p><span class="wrong">❌ 鯨魚住在水裡，所以用鰓呼吸。</span><br><span class="ans">✅ 鯨魚是哺乳類，用肺呼吸，要浮出水面換氣。</span></p>
+    <p><span class="wrong">❌ 組成層次：細胞→器官→組織……</span><br><span class="ans">✅ 細胞→組織→器官→器官系統→個體（組織在器官前面！）</span></p>
+  </div>
+  <div class="card green must">
+    <p><span class="wrong">❌ 竹筷和羊毛衣的原料都來自動物。</span><br><span class="ans">✅ 竹筷來自植物（竹子）。</span></p>
+    <p><span class="wrong">❌ 模仿兔子的腳做成蛙鞋。</span><br><span class="ans">✅ 蛙鞋是模仿動物的「蹼」。</span></p>
+    <p><span class="wrong">❌ 穿羊毛衣是一種仿生。</span><br><span class="ans">✅ 羊毛衣是「直接利用動物資源」，仿生是「模仿構造或行為」。</span></p>
+    <p><span class="wrong">❌ 用「有腳／沒有腳」把鴨和虎分成兩類。</span><br><span class="ans">✅ 鴨和虎都有腳，這個標準分不開！要用「有翅膀／沒有翅膀」「有蹼／沒有蹼」。</span></p>
+  </div>
+</section>
+
+<!-- ===================== 生活素養 ===================== -->
+<section id="life">
+  <h2>🌏 生活常考題 & 素養題</h2>
+  <p>先自己想答案，再點開「看答案」對對看 👀</p>
+
+  <h3>🏠 生活常考題</h3>
+  <div class="card green">
+    <p><span class="star easy">★</span>1. 早餐吃了荷包蛋、喝了牛奶、穿上羊毛背心，這些分別來自哪些動物？</p>
+    <details><summary>看答案</summary><p class="ans">荷包蛋—雞；牛奶—乳牛；羊毛背心—綿羊。</p></details>
+  </div>
+  <div class="card green">
+    <p><span class="star mid">★★</span>2. 跑完步後喘個不停，呼吸變快，這時身體需要什麼？呼出來的氣體有什麼不同？</p>
+    <details><summary>看答案</summary><p class="ans">運動時身體需要更多氧氣，所以呼吸變快；呼出的氣體中二氧化碳比空氣中多。</p></details>
+  </div>
+  <div class="card green">
+    <p><span class="star mid">★★</span>3. 提重物時，手臂內側鼓起來一塊硬硬的，那是什麼？它正在怎樣？</p>
+    <details><summary>看答案</summary><p class="ans">那是手臂內側的肌肉，正在「收縮」，帶動骨骼使手肘彎曲。</p></details>
+  </div>
+  <div class="card green">
+    <p><span class="star mid">★★</span>4. 感冒鼻塞時只能用嘴巴呼吸，為什麼醫生說最好還是用鼻子呼吸？</p>
+    <details><summary>看答案</summary><p class="ans">鼻子有鼻毛和黏液，能過濾灰塵、溫暖溼潤空氣；嘴巴沒有這些功能。</p></details>
+  </div>
+  <div class="card green">
+    <p><span class="star mid">★★</span>5. 魚缸裡為什麼要放打氣機？如果沒放，金魚可能會怎樣？</p>
+    <details><summary>看答案</summary><p class="ans">打氣機讓空氣溶進水中，提供魚鰓呼吸需要的氧氣；沒有的話金魚會常浮到水面張嘴呼吸。</p></details>
+  </div>
+  <div class="card green">
+    <p><span class="star">★★★</span>6. 超市買雞蛋時看到「放牧蛋」和「籠飼蛋」，從動物福利和環境的角度，你會怎麼選？</p>
+    <details><summary>看答案</summary><p class="ans">放牧蛋的雞有活動空間和戶外時間，較符合動物福利；也可以看有沒有產銷履歷，確認食品安全。（言之有理即可）</p></details>
+  </div>
+
+  <h3>🎯 素養題（閱讀＋推理）</h3>
+  <div class="card purple">
+    <p><span class="star">★★★</span><b>【題組一】小晴的金魚實驗</b><br>
+    小晴把一盆自來水煮沸再放涼（沒有氧氣了），另一盆放在頂樓讓氯散掉，分別養金魚。結果煮過的水裡金魚常浮到水面張嘴；用打氣機打氣後就不再浮上來。</p>
+    <p>(1) 操縱變因是什麼？ (2) 為什麼兩盆都要除氯？ (3) 小晴的結論合理嗎？</p>
+    <details><summary>看答案</summary><p class="ans">(1) 水中是否有氧氣。<br>(2) 讓「氯」不會影響結果，只留下一個不同的條件（控制變因）。<br>(3) 合理：沒有氧氣時金魚要浮上水面，打入空氣後就不浮上來，表示金魚呼吸需要水中的氧氣。</p></details>
+  </div>
+  <div class="card purple">
+    <p><span class="star">★★★</span><b>【題組二】小翔的動物園分類</b><br>
+    小翔把鱷魚、蛙、企鵝、獅分成「是卵生」，狼、河馬、虎、鹿分成「不是卵生」。</p>
+    <p>(1) 他分對了嗎？ (2) 請把錯的改正，並幫「是卵生」那組再往下分一層。</p>
+    <details><summary>看答案</summary><p class="ans">(1) 不正確，獅是胎生。<br>(2) 獅應移到「不是卵生」。卵生組（鱷魚、蛙、企鵝）可用「有羽毛／沒有羽毛」分成：企鵝｜鱷魚、蛙；再用「有鱗片／沒有鱗片」分成：鱷魚｜蛙。</p></details>
+  </div>
+  <div class="card purple">
+    <p><span class="star">★★★</span><b>【題組三】小小發明家</b><br>
+    阿哲想幫爺爺設計一個「不用彎腰就能撿起地上東西」的工具。</p>
+    <p>(1) 他可以模仿哪種動物？ (2) 這種做法叫什麼？ (3) 和「用牛皮做皮包」有什麼不同？</p>
+    <details><summary>看答案</summary><p class="ans">(1) 例如模仿變色龍的長舌頭、或章魚吸盤。<br>(2) 仿生。<br>(3) 仿生是模仿構造或行為，不直接使用動物；牛皮皮包是直接利用動物資源。</p></details>
+  </div>
+  <div class="card purple">
+    <p><span class="star">★★★</span><b>【題組四】看圖推理</b><br>
+    小美做石灰水實驗，結果兩袋都變得很混濁。</p>
+    <p>(1) 可能是哪裡出錯了？ (2) 怎麼改進？</p>
+    <details><summary>看答案</summary><p class="ans">(1) 可能是收集「空氣」那袋不小心吹進了呼出的氣，或放置太久、或兩袋石灰水量不一樣。<br>(2) 用打氣筒或在通風處收集空氣、兩袋石灰水等量、搖晃時間相同並馬上觀察比較。</p></details>
+  </div>
+  <div class="card purple">
+    <p><span class="star">★★★</span><b>【題組五】環境大抉擇</b><br>
+    某海邊村莊想發展養魚，有人主張挖大魚塭，有人主張箱網養殖。</p>
+    <p>請從環境保護的角度說明你支持哪一個，以及理由。</p>
+    <details><summary>看答案</summary><p class="ans">支持箱網養殖：傳統漁塭很依賴陸地水土資源（可能抽地下水造成地層下陷），箱網養殖在海中進行，能減少對陸地環境的衝擊。（需注意不要放養過多，避免汙染海水）</p></details>
+  </div>
+
+  <h3>🎁 其他補充：跨單元連結</h3>
+  <div class="card orange">
+    <p>🔗 <b>3下</b> 動物外形：頭、軀幹、肢 ｜ <b>4上</b> 水生動物的呼吸 ｜ <b>4下</b> 昆蟲構造 ｜ <b>5上</b> 動物行為 ｜ <b>5下</b> 細胞是最小單位 ➜ <b>6下</b> 地球的生態</p>
+    <p>💡 考試常把「細胞是最小單位」（5下）和本單元的「組成層次」一起考喔！</p>
+  </div>
+</section>
+
+<!-- ===================== 練習題 ===================== -->
+<section id="quiz">
+  <h2>✏️ 練習題 30 題 <span class="tag">自動存紀錄</span></h2>
+  <div class="card yellow">
+    <div class="filter" id="qfilter">
+      難度篩選：
+      <button data-f="all" class="on">全部</button>
+      <button data-f="1">★ 基礎</button>
+      <button data-f="2">★★ 中等</button>
+      <button data-f="3">★★★ 進階</button>
+      <button data-f="wrong">📕 只練錯題</button>
+    </div>
+  </div>
+  <div class="card" id="qbox"></div>
+</section>
+
+<!-- ===================== 總復習 ===================== -->
+<section id="review">
+  <h2>🏆 單元總復習 <span class="tag">考前必看</span></h2>
+
+  <div class="card yellow must">
+    <h3 style="margin-top:0">⏰ 考前 5 分鐘・十大金句</h3>
+    <ol>
+      <li>肌肉、骨骼、關節<span class="hl">互相配合</span>做出動作。</li>
+      <li>手臂<span class="hl">彎內縮外舒、直內舒外縮</span>。</li>
+      <li>肌腱連接肌肉與骨骼，<b>不能主動收縮</b>。</li>
+      <li>沒骨骼的動物靠<span class="hl">肌肉</span>：蚯身、蝸腹、蚌斧、章腕。</li>
+      <li>二分法：一次<b>一個客觀標準</b>，分成「是／不是」。</li>
+      <li>空氣：<span class="hl">鼻→氣管→肺→氣管→鼻</span>，肺負責氣體交換。</li>
+      <li>澄清石灰水遇<span class="hl">二氧化碳</span>變混濁；呼出氣 CO₂ 比空氣多。</li>
+      <li><span class="hl">細胞→組織→器官→器官系統→個體</span>；細胞最小。</li>
+      <li>人狗用<b>肺</b>、魚用<b>鰓</b>、蝗蟲用<b>氣管</b>。</li>
+      <li>模仿動物構造或行為發明 = <span class="hlp">仿生</span>；養殖要顧食安與環保。</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">🃏 翻翻記憶卡（點卡片翻面）</h3>
+    <div class="flash-wrap" id="flash"></div>
+  </div>
+
+  <div class="card green check">
+    <h3 style="margin-top:0">✅ 我會了嗎？自我檢核（會自動儲存）</h3>
+    <div id="checklist"></div>
+    <p id="checkMsg" style="font-weight:900;text-align:center"></p>
+  </div>
+</section>
+
+<!-- ===================== 筆記 ===================== -->
+<section id="note">
+  <h2>📒 我的學習紀錄 <span class="tag">存在這台平板</span></h2>
+  <div class="card yellow">
+    <h3 style="margin-top:0">📊 練習成績紀錄</h3>
+    <div id="history">還沒有紀錄，快去做練習題吧！</div>
+  </div>
+  <div class="card pink">
+    <h3 style="margin-top:0">📕 我的錯題本</h3>
+    <div id="wrongList"></div>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0">✍️ 我的小筆記</h3>
+    <textarea id="memo" placeholder="寫下你自己的口訣、不懂的地方、想問老師的問題……（自動儲存）"></textarea>
+    <p id="memoSaved" style="color:var(--green);font-weight:800;margin:4px 0"></p>
+  </div>
+  <div style="text-align:center"><button class="btn gray" id="resetAll">🧹 清除全部紀錄</button></div>
+</section>
+
+</main>
+<footer>🐧 動物大解密｜國小自然六上第3單元自學小站 ・ 紀錄只存在這台裝置的瀏覽器中</footer>
+
+<script>
+/* ---------- 安全儲存 ---------- */
+const store={
+  get(k,d){try{const v=localStorage.getItem('u3_'+k);return v?JSON.parse(v):d}catch(e){return d}},
+  set(k,v){try{localStorage.setItem('u3_'+k,JSON.stringify(v))}catch(e){}}
+};
+
+/* ---------- 分頁 ---------- */
+const navBtns=[...document.querySelectorAll('#nav button')];
+function go(id,anchor){
+  document.querySelectorAll('section').forEach(s=>s.classList.toggle('show',s.id===id));
+  navBtns.forEach(b=>b.classList.toggle('on',b.dataset.s===id));
+  const nb=navBtns.find(b=>b.dataset.s===id); if(nb) nb.scrollIntoView({inline:'center',block:'nearest'});
+  if(id==='note') renderNote();
+  setTimeout(()=>{
+    if(anchor){const el=document.getElementById(anchor); if(el){window.scrollTo({top:el.getBoundingClientRect().top+scrollY-80,behavior:'smooth'});return}}
+    window.scrollTo({top:0,behavior:'smooth'});
+  },60);
+}
+navBtns.forEach(b=>b.onclick=()=>go(b.dataset.s));
+
+/* ---------- 心智圖 ---------- */
+(function(){
+  const C={pink:['#ff6fa5','#ffe3ef'],blue:['#3fa9f5','#e0f3ff'],green:['#38c98a','#ddf8ea']};
+  const hubs=[
+    {x:300,y:200,w:190,t:'🏃 活動1 運動',c:'pink',go:['key','k1'],leaves:[
+      {x:115,y:95,t:'🦴 肌肉・骨骼・關節',go:['key','k1']},
+      {x:115,y:205,t:'💪 彎內縮・直外縮',go:['memory']},
+      {x:115,y:315,t:'🐌 無骨骼靠肌肉',go:['key','k1']},
+      {x:330,y:62,t:'✂️ 二分法分類',go:['key','k-2fen']}]},
+    {x:800,y:200,w:190,t:'🫁 活動2 呼吸',c:'blue',go:['key','k2'],leaves:[
+      {x:985,y:95,t:'👃 鼻→氣管→肺',go:['key','k2']},
+      {x:985,y:205,t:'🧪 石灰水實驗',go:['key','k-exp']},
+      {x:985,y:315,t:'🧱 細胞→個體',go:['key','k-level']},
+      {x:770,y:62,t:'🐟 肺・鰓・氣管',go:['key','k-breath']}]},
+    {x:550,y:545,w:200,t:'🐄 活動3 生活',c:'green',go:['key','k3'],leaves:[
+      {x:290,y:575,t:'🍗 食衣住行',go:['key','k3']},
+      {x:810,y:575,t:'🐟 養殖顧環保',go:['key','k3']},
+      {x:550,y:665,t:'✈️ 仿生發明',go:['key','k-bio']}]}
+  ];
+  let s='',n='';
+  const cx=550,cy=350;
+  hubs.forEach((h,i)=>{
+    const [c1,c2]=C[h.c];
+    s+=`<path d="M${cx} ${cy} Q${(cx+h.x)/2} ${(cy+h.y)/2+(i==2?0:40)} ${h.x} ${h.y}" stroke="${c1}" stroke-width="10" fill="none" stroke-linecap="round"/>`;
+    h.leaves.forEach(l=>{
+      s+=`<path d="M${h.x} ${h.y} L${l.x} ${l.y}" stroke="${c1}" stroke-width="5" fill="none" stroke-dasharray="2 9" stroke-linecap="round"/>`;
+      n+=`<g class="node" data-g="${l.go.join(',')}"><rect x="${l.x-100}" y="${l.y-26}" width="200" height="52" rx="22" fill="${c2}" stroke="${c1}" stroke-width="3"/><text x="${l.x}" y="${l.y+7}" text-anchor="middle" font-size="20" font-weight="800" fill="#3b3355">${l.t}</text></g>`;
+    });
+    n+=`<g class="node" data-g="${h.go.join(',')}"><rect x="${h.x-h.w/2}" y="${h.y-32}" width="${h.w}" height="64" rx="26" fill="${c1}" stroke="#fff" stroke-width="4"/><text x="${h.x}" y="${h.y+9}" text-anchor="middle" font-size="24" font-weight="900" fill="#fff">${h.t}</text></g>`;
+  });
+  n+=`<circle cx="${cx}" cy="${cy}" r="92" fill="#ffc93c" stroke="#fff" stroke-width="8"/><circle cx="${cx}" cy="${cy}" r="92" fill="none" stroke="#ff8a3d" stroke-width="3" stroke-dasharray="8 6"/>
+  <text x="${cx}" y="${cy-8}" text-anchor="middle" font-size="40">🐾</text><text x="${cx}" y="${cy+34}" text-anchor="middle" font-size="27" font-weight="900" fill="#3b3355">動物大解密</text>`;
+  const mm=document.getElementById('mm'); mm.innerHTML=s+n;
+  mm.querySelectorAll('.node').forEach(g=>g.onclick=()=>{const [a,b]=g.dataset.g.split(',');go(a,b)});
+})();
+
+/* ---------- 題庫 ---------- */
+const Q=[
+ {d:1,q:'人體能做出各種動作，主要是靠哪三種構造互相配合？',o:['肌肉、骨骼、關節','皮膚、毛髮、指甲','心臟、肺、胃','鼻、氣管、肺'],a:0,e:'肌肉收縮拉動骨骼，使關節彎曲或伸直，三者合作才能做出動作。'},
+ {d:2,q:'當我們「彎曲」手臂時，手臂肌肉如何變化？',o:['內側、外側都收縮','內側收縮、外側舒張','內側舒張、外側收縮','內側、外側都舒張'],a:1,e:'口訣「彎內縮」：彎曲時內側肌肉收縮（鼓起來），外側舒張。'},
+ {d:2,q:'當我們「伸直」手臂時，手臂肌肉如何變化？',o:['內側收縮、外側舒張','內側、外側都收縮','內側舒張、外側收縮','內側、外側都舒張'],a:2,e:'口訣「直外縮」：伸直時外側收縮，內側舒張。'},
+ {d:2,q:'關於「肌腱」的敘述，哪一項正確？',o:['是骨骼和骨骼連接的地方','可以主動收縮產生力量','連接肌肉與骨骼，能傳遞肌肉的力量','是軟軟的、可以收縮的構造'],a:2,e:'肌腱是肌肉兩端白色的構造，不能主動收縮，但能把肌肉的力量傳給骨骼。骨骼與骨骼連接處是「關節」。'},
+ {d:1,q:'下列有關骨骼的敘述，哪一項正確？',o:['可以收縮產生運動','柔軟有彈性','可以支撐和保護人體','可以主動產生運動'],a:2,e:'骨骼能支撐、幫助運動並保護人體；會收縮的是肌肉。'},
+ {d:2,q:'下列哪一組動物「都沒有」骨骼和關節？',o:['狗、龜','蛙、蚯蚓','章魚、蚯蚓','河蚌、鴿子'],a:2,e:'章魚、蚯蚓都沒有骨骼和關節，靠肌肉運動。龜、蛙、鴿子、狗都有骨骼。'},
+ {d:1,q:'蝸牛沒有腳，牠是靠什麼爬行？',o:['斧足的肌肉','腹足肌肉的收縮和舒張','殼的轉動','觸角拉動身體'],a:1,e:'蝸牛利用腹足肌肉收縮和舒張前進，並分泌黏液幫助爬行。斧足是河蚌的構造。'},
+ {d:3,q:'是非題：「動物運動時需要肌肉、骨骼和關節互相配合，只要缺少其中一種構造，就一定無法運動。」',o:['○ 正確','╳ 錯誤'],a:1,e:'錯！蚯蚓、蝸牛、章魚沒有骨骼和關節，只靠肌肉也能運動。'},
+ {d:3,q:'蚯蚓和蝸牛都沒有腳，牠們的移動方式有什麼不同？',o:['蚯蚓靠腹足，蝸牛靠剛毛','蚯蚓靠身體肌肉變長變短，蝸牛靠腹足肌肉並分泌黏液','兩者都靠骨骼和關節','蚯蚓靠斧足，蝸牛靠腕足'],a:1,e:'蚯蚓用環肌、縱肌輪流收縮讓身體變長變短（加上剛毛抓地）；蝸牛用腹足肌肉收縮舒張並分泌黏液滑行。'},
+ {d:1,q:'什麼是「二分法」？',o:['把動物隨便分成兩堆','選一個特徵當標準，符合的一類、不符合的另一類','依照動物大小排順序','依照喜歡程度分類'],a:1,e:'二分法每次選一個客觀特徵，把動物分成「是」與「不是」兩類，可以一直分下去。'},
+ {d:2,q:'下列哪一個特徵「無法」將鴨和虎分成兩類？',o:['有腳、沒有腳','是四隻腳、不是四隻腳','有蹼、沒有蹼','有翅膀、沒有翅膀'],a:0,e:'鴨和虎都有腳，所以「有腳／沒有腳」分不開。'},
+ {d:3,q:'小翔把「鱷魚、蛙、企鵝、獅」歸為「是卵生」，哪裡錯了？',o:['鱷魚不是卵生','蛙不是卵生','企鵝不是卵生','獅不是卵生，是胎生'],a:3,e:'獅是哺乳類，胎生。鱷魚、蛙、企鵝都是卵生。'},
+ {d:3,q:'下列哪一個「不適合」當作二分法的分類標準？',o:['有沒有翅膀','有沒有鱗片','可不可愛','是不是胎生'],a:2,e:'「可不可愛」是主觀感受，每個人答案不同，不能當分類標準。'},
+ {d:1,q:'一般情況下，空氣從進入人體到排出的過程為何？',o:['氣管→鼻→肺→鼻→氣管','鼻→氣管→肺→氣管→鼻','鼻→肺→氣管→肺→鼻','肺→氣管→鼻→氣管→肺'],a:1,e:'口訣「鼻→氣管→肺，原路回家」。'},
+ {d:1,q:'人體的呼吸系統中，負責「氣體交換」的是哪一個器官？',o:['鼻','氣管','肺','口'],a:2,e:'肺負責氣體交換；鼻吸入排出氣體，氣管連接鼻和肺。'},
+ {d:2,q:'為什麼「鼻」是呼吸器官，「口」卻不算呼吸器官？',o:['口不能吸入空氣','鼻有鼻毛和黏液能清潔、溼潤空氣，口主要是消化器官','口比鼻小','鼻能進行氣體交換'],a:1,e:'口雖然能吸空氣，但主要功能是磨碎、消化食物，屬於消化器官。'},
+ {d:2,q:'澄清石灰水遇到哪一種氣體會變混濁？',o:['氧氣','氮氣','二氧化碳','水蒸氣'],a:2,e:'澄清石灰水是用來檢驗「二氧化碳」的，遇到會變混濁。常見錯誤是選氧氣！'},
+ {d:3,q:'石灰水實驗中，為什麼要多準備一袋「收集空氣」的澄清石灰水？',o:['怕第一袋不夠用','作為對照，和吐氣那袋比較','讓實驗看起來比較好看','空氣能讓石灰水變乾淨'],a:1,e:'有對照組才能比較出「呼出的氣體」和「空氣」的差別。'},
+ {d:3,q:'吐氣那袋明顯變混濁，空氣那袋變化不明顯。正確的結論是？',o:['人呼出的氣體全部都是二氧化碳','空氣中完全沒有二氧化碳','人呼出的氣體中，二氧化碳比空氣中較多','人呼出的是氧氣'],a:2,e:'呼出氣還有氮氣和剩下的氧氣，只是二氧化碳比空氣多；空氣中也有少量二氧化碳。'},
+ {d:2,q:'做石灰水實驗時，下列哪一項做法正確？',o:['短吸管要插進石灰水裡','可以用吸管吸一下再吐','短吸管不可碰到石灰水，且只能吐氣不能吸氣','石灰水越少越好'],a:2,e:'吸管碰到石灰水或吸氣，可能會把石灰水吸進嘴裡，很危險！'},
+ {d:2,q:'人體的組成層次，由小到大排列，哪一項正確？',o:['細胞→器官→組織→器官系統→個體','細胞→組織→器官→器官系統→個體','組織→細胞→器官→個體→器官系統','個體→器官系統→器官→組織→細胞'],a:1,e:'口訣「細 組 器 系 個」，組織在器官前面！'},
+ {d:2,q:'「呼吸系統」屬於人體組成的哪一個層次？',o:['細胞','組織','器官','器官系統'],a:3,e:'鼻、氣管、肺是「器官」，它們組合起來就是「呼吸系統」＝器官系統。'},
+ {d:1,q:'下列哪一種動物和人一樣，用肺呼吸？',o:['蝗蟲','金魚','狗','蝴蝶'],a:2,e:'狗和人都用肺；金魚用鰓，蝗蟲、蝴蝶等昆蟲用氣管。'},
+ {d:2,q:'蝗蟲是用哪一種構造呼吸？',o:['肺','鰓','皮膚','由氣門進出空氣的氣管'],a:3,e:'空氣從蝗蟲身體兩側的氣門進入，經過氣管送到全身。'},
+ {d:3,q:'小晴用「煮沸放涼的水」和「放在頂樓除氯的水」分別養金魚，實驗的操縱變因是什麼？',o:['金魚的種類','水中是否有氧氣','水盆的大小','魚缸的顏色'],a:1,e:'煮沸會讓水中氧氣散失，所以兩盆水不同之處是「有沒有氧氣」，其他條件都要相同。'},
+ {d:3,q:'青蛙一生的呼吸方式，哪一項正確？',o:['一輩子都用鰓','一輩子都用肺','蝌蚪用鰓，成蛙用肺並靠溼潤皮膚幫助呼吸','蝌蚪用肺，成蛙用鰓'],a:2,e:'兩生類小時候住水裡用鰓，長大用肺，皮膚也能幫忙交換氣體。'},
+ {d:1,q:'模仿動物的構造或行為，研發工具或產品，這種方式叫什麼？',o:['再生','重生','仿生','互生'],a:2,e:'「仿生」就是向生物學習，把生物的特點變成科技。'},
+ {d:2,q:'下列「發明」與「模仿的動物構造」配對，哪一項錯誤？',o:['飛機—鳥的翅膀','蛙鞋—兔子的腳','船槳—魚的鰭','吸盤—章魚的吸盤'],a:1,e:'蛙鞋是模仿動物的「蹼」，不是兔子的腳。'},
+ {d:2,q:'下列哪一組物品的主要原料「都」取自動物？',o:['真皮皮鞋、羊毛衣','真皮皮鞋、木椅','竹編椅子、真皮皮鞋','木碗、竹筷'],a:0,e:'皮鞋來自牛皮、羊毛衣來自綿羊；木頭、竹子來自植物。'},
+ {d:3,q:'為什麼有些地方改用「箱網養殖」取代傳統漁塭？',o:['箱網養的魚比較大','可以減少建造傳統漁塭對陸地水土資源的衝擊','箱網不需要餵魚','傳統漁塭不能養魚'],a:1,e:'傳統漁塭很依賴陸地水土資源，箱網養殖在水域中進行，能減少對環境的衝擊。'}
+];
+
+/* ---------- 練習 ---------- */
+let qFilter='all', qList=[], qi=0, qAns={};
+const stars=d=>d==3?'<span class="star">★★★ 進階・重點</span>':d==2?'<span class="star mid">★★ 中等</span>':'<span class="star easy">★ 基礎</span>';
+function buildList(){
+  const wrong=store.get('wrong',[]);
+  qList=Q.map((q,i)=>i).filter(i=>qFilter==='all'||(qFilter==='wrong'?wrong.includes(i):Q[i].d==qFilter));
+  qi=0; qAns={}; renderQ();
+}
+function renderQ(){
+  const box=document.getElementById('qbox');
+  if(!qList.length){box.innerHTML='<p style="text-align:center;font-size:1.3rem">🎉 這裡沒有題目！'+(qFilter==='wrong'?'你的錯題本是空的，太棒了！':'')+'</p>';return}
+  if(qi>=qList.length){return finish()}
+  const idx=qList[qi], q=Q[idx], done=qAns[idx]!==undefined;
+  let h=`<div class="q-top"><b>第 ${qi+1} / ${qList.length} 題（題號 ${idx+1}）</b>${stars(q.d)}</div>
+  <div class="progress"><div style="width:${qi/qList.length*100}%"></div></div>
+  <p style="font-size:1.25rem;font-weight:800" class="${q.d==3?'hlp':''}">${q.q}</p>`;
+  q.o.forEach((o,k)=>{
+    let cls='opt'; if(done){if(k===q.a)cls+=' right'; else if(k===qAns[idx])cls+=' bad'}
+    h+=`<button class="${cls}" data-k="${k}" ${done?'disabled':''}>${'ABCD'[k]}. ${o}</button>`;
+  });
+  if(done){
+    const ok=qAns[idx]===q.a;
+    h+=`<div class="explain"><b>${ok?'🎉 答對了！好棒！':'💪 差一點！正確答案是 '+'ABCD'[q.a]}</b><br>💡 ${q.e}</div>`;
+  }
+  h+=`<div style="text-align:center;margin-top:12px">
+    <button class="btn gray" id="prevQ" ${qi==0?'disabled':''}>⬅ 上一題</button>
+    <button class="btn pink" id="nextQ">${qi==qList.length-1?'🏁 看成績':'下一題 ➡'}</button></div>`;
+  box.innerHTML=h;
+  box.querySelectorAll('.opt').forEach(b=>b.onclick=()=>answer(idx,+b.dataset.k));
+  document.getElementById('prevQ').onclick=()=>{qi--;renderQ()};
+  document.getElementById('nextQ').onclick=()=>{qi++;renderQ()};
+}
+function answer(idx,k){
+  qAns[idx]=k;
+  let wrong=store.get('wrong',[]);
+  if(k!==Q[idx].a){ if(!wrong.includes(idx)) wrong.push(idx); }
+  else if(qFilter==='wrong'){ wrong=wrong.filter(x=>x!==idx); }
+  store.set('wrong',wrong);
+  renderQ();
+}
+function finish(){
+  const total=qList.length, answered=qList.filter(i=>qAns[i]!==undefined).length;
+  const right=qList.filter(i=>qAns[i]===Q[i].a).length;
+  const score=Math.round(right/total*100);
+  if(answered){
+    const his=store.get('history',[]);
+    const d=new Date();
+    his.unshift({t:`${d.getMonth()+1}/${d.getDate()} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`,s:score,r:right,n:total,f:qFilter});
+    store.set('history',his.slice(0,30));
+  }
+  const msg=score>=90?'🏆 太厲害了！動物解密大師！':score>=70?'🌟 很不錯！再看看錯題就完美了！':'💪 加油！先複習「超強記憶」再挑戰一次！';
+  document.getElementById('qbox').innerHTML=`<div style="text-align:center">
+    <div style="font-size:4rem">${score>=90?'🥇':score>=70?'🥈':'🌱'}</div>
+    <p style="font-size:1.8rem;font-weight:900;margin:0">${score} 分</p>
+    <p>答對 ${right} / ${total} 題（已作答 ${answered} 題）</p>
+    <p style="font-size:1.2rem;font-weight:800">${msg}</p>
+    <button class="btn" id="again">🔁 再做一次</button>
+    <button class="btn pink" id="toWrong">📕 練習錯題</button>
+    <button class="btn green" id="toNote">📒 看紀錄</button></div>`;
+  document.getElementById('again').onclick=buildList;
+  document.getElementById('toWrong').onclick=()=>setFilter('wrong');
+  document.getElementById('toNote').onclick=()=>go('note');
+}
+function setFilter(f){
+  qFilter=f;
+  document.querySelectorAll('#qfilter button').forEach(b=>b.classList.toggle('on',b.dataset.f===f));
+  buildList();
+}
+document.querySelectorAll('#qfilter button').forEach(b=>b.onclick=()=>setFilter(b.dataset.f));
+buildList();
+
+/* ---------- 記憶卡 ---------- */
+const cards=[
+ ['肌肉的功能？','收縮產生運動、維持姿勢 💪'],
+ ['關節是什麼？','骨骼與骨骼連接的地方 🔩'],
+ ['手臂彎曲時？','內側收縮、外側舒張'],
+ ['蝸牛靠什麼爬？','腹足的肌肉 🐌'],
+ ['章魚靠什麼運動？','腕足的肌肉（沒有骨骼）🐙'],
+ ['二分法是？','選一個特徵，分成「是／不是」✂️'],
+ ['負責氣體交換？','肺 🫁'],
+ ['石灰水遇什麼變混濁？','二氧化碳 🥛'],
+ ['生物體最小單位？','細胞 🔬'],
+ ['魚用什麼呼吸？','鰓 🐟'],
+ ['蝗蟲用什麼呼吸？','氣管（氣門進出）🦗'],
+ ['蛙鞋模仿什麼？','動物的蹼 🩴']
+];
+document.getElementById('flash').innerHTML=cards.map(c=>`<div class="flash"><div class="flash-in"><div class="flash-f">❓ ${c[0]}</div><div class="flash-b">${c[1]}</div></div></div>`).join('');
+document.querySelectorAll('.flash').forEach(f=>f.onclick=()=>f.classList.toggle('flip'));
+
+/* ---------- 自我檢核 ---------- */
+const checks=['我能說出肌肉、骨骼、關節的功能','我能畫出手臂彎曲和伸直時肌肉的變化','我知道沒有骨骼的動物怎麼運動','我會用二分法幫動物分類','我能說出空氣進出人體的路徑','我能說明石灰水實驗的步驟和結論','我能排出人體組成的五個層次','我能配對動物和呼吸器官','我能舉例動物和食衣住行的關係','我能說出 4 種以上仿生發明'];
+function renderChecks(){
+  const st=store.get('checks',[]);
+  document.getElementById('checklist').innerHTML=checks.map((c,i)=>`<label><input type="checkbox" data-i="${i}" ${st.includes(i)?'checked':''}> ${c}</label>`).join('');
+  const n=st.length;
+  document.getElementById('checkMsg').textContent=`已完成 ${n} / ${checks.length} ${n===checks.length?'🎉 全部過關，準備好考試了！':'⭐ 繼續加油！'}`;
+  document.querySelectorAll('#checklist input').forEach(inp=>inp.onchange=()=>{
+    let s=store.get('checks',[]); const i=+inp.dataset.i;
+    s=inp.checked?[...new Set([...s,i])]:s.filter(x=>x!==i); store.set('checks',s); renderChecks();
+  });
+}
+renderChecks();
+
+/* ---------- 筆記與紀錄 ---------- */
+function renderNote(){
+  const his=store.get('history',[]);
+  const fname={all:'全部',1:'基礎',2:'中等',3:'進階',wrong:'錯題'};
+  document.getElementById('history').innerHTML=his.length?
+    '<table><tr><th>時間</th><th>範圍</th><th>成績</th></tr>'+his.map(h=>`<tr><td>${h.t}</td><td>${fname[h.f]||h.f}</td><td><b>${h.s} 分</b>（${h.r}/${h.n}）</td></tr>`).join('')+'</table>'
+    :'還沒有紀錄，快去做練習題吧！';
+  const w=store.get('wrong',[]);
+  document.getElementById('wrongList').innerHTML=w.length?
+    w.sort((a,b)=>a-b).map(i=>`<details><summary>題號 ${i+1}　${Q[i].q}</summary><p class="ans">✅ ${'ABCD'[Q[i].a]}. ${Q[i].o[Q[i].a]}</p><p>💡 ${Q[i].e}</p></details>`).join('')+
+    '<div style="text-align:center"><button class="btn pink" onclick="go(\'quiz\');setFilter(\'wrong\')">📕 去練習錯題</button></div>'
+    :'<p>🎉 目前沒有錯題！</p>';
+}
+const memo=document.getElementById('memo');
+memo.value=store.get('memo','');
+let mt; memo.oninput=()=>{clearTimeout(mt);mt=setTimeout(()=>{store.set('memo',memo.value);document.getElementById('memoSaved').textContent='✅ 已自動儲存';setTimeout(()=>document.getElementById('memoSaved').textContent='',1500)},400)};
+document.getElementById('resetAll').onclick=()=>{
+  if(!window.confirm('確定要清除全部成績、錯題、檢核和筆記嗎？'))return;
+  ['wrong','history','checks','memo'].forEach(k=>{try{localStorage.removeItem('u3_'+k)}catch(e){}});
+  memo.value=''; renderChecks(); renderNote(); buildList();
+};
+</script>
+</body>
+</html>
